@@ -31,3 +31,28 @@
 
 
 /* ______________HH______________ */
+.back{
+    background-color: #DADAFB !important;
+}
+.btn{
+    background-color: #8A1538;
+}
+.color-icon{
+    border: 2px solid #8A1538;
+    padding: 3px;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    transition: .5s ease-in-out;
+    color: #8A1538;
+}
+.color-icon:hover{
+    background-color: #8A1538;
+    color: white;
+    transition: .5s ease-in-out;
+}
+
+
