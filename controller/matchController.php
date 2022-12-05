@@ -10,18 +10,20 @@ class MatchController extends Matches{
 
     public function addMatch(){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            if(isset($_REQUEST['addMatchForm'])){
+                
+                extract($_POST);
 
-            extract($_POST);
+                $result = $this -> addMatchDB($idTeam1, $idTeam2, $idStade, $idStatus, $price, $time, $picture, $description);
+                
+                if($result == 1){
 
-            $result = $this -> addMatchDB($idTeam1, $idTeam2, $idStade, $time, $picture, $description);
-            
-            if($result == 1){
+                    $_SESSION['icon'] = "success";
+                    $_SESSION['message'] = "Match added successfully";
 
-                $_SESSION['icon'] = "success";
-                $_SESSION['message'] = "Match added successfully";
-
-                header('Location: ../admin/matches.php');
-                die;
+                    header('Location: ../admin/matches.php');
+                    die;
+                }
             }
         }
     }

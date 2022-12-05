@@ -1,11 +1,11 @@
 function createModule() {
-    // initialiser Product form
+    // initialiser Match form
     document.getElementById('form').reset();
 
     // Afficher le boutton save
-    document.getElementById('saveProduct').style.display = 'block';
-    document.getElementById('editProduct').style.display = 'none';
+    document.getElementById('saveMatch').style.display = 'block';
+    document.getElementById('editMatch').style.display = 'none';
 
     // Ouvrir modal form
-    $('#productModal').modal('show');
+    $('#matchModal').modal('show');
 }

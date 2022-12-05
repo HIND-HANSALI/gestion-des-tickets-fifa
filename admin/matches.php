@@ -20,6 +20,10 @@
     $AllStades = $StadeController -> getStades();
     $AllStatus = $StatusController -> getStatus();
 
+    $MatchController -> addMatch();
+
+    // print_r($_REQUEST);
+    // die;
 
 ?>
 
@@ -91,8 +95,8 @@
                                                             <td class="text-end"><?=$match['price']; ?></td>
                                                             <td class="text-truncate mb-1"><div style="max-width: 5rem;"><?=$match['description']; ?></div></td>
                                                             <td class="text-end">
-                                                                <a href="#" onclick="GetProduct('<?= $product['idProduct']; ?>','<?= $product['idCategory']; ?>')" class="btn btn-sm btn-warning">Edit</a>
-                                                                <a href="#" onclick="DeleteProduct('<?= $product['idProduct']; ?>')" class="btn btn-sm btn-danger">Delete</a>
+                                                                <a href="#" onclick="/* GetMatch('<?= $match['id_match']; ?>','<?php //$match['idCategory']; ?>') */" class="btn btn-sm btn-warning">Edit</a>
+                                                                <a href="#" onclick="/* DeleteMatch('<?= $match['id_match']; ?>') */" class="btn btn-sm btn-danger">Delete</a>
                                                             </td>
                                                         </tr>
                                                     <?php } ?>
@@ -124,12 +128,12 @@
         <!--    End of Main Content-->
         <!-- ===============================================-->
         <!-- Match MODAL -->
-        <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="matchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered mt-3 mb-1">
                 <div class="modal-content background ">
                     <div class="modal-header">
                         <h5 class="" id="exampleModalLabel">Add Match</h5>
-                        <button type="button" class="fa fa-xmark px-1 p-0 m-0" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="px-1 p-0 m-0" data-bs-dismiss="modal" aria-label="Close">x</button>
                     </div>
                     <div class="modal-body pt-0 pb-1">
                         <form id="form" method="POST" enctype="multipart/form-data">
@@ -146,7 +150,7 @@
                             </div> -->  
                             <div class="mb-0">
                                 <label class="col-form-label">Team 1</label>
-                                <select class="form-select" id="Team1Input" name="idteam1" required>
+                                <select class="form-select" id="Team1Input" name="idTeam1" required>
                                     <option value selected disabled>Please select</option>
                                     <?php foreach($AllTeams as $team) {
                                         echo '<option value="'.$team['id_team'].'">'.$team['nationality'].'</option>';
@@ -156,7 +160,7 @@
                             </div>
                             <div class="mb-0">
                                 <label class="col-form-label">Team 2</label>
-                                <select class="form-select" id="Team2Input" name="idteam2" required>
+                                <select class="form-select" id="Team2Input" name="idTeam2" required>
                                     <option value selected disabled>Please select</option>
                                     <?php foreach($AllTeams as $team) {
                                         echo '<option value="'.$team['id_team'].'">'.$team['nationality'].'</option>';
@@ -166,7 +170,7 @@
                             </div>
                             <div class="mb-0">
                                 <label class="col-form-label">Stades</label>
-                                <select class="form-select" id="StadeInput" name="idstade" required>
+                                <select class="form-select" id="StadeInput" name="idStade" required>
                                     <option value selected disabled>Please select</option>
                                     <?php foreach($AllStades as $stade) {
                                         echo '<option value="'.$stade['id_stade'].'">'.$stade['name'].'</option>';
@@ -176,7 +180,7 @@
                             </div>
                             <div class="mb-0">
                                 <label class="col-form-label">Status</label>
-                                <select class="form-select" id="StatusInput" name="idstatus" required>
+                                <select class="form-select" id="StatusInput" name="idStatus" required>
                                     <option value selected disabled>Please select</option>
                                     <?php foreach($AllStatus as $status) {
                                         echo '<option value="'.$status['id_status'].'">'.$status['name'].'</option>';
@@ -192,7 +196,7 @@
                             </div>
                             <div class="mb-0">
                                 <label for="taskDate" class="col-form-label">Date</label>
-                                <input class="form-control" type="datetime-local" required id="DateInput" name="dateInput" />
+                                <input class="form-control" type="datetime-local" required id="DateInput" name="time" />
                             </div>  
                             <div class="mb-0">
                                 <label class="col-form-label">Description</label>
@@ -201,10 +205,10 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="reset" class="btn btn-outline-light text-black" data-bs-dismiss="modal">Cancel</button>
-                                <button id="saveProduct" type="submit" name="addProductForm" class="btn btn-primary">Save</button>
-                                <div id="editProduct" style="display: none">
-                                    <!-- <button type="submit" id="deleteValidation" name="deleteProductForm" class="btn btn-danger text-black">Delete</button> -->
-                                    <button id="updateProduct" type="submit" name="updateProductForm" class="btn btn-warning text-black">Update</button>
+                                <button id="saveMatch" type="submit" name="addMatchForm" class="btn btn-primary">Save</button>
+                                <div id="editMatch" style="display: none">
+                                    <!-- <button type="submit" id="deleteValidation" name="deleteMatchForm" class="btn btn-danger text-black">Delete</button> -->
+                                    <button id="updateMatch" type="submit" name="updateMatchForm" class="btn btn-warning text-black">Update</button>
                                 </div>
                             </div>
                         </form>
