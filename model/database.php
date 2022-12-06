@@ -11,7 +11,6 @@ class Connection{
 
     //CONNECT TO MYSQL DATABASE USING PDO
     private function pdoConnection(){
-
         $con = new PDO('mysql:host=' . $this->serv . ';dbname=' . $this->DB, $this->user, $this->password);
         try {
             return $con;

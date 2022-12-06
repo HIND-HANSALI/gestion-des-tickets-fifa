@@ -23,6 +23,28 @@
 
 /* ______________YE______________ */
 
+.header-stades{
+    width: 100vw;
+    height: 50vh;
+    background-image: url(../img/essential/header.webp);
+    background-position: center;
+    z-index: -1;
+ }
+ .header-themes{
+   width: 100vw;
+   height: 50vh;
+   background-image: url(../img/essential/maxresdefault.jpg);
+   background-position: top;
+   background-repeat: round;
+   background-size: cover;
+   z-index: -1;
+ }
+ .opa{
+   width: 100vw;
+    height: 50vh;
+    background-color: brown;
+    opacity: 0.5;
+ }
 
 /* ______________Ak______________ */
 
