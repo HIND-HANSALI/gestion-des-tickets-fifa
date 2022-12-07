@@ -21,9 +21,10 @@
     $AllStatus = $StatusController -> getStatus();
 
     $MatchController -> addMatch();
+    $MatchController -> deleteMatch();
 
-    // print_r($_REQUEST);
-    // die;
+     print_r($_SERVER['REQUEST_METHOD']);
+     /* die; */
 
 ?>
 
@@ -95,8 +96,8 @@
                                                             <td class="text-end"><?=$match['price']; ?></td>
                                                             <td class="text-truncate mb-1"><div style="max-width: 5rem;"><?=$match['description']; ?></div></td>
                                                             <td class="text-end">
-                                                                <a href="#" onclick="/* GetMatch('<?= $match['id_match']; ?>','<?php //$match['idCategory']; ?>') */" class="btn btn-sm btn-warning">Edit</a>
-                                                                <a href="#" onclick="/* DeleteMatch('<?= $match['id_match']; ?>') */" class="btn btn-sm btn-danger">Delete</a>
+                                                                <a href="#" onclick=" getMatch('<?= $match['id_match']; ?>') " class="btn btn-sm btn-warning">Edit</a>
+                                                                <a href="#" onclick=" deleteMatch('<?= $match['id_match']; ?>') " class="btn btn-sm btn-danger">Delete</a>
                                                             </td>
                                                         </tr>
                                                     <?php } ?>
@@ -133,7 +134,7 @@
                 <div class="modal-content background ">
                     <div class="modal-header">
                         <h5 class="" id="exampleModalLabel">Add Match</h5>
-                        <button type="button" class="px-1 p-0 m-0" data-bs-dismiss="modal" aria-label="Close">x</button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body pt-0 pb-1">
                         <form id="form" method="POST" enctype="multipart/form-data">
