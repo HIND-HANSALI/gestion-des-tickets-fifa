@@ -6,4 +6,4 @@
 <!--    Document Title-->
 <!-- ===============================================-->
 <title>YouTicket - <?=$path; ?></title>
-<?php include('../include/dashboard/links.php'); ?> 
+<?php include('links.php'); ?>
