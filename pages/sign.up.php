@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Font Awesome Library -->
-    <link rel="stylesheet" href="CSS/all.min.css">
+    <link rel="stylesheet" href="../assets/css/all.min.css">
 
     <!-- ===== Style CSS ===== -->
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="../assets/css/authentificationStyle.css">
 
     <title>Login & Registration Form</title>
 </head>
@@ -52,7 +52,7 @@
 
             <div class="login-signup">
                         <span class="text">Already a member?
-                            <a href="sign_in.html" class="text login-link">Login Now</a>
+                            <a href="sign.in.php" class="text login-link">Login Now</a>
                         </span>
             </div>
         </div>

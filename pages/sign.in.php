@@ -19,6 +19,16 @@
         <div class="form login">
             <span class="title">Login</span>
 
+            <div class="validation-input">
+                <div>
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                </div>
+                <div class="message-content">
+                    <h4>Nous n'avons pas pu vous connecter</h4>
+                    <p>Veuillez remplir les champs ci-dessous.</p>
+                </div>
+            </div>
+
             <form action="script.php" method="POST" id="form-task">
                 <div class="input-field">
                     <input type="email" name="email" placeholder="Enter your email"  onInput="check(2)" required>
@@ -47,7 +57,7 @@
 
             <div class="login-signup">
                         <span class="text">Not a member?
-                            <a href="sign_up.html" class="text signup-link">Signup Now</a>
+                            <a href="sign.up.php" class="text signup-link">Signup Now</a>
                         </span>
             </div>
         </div>
