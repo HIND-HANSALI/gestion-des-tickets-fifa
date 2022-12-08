@@ -219,13 +219,11 @@ footer{
 }
 .btn{
     background-color: #8A1538;
-    color:white;
+    color: beige;
 }
 .btn:hover{
-    background-color: white;
-    color: #8A1538;
-    border-color:#8A1538 ;
-    
+    background-color: #8A1538;
+    color: rgb(245, 248, 242);
 }
 .color-icon{
     border: 2px solid #8A1538;

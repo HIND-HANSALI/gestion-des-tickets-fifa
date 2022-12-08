@@ -42,7 +42,7 @@
                             <span class="nav-link-icon d-flex justify-content-center"><span class="fas fa-users"></span></span><span class="nav-link-text ps-1">Teams</span>
                         </div>
                     </a>
-                    <a class="nav-link" href="#" role="button" style="margin-left: -0.005rem !important ;">
+                    <a class="nav-link <?= $path == "Stades" ? "active" :""; ?>" href="stades.php" role="button" style="margin-left: -0.005rem !important ;">
                         <div class="d-flex align-items-center">
                             <span class="nav-link-icon d-flex justify-content-center"><img width="20rem" src="../assets/img/essential/stadium5.png" alt=""/></span><span class="nav-link-text ps-1">Stades</span>
                         </div>
