@@ -8,6 +8,12 @@ function createModule() {
 
     // Ouvrir modal form
     $('#matchModal').modal('show');
+
+    document.getElementById('ValidatePicture').innerText = '';
+    document.getElementById('PictureFileField').setAttribute('style', 'border-radius: 1em !important; background-color: #151521 !important;');
+    document.getElementById('PictureFileField').setAttribute('class', 'dropify-wrapper');
+    document.getElementById('PictureInput').setAttribute('data-default-file', '');
+    document.getElementById('PreviewFileField').setAttribute('style', 'display:none;');
 }
 
 function getMatch(id, team1, team2, stade) {
