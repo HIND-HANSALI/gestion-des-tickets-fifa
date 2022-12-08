@@ -9,3 +9,14 @@ function createModule() {
     // Ouvrir modal form
     $('#matchModal').modal('show');
 }
+function createModal() {
+    // initialiser Match form
+    document.getElementById('form').reset();
+
+    // Afficher le boutton save
+    document.getElementById('savestade').style.display = 'block';
+    document.getElementById('editstade').style.display = 'none';
+
+    // Ouvrir modal form
+    $('#stadeModal').modal('show');
+}

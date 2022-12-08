@@ -21,11 +21,12 @@ class Stades extends Connection{
         return $result;
     }
 
-    protected function addStadeDB($id, $name, $location, $capacity, $picture){
+    protected function addStadeDB( $name, $location, $capacity, $picture){
 
-        $sql = "INSERT INTO stades (id_stade, name, location, capacity, picture) VALUES (?, ?, ?, ?, ?)";
+
+        $sql = "INSERT INTO stades (name, location, capacity, picture) VALUES (?, ?, ?, ?)";
         $stmt = $this ->connect() -> prepare($sql);
-        $stmt->execute([$id, $name, $location, $capacity, $picture]);
+        $stmt->execute([ $name, $location, $capacity, $picture]);
         return 1;
     }
 
