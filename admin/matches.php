@@ -81,14 +81,14 @@
                                                     <?php foreach($AllMatches AS $match){ ?>
                                                         <tr class="align-middle" id="Match<?=$match['id_match']; ?>">
                                                             
-                                                            <td class="text-nowrap">
+                                                            <td class="text-center">
                                                                 <div class="d-flex align-items-center">
-                                                                    <div class="avatar avatar-xl">
+                                                                    <div class="avatar avatar-xxl">
                                                                         <?php 
                                                                             if(!empty($match['picture'])){
-                                                                                echo '<img id="MatchPicture'. $match['id_match'].'" src="'.$match['picture'].'" style="width:2rem;" />';
+                                                                                echo '<img id="MatchPicture'. $match['id_match'].'" src="'.$match['picture'].'" style="width:3rem;" />';
                                                                             }else{
-                                                                                echo '<img class="m-0" src="../assets/img/essential/frame.png" style="width:2rem;height: 2.7rem;" />';
+                                                                                echo '<img class="m-0" src="../assets/img/essential/frame.png" style="width:3rem;height: 2.7rem;" />';
                                                                             } 
                                                                         ?>
                                                                     </div>

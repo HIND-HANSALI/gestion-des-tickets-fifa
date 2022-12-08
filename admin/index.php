@@ -178,10 +178,16 @@
                                                 <tbody>
                                                     <?php foreach($FourMatches AS $match){ ?>
                                                         <tr class="align-middle">
-                                                            <td class="text-nowrap">
+                                                            <td class="text-center">
                                                                 <div class="d-flex align-items-center">
-                                                                    <div class="avatar avatar-xl">
-                                                                        <img class="rounded-circle" src="<?=$match['picture']; ?>" alt="" />
+                                                                    <div class="avatar avatar-xxl">
+                                                                        <?php 
+                                                                            if(!empty($match['picture'])){
+                                                                                echo '<img id="MatchPicture'. $match['id_match'].'" src="'.$match['picture'].'" style="width:3rem;" />';
+                                                                            }else{
+                                                                                echo '<img class="m-0" src="../assets/img/essential/frame.png" style="width:3rem;height: 2.7rem;" />';
+                                                                            } 
+                                                                        ?>
                                                                     </div>
                                                                 </div>
                                                             </td>
