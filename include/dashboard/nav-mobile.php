@@ -37,7 +37,7 @@
                             <span class="nav-link-icon d-flex justify-content-center"><span class="fas fa-futbol"></span></span><span class="nav-link-text ps-1">Matches</span>
                         </div>
                     </a>
-                    <a class="nav-link " href="#" role="button">
+                    <a class="nav-link <?= $path == "Teams" ? "active" :""; ?>" href="teams.php" role="button">
                         <div class="d-flex align-items-center">
                             <span class="nav-link-icon d-flex justify-content-center"><span class="fas fa-users"></span></span><span class="nav-link-text ps-1">Teams</span>
                         </div>
