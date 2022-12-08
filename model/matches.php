@@ -40,19 +40,51 @@ class Matches extends Connection {
         return 1;
     }
 
-    protected function updateMatchDB($id, $idTeam1, $idTeam2, $idStade, $time, $picture, $description){
+    protected function updateMatchDB($id, $idTeam1, $idTeam2, $idStade, $idStatus, $price, $time, $picture, $description){
 
-        $sql = "UPDATE matches SET id_team1 = ?, id_team2 = ?, id_stade = ?, time = ?, description = ? WHERE id_match = ?";
+        $sql = "SELECT * FROM matches WHERE id_match = ?";
         $stmt = $this ->connect() -> prepare($sql);
-        $stmt->execute([$idTeam1, $idTeam2, $idStade, $time, $picture, $description, $id]);
+        $stmt -> execute([$id]);
+        $result = $stmt ->fetch();
+        if($result['picture'] != ''){
+            $pic = $result['picture'];
+            unlink($pic);
+        }
+
+        $sql = "UPDATE matches SET id_team1 = ?, id_team2 = ?, id_stade = ?, id_status = ?, price = ?, time = ?, picture = ?, description = ? WHERE id_match = ?";
+        $stmt = $this ->connect() -> prepare($sql);
+        $stmt->execute([$idTeam1, $idTeam2, $idStade, $idStatus, $price, $time, $picture, $description, $id]);
+        return 1;
+    }
+    
+    
+    protected function lastPicUpdateDB($id, $idTeam1, $idTeam2, $idStade, $idStatus, $price, $time, $description){
+
+        $sql = "UPDATE matches SET id_team1 = ?, id_team2 = ?, id_stade = ?, id_status = ?, price = ?, time = ?, description = ? WHERE id_match = ?";
+        $stmt = $this ->connect() -> prepare($sql);
+        $stmt->execute([$idTeam1, $idTeam2, $idStade, $idStatus, $price, $time, $description, $id]);
         return 1;
     }
 
+
+
     protected function deleteMatchDB($id){
+
+        $sql = "SELECT * FROM matches WHERE id_match = ?";
+        $stmt = $this ->connect() -> prepare($sql);
+        $stmt -> execute([$id]);
+        $result = $stmt ->fetch();
+        if($result['picture'] != ''){
+            $picture = $result['picture'];
+            unlink($picture);
+        }
+
 
         $sql = "DELETE FROM matches WHERE id_match = ?";
         $stmt = $this->connect() -> prepare($sql);
         $stmt->execute([$id]);
+
+
         return 1;
     }
 

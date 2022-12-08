@@ -10,7 +10,7 @@ function createModule() {
     $('#matchModal').modal('show');
 }
 
-function getMatch(id) {
+function getMatch(id, team1, team2, stade) {
     // Afficher le boutton edit
     document.getElementById('saveMatch').style.display = 'none';
     document.getElementById('editMatch').style.display = 'block';
@@ -19,6 +19,35 @@ function getMatch(id) {
     $('#matchModal').modal('show');
 
     // Récupérer les données du match
+    // getting the image path from the image tag and setting it to the input field and previewing it
+    let picTitle = document.querySelector(`#MatchPicture${id}`).getAttribute('src');
+    /* console.log(picTitle); */
+    document.getElementById('PictureInput').setAttribute('src', picTitle);
+    document.getElementById('PictureFileField').setAttribute('class', 'dropify-wrapper has-preview');
+    document.getElementById('PreviewFileField').setAttribute('style', 'display:block;');
+    document.querySelector('.dropify-render').innerHTML = `<img src="${picTitle}" alt="Picture" style="max-height: 100px;"/>`;
+    document.getElementById('ValidatePicture').setAttribute('class', 'text-success');
+    document.getElementById('ValidatePicture').innerText = 'Photo précédente deja selectionné ! Si vous voulez changer la photo veuillez entrer une nouvelle photo !!';
+    document.getElementById('PictureFileField').setAttribute('style', 'height:10rem; border-radius: 1em !important;background-color: #151521 !important;border-color:green;font-size:10px;');
+
+    // getting the match data from the dom and setting it to the input fields
+    document.getElementById('Team1Input').value = team1;
+    document.getElementById('Team2Input').value = team2;
+    document.getElementById('StadeInput').value = stade;
+
+    if (document.querySelector(`#MatchStatus${id}`).innerText == 'Soon') {
+        document.getElementById('StatusInput').value = 1;
+    } else if (document.querySelector(`#MatchStatus${id}`).innerText == 'In Progress') {
+        document.getElementById('StatusInput').value = 2;
+    } else {
+        document.getElementById('StatusInput').value = 3;
+    }
+    console.log(id);
+    document.getElementById('PriceInput').value = document.querySelector(`#MatchPrice${id}`).innerText;
+    document.getElementById('DateInput').value = document.querySelector(`#MatchTime${id}`).innerText;
+    document.getElementById('DescriptionInput').value = document.querySelector(`#MatchDescription${id}`).innerText;
+    // setting the id of the match to the hidden input field
+    document.getElementById('IdInput').value = id;
 }
 
 function deleteMatch(id) {
@@ -40,14 +69,13 @@ function deleteMatch(id) {
             Swal.fire({ background: '#1e1e2d', color: '#F0F6FC', title: 'Deleted!', text: 'Your match has been deleted successfully. ', icon: 'error' });
             // using ajax to send data without refresh
             $.ajax({
-                url: '../../controller/matchController.php',
-                method: 'PUT',
+                url: 'matches.php',
+                method: 'POST',
                 data: { DeleteMatch: id },
                 dataType: 'html',
                 success: function () {
-                    /* location.reload(); */
                     // removing element from dom
-                    /* document.querySelector(`#match${id}`).remove(); */
+                    document.querySelector(`#Match${id}`).remove();
                 },
             });
         }
