@@ -74,7 +74,7 @@
                                                 </thead>
                                                 <tbody>
                                                     <?php foreach($AllTeams AS $team){ ?>
-                                                        <tr class="align-middle">
+                                                        <tr class="align-middle" id="Team<?=$team['id_team']; ?>">
                                                             <td class="text-nowrap"><?=$team['id_team']; ?></td>
                                                             <td class="text-nowrap">
                                                                 <div class="d-flex align-items-center">
@@ -90,7 +90,7 @@
                                                             
                                                             <td class="text-end">
                                                                 <a onclick="GetTeam('<?= $team['id_team']; ?>')" class="btn btn-sm btn-warning">Edit</a>
-                                                                <a href="teams.php?idd=<?= $team['id_team'];?>" onclick="/* DeleteMatch('<?= $team['id_team']; ?>') */" class="btn btn-sm btn-danger">Delete</a>
+                                                                <a onclick="DeleteTeam('<?= $team['id_team']; ?>') " class="btn btn-sm btn-danger">Delete</a>
                                                             </td>
                                                         </tr>
                                                     <?php } ?>

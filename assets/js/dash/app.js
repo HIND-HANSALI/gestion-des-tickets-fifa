@@ -102,6 +102,7 @@ function createTeam() {
     // Ouvrir modal form
     $('#teamModal').modal('show');
 }
+
 function GetTeam(id) {
     // Afficher le boutton edit
     document.getElementById('saveTeams').style.display = 'none';
@@ -113,6 +114,38 @@ function GetTeam(id) {
     document.getElementById('GroupeInput').value = document.querySelector(`#TeamGroupe${id}`).innerText;
     // setting the id of the team to the hidden input field
     document.getElementById('IdInput').value = id;
+}
+
+function DeleteTeam(id) {
+    // Delete action confirmation using SweetAlert2 combined with Ajax
+    // SweetAlert2 pop up
+    Swal.fire({
+        background: '#1e1e2d',
+        color: '#F0F6FC',
+        title: 'Are you sure you want to delete this match?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!',
+    }).then((result) => {
+        // after confirmation is succesfull
+        if (result.isConfirmed) {
+            Swal.fire({ background: '#1e1e2d', color: '#F0F6FC', title: 'Deleted!', text: 'Your match has been deleted successfully. ', icon: 'error' });
+            // using ajax to send data without refresh
+            $.ajax({
+                url: 'teams.php',
+                method: 'POST',
+                data: { DeleteTeam: id },
+                dataType: 'html',
+                success: function () {
+                    // removing element from dom
+                    document.querySelector(`#Team${id}`).remove();
+                },
+            });
+        }
+    });
 }
 
 // Stades
