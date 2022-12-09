@@ -1,6 +1,7 @@
 <?php
     // Page Title
     $path = 'Matches';
+    session_start();
 
     // Requiring Controllers 
     require_once('../controller/matchController.php');
@@ -21,9 +22,10 @@
     $AllStatus = $StatusController -> getStatus();
 
     $MatchController -> addMatch();
-
-    // print_r($_REQUEST);
-    // die;
+    $MatchController -> deleteMatch();
+    $MatchController -> updateMatch();
+     /* print_r($_SERVER['REQUEST_METHOD']); */
+     /* die; */
 
 ?>
 
@@ -77,26 +79,33 @@
                                                 </thead>
                                                 <tbody>
                                                     <?php foreach($AllMatches AS $match){ ?>
-                                                        <tr class="align-middle">
-                                                            <td class="text-nowrap">
+                                                        <tr class="align-middle" id="Match<?=$match['id_match']; ?>">
+                                                            
+                                                            <td class="text-center">
                                                                 <div class="d-flex align-items-center">
-                                                                    <div class="avatar avatar-xl">
-                                                                        <img class="rounded-circle" src="<?=$match['picture']; ?>" alt="" />
+                                                                    <div class="avatar avatar-xxl">
+                                                                        <?php 
+                                                                            if(!empty($match['picture'])){
+                                                                                echo '<img id="MatchPicture'. $match['id_match'].'" src="'.$match['picture'].'" style="width:3rem;" />';
+                                                                            }else{
+                                                                                echo '<img class="m-0" src="../assets/img/essential/frame.png" style="width:3rem;height: 2.7rem;" />';
+                                                                            } 
+                                                                        ?>
                                                                     </div>
                                                                 </div>
                                                             </td>
-                                                            <td class="text-nowrap"><?=$match['team1']; ?></td>
-                                                            <td class="text-nowrap"><?=$match['team2']; ?></td>
-                                                            <td class="text-nowrap"><?=$match['stade']; ?></td>
-                                                            <td class="text-nowrap"><?=$match['time']; ?></td>
+                                                            <td id="MatchTeam1<?=$match['id_match']; ?>" class="text-nowrap"><?=$match['team1']; ?></td>
+                                                            <td id="MatchTeam2<?=$match['id_match']; ?>" class="text-nowrap"><?=$match['team2']; ?></td>
+                                                            <td id="MatchStade<?=$match['id_match']; ?>" class="text-nowrap"><?=$match['stade']; ?></td>
+                                                            <td id="MatchTime<?=$match['id_match']; ?>" class="text-nowrap"><?=$match['time']; ?></td>
                                                             <td>
-                                                                <span class="badge badge rounded-pill d-block p-2 badge-soft-<?= $match['status'] == "Soon" ? "secondary" :( $match['status'] == "In Progress" ? "info": "success" ); ?>"><?= $match['status'];?></span>
+                                                                <span class="badge badge rounded-pill d-block p-2 badge-soft-<?= $match['status'] == "Soon" ? "secondary" :( $match['status'] == "In Progress" ? "info": "success" ); ?>" id="MatchStatus<?=$match['id_match']; ?>"><?= $match['status'];?></span>
                                                             </td>
-                                                            <td class="text-end"><?=$match['price']; ?></td>
-                                                            <td class="text-truncate mb-1"><div style="max-width: 5rem;"><?=$match['description']; ?></div></td>
-                                                            <td class="text-end">
-                                                                <a href="#" onclick="/* GetMatch('<?= $match['id_match']; ?>','<?php //$match['idCategory']; ?>') */" class="btn btn-sm btn-warning">Edit</a>
-                                                                <a href="#" onclick="/* DeleteMatch('<?= $match['id_match']; ?>') */" class="btn btn-sm btn-danger">Delete</a>
+                                                            <td class="text-end" id="MatchPrice<?=$match['id_match']; ?>" ><?=$match['price']; ?></td>
+                                                            <td class="text-truncate mb-1"><div style="max-width: 5rem;" id="MatchDescription<?=$match['id_match']; ?>" ><?=$match['description']; ?></div></td>
+                                                            <td class="text-center" scope="col">
+                                                                <a href="#" onclick=" getMatch('<?= $match['id_match']; ?>','<?= $match['id_team1']; ?>','<?= $match['id_team2']; ?>','<?= $match['id_stade']; ?>') " class="btn btn-sm btn-warning">Edit</a>
+                                                                <a href="#" onclick=" deleteMatch('<?= $match['id_match']; ?>') " class="btn btn-sm btn-danger">Delete</a>
                                                             </td>
                                                         </tr>
                                                     <?php } ?>
@@ -133,7 +142,7 @@
                 <div class="modal-content background ">
                     <div class="modal-header">
                         <h5 class="" id="exampleModalLabel">Add Match</h5>
-                        <button type="button" class="px-1 p-0 m-0" data-bs-dismiss="modal" aria-label="Close">x</button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body pt-0 pb-1">
                         <form id="form" method="POST" enctype="multipart/form-data">
