@@ -95,5 +95,14 @@ class StadeController extends Stades{
             }
         }
     }
+
+
+    public function FourStades(){
+        $result = $this -> getFourStadesDB();
+        return $result;
+    }   
+
+
+
     
 }

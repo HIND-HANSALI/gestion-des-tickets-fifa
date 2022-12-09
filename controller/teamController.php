@@ -149,7 +149,10 @@ class TeamController extends Teams{
 } 
     
 
-
+    public function FourTeams(){
+        $result = $this -> getFourTeamsDB();
+        return $result;
+    }
 
 
     

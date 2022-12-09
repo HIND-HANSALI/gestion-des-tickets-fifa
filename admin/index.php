@@ -3,12 +3,20 @@
 
     // include Controllers
     include_once('../controller/matchController.php');
+    include_once('../controller/teamController.php');
+    include_once('../controller/stadeController.php');
 
     // instantiate the controller
-    $matchController = new MatchController();
+    $MatchController = new MatchController();
+    $TeamController = new TeamController();
+    $StadeController = new StadeController();
 
     // get matches
-    $FourMatches = $matchController -> FourMatches();
+    $FourMatches = $MatchController -> FourMatches();
+    $FourTeams = $TeamController -> FourTeams();
+    $FourStades = $StadeController -> FourStades();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -142,19 +150,13 @@
                         </div>
                     </div>
                     <div class="row g-0">
-                        <div class="col-lg-6 pe-lg-2 mb-3">
-                            
-                        </div>
-                        <div class="col-lg-6 ps-lg-2 mb-3">
-                            
-                        </div>
                         <div class="card mb-3">
                             <div class="card-header border-bottom">
                                 <div class="row flex-between-end">
                                     <div class="col-auto align-self-center">
                                         <h5 class="mb-0" data-anchor="data-anchor">Latest Matches</h5>
                                         <p class="mb-0 pt-1 mt-2 mb-0">
-                                            Preview of the last 4 match added to the system.
+                                            Preview of the last 4 matches added to the system.
                                         </p>
                                     </div>
                                 </div>
@@ -173,6 +175,7 @@
                                                         <th scope="col">Date & Time</th>
                                                         <th class="text-center" scope="col">Status</th>
                                                         <th class="text-end" scope="col">Price USD($)</th>
+                                                        <th class="text-end" scope="col">Capacity</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -183,7 +186,7 @@
                                                                     <div class="avatar avatar-xxl">
                                                                         <?php 
                                                                             if(!empty($match['picture'])){
-                                                                                echo '<img id="MatchPicture'. $match['id_match'].'" src="'.$match['picture'].'" style="width:3rem;" />';
+                                                                                echo '<img src="'.$match['picture'].'" style="width:3rem;" />';
                                                                             }else{
                                                                                 echo '<img class="m-0" src="../assets/img/essential/frame.png" style="width:3rem;height: 2.7rem;" />';
                                                                             } 
@@ -199,6 +202,7 @@
                                                                 <span class="badge badge rounded-pill d-block p-2 badge-soft-<?= $match['status'] == "Soon" ? "secondary" :( $match['status'] == "In Progress" ? "info": "success" ); ?>"><?= $match['status'];?></span>
                                                             </td>
                                                             <td class="text-end"><?=$match['price']; ?></td>
+                                                            <td class="text-end"><?=$match['capacity']; ?></td>
                                                         </tr>
                                                     <?php } ?>
                                                 </tbody>
@@ -207,7 +211,116 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>    
+                        </div>
+                        
+                        <div class="col-lg-4 pe-lg-2 mb-3">
+                            <div class="card mb-2">
+                                <div class="card-header border-bottom">
+                                    <div class="row flex-between-end">
+                                        <div class="col-auto align-self-center">
+                                            <h5 class="mb-0" data-anchor="data-anchor">Latest Teams</h5>
+                                            <p class="mb-0 pt-1 mt-2 mb-0">
+                                                Preview of the last 4 teams added to the system.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body pt-0">
+                                    <div class="tab-content">
+                                        <div class="tab-pane preview-tab-pane active" role="tabpanel" aria-labelledby="tab-dom-f3ee3586-6986-435d-af14-04f95ce3db36" id="dom-f3ee3586-6986-435d-af14-04f95ce3db36">
+                                            <div class="table-responsive scrollbar">
+                                                <table class="table table-hover table-striped overflow-hidden">
+                                                <thead>
+                                                        <tr>
+                                                            <th scope="col">Picture</th>
+                                                            <th scope="col">Nationality</th>
+                                                            <th scope="col">Groupe</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php foreach($FourTeams AS $team){ ?>
+                                                            <tr class="align-middle">
+                                                                <td class="text-center">
+                                                                    <div class="d-flex align-items-center">
+                                                                        <div class="avatar avatar-xxl">
+                                                                            <?php 
+                                                                                if(!empty($team['picture'])){
+                                                                                    echo '<img src="'.$team['picture'].'" style="width:3rem;height: 3.7rem;" />';
+                                                                                }else{
+                                                                                    echo '<img class="m-0" src="../assets/img/essential/frame.png" style="width:3rem;" />';
+                                                                                } 
+                                                                            ?>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="text-nowrap"><?=$team['nationality']; ?></td>
+                                                                <td class="text-nowrap"><?=$team['groupe']; ?></td>
+                                                            </tr>
+                                                        <?php } ?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="col-lg-8 ps-lg-2 mb-3">
+                            <div class="card mb-2">
+                                <div class="card-header border-bottom">
+                                    <div class="row flex-between-end">
+                                        <div class="col-auto align-self-center">
+                                            <h5 class="mb-0" data-anchor="data-anchor">Latest Stades</h5>
+                                            <p class="mb-0 pt-1 mt-2 mb-0">
+                                                Preview of the last 4 stades added to the system.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body pt-0">
+                                    <div class="tab-content">
+                                        <div class="tab-pane preview-tab-pane active" role="tabpanel" aria-labelledby="tab-dom-f3ee3586-6986-435d-af14-04f95ce3db36" id="dom-f3ee3586-6986-435d-af14-04f95ce3db36">
+                                            <div class="table-responsive scrollbar">
+                                                <table class="table table-hover table-striped overflow-hidden">
+                                                <thead>
+                                                        <tr>
+                                                            <th scope="col">Picture</th>
+                                                            <th scope="col">Name</th>
+                                                            <th scope="col">Location</th>
+                                                            <th scope="col">Capacity</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php foreach($FourStades AS $stade){ ?>
+                                                            <tr class="align-middle">
+                                                                <td class="text-center">
+                                                                    <div class="d-flex align-items-center">
+                                                                        <div class="avatar avatar-xxl">
+                                                                            <?php 
+                                                                                if(!empty($stade['picture'])){
+                                                                                    echo '<img src="'.$stade['picture'].'" style="width:3rem;" />';
+                                                                                }else{
+                                                                                    echo '<img class="m-0" src="../assets/img/essential/frame.png" style="width:3rem;" />';
+                                                                                } 
+                                                                            ?>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="text-nowrap"><?=$stade['name']; ?></td>
+                                                                <td class="text-nowrap"><?=$stade['location']; ?></td>
+                                                                <td class="text-nowrap"><?=$stade['capacity']; ?></td>
+                                                            </tr>
+                                                        <?php } ?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                        
+                            
                     </div>
                     <footer class="footer">
                         <div class="row g-0 justify-content-between fs--1 mt-4 mb-3">

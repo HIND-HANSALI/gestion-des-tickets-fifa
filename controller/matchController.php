@@ -90,7 +90,7 @@ class MatchController extends Matches{
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             if(isset($_REQUEST['updateMatchForm'])){
                 extract($_POST);
-                if( empty($idTeam1) || empty($idTeam2) || empty($idStade)  || empty($idStatus)|| empty($price) || empty($time) || empty($description) ){
+                if( empty($idTeam1) || empty($idTeam2) || empty($idStade)  || empty($idStatus)|| empty($price) || empty($time) || empty($description) || empty($capacity) ){
                     $_SESSION['icon'] = "error";
                     $_SESSION['message'] = "Veuillez remplir tous les champs";
                     header('Location: ../admin/matches.php'); //redirect to page
@@ -113,7 +113,7 @@ class MatchController extends Matches{
                                     $fileNameNew = date("dmy") . time() . "." . $fileActualExt; //create unique name using time and date and name of 'picture'
                                     $fileDestination = "../assets/img/uploads/" . $fileNameNew;
 
-                                    $result = $this -> UpdateMatchDB($id, $idTeam1, $idTeam2, $idStade, $idStatus, $price, $time, $fileDestination, $description);
+                                    $result = $this -> UpdateMatchDB($id, $idTeam1, $idTeam2, $idStade, $idStatus, $price, $capacity, $time, $fileDestination, $description);
                                     if($result == 1){
                                         move_uploaded_file($fileTmpName, $fileDestination);
                                         $_SESSION['icon'] = "warning";
@@ -140,7 +140,7 @@ class MatchController extends Matches{
                             die;
                         }
                     }else{
-                        $result = $this -> lastPicUpdateDB($id, $idTeam1, $idTeam2, $idStade, $idStatus, $price, $time, $description);
+                        $result = $this -> lastPicUpdateDB($id, $idTeam1, $idTeam2, $idStade, $idStatus, $capacity, $price, $time, $description);
                         if($result == 1){
                             header('Location: ../admin/matches.php'); //refresh page
                             $_SESSION['icon'] = "warning";

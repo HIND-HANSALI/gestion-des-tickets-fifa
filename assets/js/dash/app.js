@@ -52,6 +52,7 @@ function getMatch(id, team1, team2, stade) {
     }
     console.log(id);
     document.getElementById('PriceInput').value = document.querySelector(`#MatchPrice${id}`).innerText;
+    document.getElementById('CapacityInput').value = document.querySelector(`#MatchCapacity${id}`).innerText;
     document.getElementById('DateInput').value = document.querySelector(`#MatchTime${id}`).innerText;
     document.getElementById('DescriptionInput').value = document.querySelector(`#MatchDescription${id}`).innerText;
     // setting the id of the match to the hidden input field
