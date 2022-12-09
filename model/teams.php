@@ -28,7 +28,7 @@ class Teams extends Connection{
         $sql = "INSERT INTO teams (nationality,picture,groupe) VALUES (?, ?, ?)";
         $stmt = $this ->connect() -> prepare($sql);
         $stmt->execute([$nationality,$picture,$groupe]);
-        return 1;
+        //  return 1;
     }
 
     protected function updateTeamDB($nationality,$groupe,$picture,$idTeam){
