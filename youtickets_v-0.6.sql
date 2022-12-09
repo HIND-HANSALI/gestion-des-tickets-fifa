@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Dec 05, 2022 at 08:28 PM
--- Server version: 5.7.33
--- PHP Version: 7.4.19
+-- Hôte : 127.0.0.1
+-- Généré le : ven. 09 déc. 2022 à 11:56
+-- Version du serveur : 10.4.25-MariaDB
+-- Version de PHP : 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `youtickets`
+-- Base de données : `youtickets`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `matches`
+-- Structure de la table `matches`
 --
 
 CREATE TABLE `matches` (
@@ -34,22 +34,25 @@ CREATE TABLE `matches` (
   `id_stade` int(11) NOT NULL,
   `time` datetime NOT NULL,
   `id_status` int(11) NOT NULL,
-  `picture` text,
+  `picture` text DEFAULT NULL,
   `price` double NOT NULL,
+  `capacity` int(11) NOT NULL,
   `description` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `matches`
+-- Déchargement des données de la table `matches`
 --
 
-INSERT INTO `matches` (`id_match`, `id_team1`, `id_team2`, `id_stade`, `time`, `id_status`, `picture`, `price`, `description`) VALUES
-(1, 1, 2, 1, '2022-12-14 16:30:18', 2, NULL, 298, 'lorem dfqsdfgqdfqsd\r\n\r\nf\r\nq\r\nsdf\r\ndsqf\r\nqs\r\ndfqsd\r\nfqsdf\r\nsqd\r\nf\r\nqdsf\r\nqsdf\r\nq\r\nsd');
+INSERT INTO `matches` (`id_match`, `id_team1`, `id_team2`, `id_stade`, `time`, `id_status`, `picture`, `price`, `capacity`, `description`) VALUES
+(1, 1, 2, 1, '2022-12-14 16:30:18', 2, NULL, 298, 0, 'lorem dfqsdfgqdfqsd\r\n\r\nf\r\nq\r\nsdf\r\ndsqf\r\nqs\r\ndfqsd\r\nfqsdf\r\nsqd\r\nf\r\nqdsf\r\nqsdf\r\nq\r\nsd'),
+(2, 1, 2, 1, '2022-12-07 02:47:00', 1, NULL, 227, 0, 'hhh'),
+(3, 1, 1, 1, '2022-12-23 02:51:00', 1, NULL, 160, 0, 'yousef');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `roles`
+-- Structure de la table `roles`
 --
 
 CREATE TABLE `roles` (
@@ -58,7 +61,7 @@ CREATE TABLE `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `roles`
+-- Déchargement des données de la table `roles`
 --
 
 INSERT INTO `roles` (`id_role`, `name`) VALUES
@@ -68,7 +71,7 @@ INSERT INTO `roles` (`id_role`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `stades`
+-- Structure de la table `stades`
 --
 
 CREATE TABLE `stades` (
@@ -76,20 +79,27 @@ CREATE TABLE `stades` (
   `name` varchar(255) DEFAULT NULL,
   `location` varchar(255) DEFAULT NULL,
   `capacity` int(20) DEFAULT NULL,
-  `picture` text
+  `picture` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `stades`
+-- Déchargement des données de la table `stades`
 --
 
 INSERT INTO `stades` (`id_stade`, `name`, `location`, `capacity`, `picture`) VALUES
-(1, 'Ahmad Bin Ali Stadium', 'Next to the Mall of Qatar', 40000, NULL);
+(1, 'Ahmad Bin Ali Stadium', 'Next to the Mall of Qatar', 40000, NULL),
+(2, 'youssef', 'qatar', 1234, 'téléchargement.jpg'),
+(3, 'youssef', 'qatar', 40, 'Untitled design.png'),
+(4, 'hellooo', 'zerty', 50, 'Capture d’écran 2022-12-02 161949.png'),
+(5, 'youssef', '12345', 444, 'IMG-6391c641a82d65.45790393.png'),
+(6, 'youssef', 'ERTY', 300, NULL),
+(7, 'youssef', '12345', 40000000, 'IMG-639207e9eca886.15705294.jpg'),
+(8, 'khalid', 'khalid', 3, 'IMG-6392203c69c538.55510163.png');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `status`
+-- Structure de la table `status`
 --
 
 CREATE TABLE `status` (
@@ -98,7 +108,7 @@ CREATE TABLE `status` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `status`
+-- Déchargement des données de la table `status`
 --
 
 INSERT INTO `status` (`id_status`, `name`) VALUES
@@ -109,18 +119,18 @@ INSERT INTO `status` (`id_status`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `teams`
+-- Structure de la table `teams`
 --
 
 CREATE TABLE `teams` (
   `id_team` int(11) NOT NULL,
   `nationality` varchar(255) DEFAULT NULL,
-  `picture` text,
+  `picture` text DEFAULT NULL,
   `groupe` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `teams`
+-- Déchargement des données de la table `teams`
 --
 
 INSERT INTO `teams` (`id_team`, `nationality`, `picture`, `groupe`) VALUES
@@ -130,7 +140,7 @@ INSERT INTO `teams` (`id_team`, `nationality`, `picture`, `groupe`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tickets`
+-- Structure de la table `tickets`
 --
 
 CREATE TABLE `tickets` (
@@ -143,7 +153,7 @@ CREATE TABLE `tickets` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Structure de la table `users`
 --
 
 CREATE TABLE `users` (
@@ -155,11 +165,11 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Indexes for dumped tables
+-- Index pour les tables déchargées
 --
 
 --
--- Indexes for table `matches`
+-- Index pour la table `matches`
 --
 ALTER TABLE `matches`
   ADD PRIMARY KEY (`id_match`),
@@ -169,31 +179,31 @@ ALTER TABLE `matches`
   ADD KEY `id_status` (`id_status`);
 
 --
--- Indexes for table `roles`
+-- Index pour la table `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id_role`);
 
 --
--- Indexes for table `stades`
+-- Index pour la table `stades`
 --
 ALTER TABLE `stades`
   ADD PRIMARY KEY (`id_stade`);
 
 --
--- Indexes for table `status`
+-- Index pour la table `status`
 --
 ALTER TABLE `status`
   ADD PRIMARY KEY (`id_status`);
 
 --
--- Indexes for table `teams`
+-- Index pour la table `teams`
 --
 ALTER TABLE `teams`
   ADD PRIMARY KEY (`id_team`);
 
 --
--- Indexes for table `tickets`
+-- Index pour la table `tickets`
 --
 ALTER TABLE `tickets`
   ADD PRIMARY KEY (`id_ticket`),
@@ -201,80 +211,80 @@ ALTER TABLE `tickets`
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indexes for table `users`
+-- Index pour la table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id_user`),
   ADD KEY `id_role` (`id_role`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT for table `matches`
+-- AUTO_INCREMENT pour la table `matches`
 --
 ALTER TABLE `matches`
-  MODIFY `id_match` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_match` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `roles`
+-- AUTO_INCREMENT pour la table `roles`
 --
 ALTER TABLE `roles`
   MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `stades`
+-- AUTO_INCREMENT pour la table `stades`
 --
 ALTER TABLE `stades`
-  MODIFY `id_stade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_stade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `status`
+-- AUTO_INCREMENT pour la table `status`
 --
 ALTER TABLE `status`
   MODIFY `id_status` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `teams`
+-- AUTO_INCREMENT pour la table `teams`
 --
 ALTER TABLE `teams`
   MODIFY `id_team` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tickets`
+-- AUTO_INCREMENT pour la table `tickets`
 --
 ALTER TABLE `tickets`
   MODIFY `id_ticket` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Contraintes pour les tables déchargées
 --
 
 --
--- Constraints for table `matches`
+-- Contraintes pour la table `matches`
 --
 ALTER TABLE `matches`
-  ADD CONSTRAINT `matches_ibfk_1` FOREIGN KEY (`id_team1`) REFERENCES `teams` (`id_team`),
-  ADD CONSTRAINT `matches_ibfk_2` FOREIGN KEY (`id_team2`) REFERENCES `teams` (`id_team`),
-  ADD CONSTRAINT `matches_ibfk_3` FOREIGN KEY (`id_stade`) REFERENCES `stades` (`id_stade`),
+  ADD CONSTRAINT `matches_ibfk_1` FOREIGN KEY (`id_team1`) REFERENCES `teams` (`id_team`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `matches_ibfk_2` FOREIGN KEY (`id_team2`) REFERENCES `teams` (`id_team`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `matches_ibfk_3` FOREIGN KEY (`id_stade`) REFERENCES `stades` (`id_stade`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `matches_ibfk_4` FOREIGN KEY (`id_status`) REFERENCES `status` (`id_status`);
 
 --
--- Constraints for table `tickets`
+-- Contraintes pour la table `tickets`
 --
 ALTER TABLE `tickets`
   ADD CONSTRAINT `tickets_ibfk_1` FOREIGN KEY (`id_match`) REFERENCES `matches` (`id_match`),
   ADD CONSTRAINT `tickets_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`);
 
 --
--- Constraints for table `users`
+-- Contraintes pour la table `users`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `roles` (`id_role`);
