@@ -51,7 +51,7 @@
                                         <h5 class="mb-0" >All Teams</h5>
                                     </div>
                                     <div class="justify-content-end">
-                                        <a class="btn rounded-pill btn-success px-lg-3" onclick="createModuleTeams()">
+                                        <a class="btn rounded-pill btn-success px-lg-3" onclick="createTeam()">
                                             <i class="fas fa-plus mr-2"></i>
                                             <b>Add Team</b>
                                         </a>
@@ -65,20 +65,17 @@
                                             <table class="table table-hover table-striped overflow-hidden">
                                                 <thead>
                                                     <tr>
-                                                        
+                                                        <th scope="col">Id</th>
                                                         <th scope="col">Picture</th>
-                                                       
-                                                        <th scope="col">title</th>
                                                         <th scope="col">nationality</th>
                                                         <th scope="col">groupe</th>
-                                                        
-                                                        
                                                         <th class="text-end" scope="col"></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <?php foreach($AllTeams AS $team){ ?>
                                                         <tr class="align-middle">
+                                                            <td class="text-nowrap"><?=$team['id_team']; ?></td>
                                                             <td class="text-nowrap">
                                                                 <div class="d-flex align-items-center">
                                                                     <div class="avatar avatar-xl">
@@ -87,13 +84,12 @@
                                                                     </div>
                                                                 </div>
                                                             </td>
-                                                            <td class="text-nowrap"><?=$team['id_team']; ?></td>
-                                                            <td class="text-nowrap"><?=$team['nationality']; ?></td>
-                                                            <td class="text-nowrap"><?=$team['groupe']; ?></td>
+                                                            <td id="TeamNationality<?= $team['id_team']; ?>" class="text-nowrap"><?=$team['nationality']; ?></td>
+                                                            <td id="TeamGroupe<?= $team['id_team']; ?>" class="text-nowrap"><?=$team['groupe']; ?></td>
                                                             
                                                             
                                                             <td class="text-end">
-                                                                <a href="editTeam.php?id=<?= $team['id_team'];?>" onclick="/* GetMatch('<?= $team['id_team']; ?>','<?php //$match['idCategory']; ?>') */" class="btn btn-sm btn-warning">Edit</a>
+                                                                <a onclick="GetTeam('<?= $team['id_team']; ?>')" class="btn btn-sm btn-warning">Edit</a>
                                                                 <a href="teams.php?idd=<?= $team['id_team'];?>" onclick="/* DeleteMatch('<?= $team['id_team']; ?>') */" class="btn btn-sm btn-danger">Delete</a>
                                                             </td>
                                                         </tr>
@@ -131,7 +127,7 @@
                 <div class="modal-content background ">
                     <div class="modal-header">
                         <h5 class="" id="exampleModalLabel">Add Team</h5>
-                        <button type="button" class="px-1 p-0 m-0" data-bs-dismiss="modal" aria-label="Close">x</button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body pt-0 pb-1">
                         <form id="form" method="POST"  enctype="multipart/form-data">
@@ -152,17 +148,9 @@
                             </div>
                             <div class="mb-0">
                             <label class="form-label">Groupe</label>
-                            <input type="text" class="form-control" id="equipe_groupe" name="groupe"/>
+                            <input type="text" class="form-control" id="GroupeInput" name="groupe"/>
                             <div id="ValidatePicture" class="text-success"></div>
                         </div> 
-                           
-                           
-                            
-                            
-                            
-                           
-                           
-                            
                             <div class="modal-footer">
                                 <button type="reset" class="btn btn-outline-light text-black" data-bs-dismiss="modal">Cancel</button>
                                 <button id="saveTeams" type="submit" name="addTeamForm" class="btn btn-primary">Save</button>

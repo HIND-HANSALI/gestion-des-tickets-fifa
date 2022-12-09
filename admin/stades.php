@@ -36,7 +36,7 @@
                                         <h5 class="mb-0" >All Stades</h5>
                                     </div>
                                     <div class="justify-content-end">
-                                        <a class="btn rounded-pill btn-success px-lg-3" onclick="createModal()">
+                                        <a class="btn rounded-pill btn-success px-lg-3" onclick="createStade()">
                                             <i class="fas fa-plus mr-2"></i>
                                             <b>Add Stade</b>
                                         </a>
@@ -109,7 +109,7 @@
                 <div class="modal-content background ">
                     <div class="modal-header">
                         <h5 class="" id="exampleModalLabel">Add Stade</h5>
-                        <button type="button" class="px-1 p-0 m-0" data-bs-dismiss="modal" aria-label="Close">x</button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body pt-0 pb-1">
                         <form id="form" method="POST" enctype="multipart/form-data">

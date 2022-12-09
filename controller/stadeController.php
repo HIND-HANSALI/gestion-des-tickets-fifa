@@ -20,8 +20,6 @@ class StadeController extends Stades{
     {
      if (isset($_FILES["picture"]["name"])) //name de image 
     {
-    
-        global $conn;
 
         $img_name = $_FILES['picture']['name'];
         $img_size = $_FILES['picture']['size'];
@@ -74,7 +72,7 @@ class StadeController extends Stades{
             if(isset($_REQUEST['addstadeForm'])){
                 
                 extract($_POST);
-                $filename =$this->uploadimage();
+                $filename =$this-> uploadimage();
                 $result = $this -> addStadeDB($name, $location, $capacity, $filename);
                 
                 if($result == 1){
@@ -82,7 +80,7 @@ class StadeController extends Stades{
                     $_SESSION['icon'] = "success";
                     $_SESSION['message'] = "Stade ajouté avec succès";
 
-                    header('Location: ../admin/stades.php');
+                    header('Location:'. $_SERVER['PHP_SELF']);
                     die;
                 }
             }

@@ -1,3 +1,5 @@
+// Matches
+
 function createModule() {
     // initialiser Match form
     document.getElementById('form').reset();
@@ -87,19 +89,34 @@ function deleteMatch(id) {
         }
     });
 }
-function createModuleTeams(){
-        // initialiser Match form
-        document.getElementById('form').reset();
 
-        // Afficher le boutton save
-        document.getElementById('saveTeams').style.display = 'block';
-        document.getElementById('editTeams').style.display = 'none';
-        // Ouvrir modal form
+// Teams
+
+function createTeam() {
+    // initialiser Match form
+    document.getElementById('form').reset();
+
+    // Afficher le boutton save
+    document.getElementById('saveTeams').style.display = 'block';
+    document.getElementById('editTeams').style.display = 'none';
+    // Ouvrir modal form
     $('#teamModal').modal('show');
-    
+}
+function GetTeam(id) {
+    // Afficher le boutton edit
+    document.getElementById('saveTeams').style.display = 'none';
+    document.getElementById('editTeams').style.display = 'block';
+    // Ouvrir modal form
+    $('#teamModal').modal('show');
+    // getting the team data from the dom and setting it to the input fields
+    document.getElementById('NationalityInput').value = document.querySelector(`#TeamNationality${id}`).innerText;
+    document.getElementById('GroupeInput').value = document.querySelector(`#TeamGroupe${id}`).innerText;
+    // setting the id of the team to the hidden input field
+    document.getElementById('IdInput').value = id;
 }
 
-function createModal() {
+// Stades
+function createStade() {
     // initialiser Match form
     document.getElementById('form').reset();
 
