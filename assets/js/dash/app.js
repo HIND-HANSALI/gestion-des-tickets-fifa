@@ -122,7 +122,7 @@ function DeleteTeam(id) {
     Swal.fire({
         background: '#1e1e2d',
         color: '#F0F6FC',
-        title: 'Are you sure you want to delete this match?',
+        title: 'Are you sure you want to delete this team?',
         text: "You won't be able to revert this!",
         icon: 'warning',
         showCancelButton: true,
@@ -132,7 +132,7 @@ function DeleteTeam(id) {
     }).then((result) => {
         // after confirmation is succesfull
         if (result.isConfirmed) {
-            Swal.fire({ background: '#1e1e2d', color: '#F0F6FC', title: 'Deleted!', text: 'Your match has been deleted successfully. ', icon: 'error' });
+            Swal.fire({ background: '#1e1e2d', color: '#F0F6FC', title: 'Deleted!', text: 'Your team has been deleted successfully. ', icon: 'error' });
             // using ajax to send data without refresh
             $.ajax({
                 url: 'teams.php',
@@ -183,7 +183,7 @@ function DeleteStade(id) {
     Swal.fire({
         background: '#1e1e2d',
         color: '#F0F6FC',
-        title: 'Are you sure you want to delete this match?',
+        title: 'Are you sure you want to delete this stade?',
         text: "You won't be able to revert this!",
         icon: 'warning',
         showCancelButton: true,
@@ -193,7 +193,7 @@ function DeleteStade(id) {
     }).then((result) => {
         // after confirmation is succesfull
         if (result.isConfirmed) {
-            Swal.fire({ background: '#1e1e2d', color: '#F0F6FC', title: 'Deleted!', text: 'Your match has been deleted successfully. ', icon: 'error' });
+            Swal.fire({ background: '#1e1e2d', color: '#F0F6FC', title: 'Deleted!', text: 'Your stade has been deleted successfully. ', icon: 'error' });
             // using ajax to send data without refresh
             $.ajax({
                 url: 'stades.php',
