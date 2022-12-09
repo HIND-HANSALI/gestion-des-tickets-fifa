@@ -72,6 +72,15 @@ class TeamController extends Teams{
         
           }
     }
+    public function searchTeam(){
+            $search=$_POST['search'];
+            // print_r($search);die;
+            $result=$this->searchTeamDB($search);
+            
+            return $result ;
+
+        
+    }
     function uploadimage()
     {
      if (isset($_FILES['my_image'])) //name de image 

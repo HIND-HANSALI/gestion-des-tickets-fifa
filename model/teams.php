@@ -46,6 +46,16 @@ class Teams extends Connection{
         $stmt->execute([$id]);
         return 1;
     }
+    function searchTeamDB($search){
+        $sql="SELECT * FROM teams WHERE nationality like '%$search%'";
+        $result = $this->connect()->prepare($sql);
+        // $result->setFetchMode(PDO::FETCH_ASSOC);
+        $result->execute();
+        $equipe = $result->fetchAll();
+    
+        // $_SESSION["search"] = "search";
+        return $equipe;
+     } 
 
 
     
