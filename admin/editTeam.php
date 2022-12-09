@@ -54,7 +54,7 @@ $TeamController ->updateTeam();
                            
                             
                             <div class="modal-footer">
-                                <button type="reset" class="btn btn-outline-light text-black" data-bs-dismiss="modal">Cancel</button>
+                                <button type="reset" class="btn btn-outline-light text-black" href="teams.php">Cancel</button>
                                  <button id="updateMatch" type="submit" name="updateTeamForm" class="btn btn-warning text-black">Update</button>
                                 
                             </div>
