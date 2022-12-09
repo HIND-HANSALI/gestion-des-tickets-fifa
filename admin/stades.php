@@ -1,6 +1,6 @@
 <?php
     // Page Title
-    $path = 'stades';
+    $path = 'Stades';
 
     // Requiring Controllers 
     require_once('../controller/stadeController.php');
