@@ -149,6 +149,7 @@ function DeleteTeam(id) {
 }
 
 // Stades
+
 function createStade() {
     // initialiser Match form
     document.getElementById('form').reset();
@@ -160,4 +161,50 @@ function createStade() {
 
     // Ouvrir modal form
     $('#stadeModal').modal('show');
+}
+
+function GetStade(id) {
+    /* // Afficher le boutton edit
+    document.getElementById('savestade').style.display = 'none';
+    document.getElementById('editstade').style.display = 'block';
+    // Ouvrir modal form
+    $('#stadeModal').modal('show');
+    // getting the team data from the dom and setting it to the input fields
+    document.getElementById('NameInput').value = document.querySelector(`#StadeName${id}`).innerText;
+    document.getElementById('CityInput').value = document.querySelector(`#StadeCity${id}`).innerText;
+    document.getElementById('CapacityInput').value = document.querySelector(`#StadeCapacity${id}`).innerText;
+    // setting the id of the team to the hidden input field
+    document.getElementById('IdInput').value = id; */
+}
+
+function DeleteStade(id) {
+    // Delete action confirmation using SweetAlert2 combined with Ajax
+    // SweetAlert2 pop up
+    Swal.fire({
+        background: '#1e1e2d',
+        color: '#F0F6FC',
+        title: 'Are you sure you want to delete this match?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!',
+    }).then((result) => {
+        // after confirmation is succesfull
+        if (result.isConfirmed) {
+            Swal.fire({ background: '#1e1e2d', color: '#F0F6FC', title: 'Deleted!', text: 'Your match has been deleted successfully. ', icon: 'error' });
+            // using ajax to send data without refresh
+            $.ajax({
+                url: 'stades.php',
+                method: 'POST',
+                data: { DeleteStade: id },
+                dataType: 'html',
+                success: function () {
+                    // removing element from dom
+                    document.querySelector(`#Stade${id}`).remove();
+                },
+            });
+        }
+    });
 }

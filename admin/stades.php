@@ -11,6 +11,7 @@
     // Read methods
     $AllStades = $StadeController -> getStades();
     $StadeController -> addStade();
+    $StadeController -> deleteStade();
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +60,7 @@
                                                 </thead>
                                                 <tbody>
                                                     <?php foreach($AllStades As $stade){ ?>
-                                                        <tr class="align-middle">
+                                                        <tr class="align-middle" id="Stade<?= $stade['id_stade']; ?>">
                                                             <td class="text-nowrap">
                                                                 <div class="d-flex align-items-center">
                                                                     <div class="avatar avatar-xl">
@@ -72,7 +73,7 @@
                                                             <td class="text-nowrap"><?=$stade['capacity']; ?></td>
                                                             <td class="text-end">
                                                                 <a href="#" onclick="/* Getstade('<?= $stade['id_stade']; ?>') */" class="btn btn-sm btn-warning">Edit</a>
-                                                                <a href="#" onclick="/* Deletestade('<?= $stade['id_stade']; ?>') */" class="btn btn-sm btn-danger">Delete</a>
+                                                                <a href="#" onclick="DeleteStade('<?= $stade['id_stade']; ?>') " class="btn btn-sm btn-danger">Delete</a>
                                                             </td>
                                                         </tr>
                                                     <?php } ?>
