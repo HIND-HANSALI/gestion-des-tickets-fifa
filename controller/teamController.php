@@ -37,16 +37,16 @@ class TeamController extends Teams{
             // print_r($_POST);
             // print_r($picture);
             $result=$this->addTeamDB($nationality, $groupe,$picture);
-            header('Location: ../admin/teams.php');
+            /* header('Location: ../admin/teams.php');
+                die; */
+            if($result == 1){
+
+                $_SESSION['icon'] = "success";
+                $_SESSION['message'] = "Team added successfully";
+
+                header('Location: ../admin/teams.php');
                 die;
-            // if($result == 1){
-
-            //     $_SESSION['icon'] = "success";
-            //     $_SESSION['message'] = "Team added successfully";
-
-            //     header('Location: ../admin/teams.php');
-            //     die;
-            // }
+            }
 
         }
     }

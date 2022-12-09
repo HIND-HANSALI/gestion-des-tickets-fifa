@@ -49,6 +49,7 @@ class StadeController extends Stades{
                             $img_upload_path =  dirname(__DIR__).'/assets/img/uploads/'.$new_img_name;
                             move_uploaded_file($tmp_name, $img_upload_path);//temporer vers  folder
 
+
                         }
                         else {
                             $_SESSION['Error'] = "You can't upload files of this type";
@@ -79,7 +80,7 @@ class StadeController extends Stades{
                 if($result == 1){
 
                     $_SESSION['icon'] = "success";
-                    $_SESSION['message'] = "Stades added successfully";
+                    $_SESSION['message'] = "Stade ajouté avec succès";
 
                     header('Location: ../admin/stades.php');
                     die;
