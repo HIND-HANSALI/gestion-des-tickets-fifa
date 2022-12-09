@@ -21,6 +21,7 @@
     $AllStatus = $StatusController -> getStatus();
 
     $TeamController -> addTeam();
+    $TeamController -> deleteTeam();
 
     // print_r($_REQUEST);
     // die;
@@ -92,8 +93,8 @@
                                                             
                                                             
                                                             <td class="text-end">
-                                                                <a href="editTeam.php?id=<?= $team['id_team'];?>" onclick="/* GetMatch('<?= $match['id_match']; ?>','<?php //$match['idCategory']; ?>') */" class="btn btn-sm btn-warning">Edit</a>
-                                                                <a href="crudhind.php?idde='.$equipe['id'].'" onclick="/* DeleteMatch('<?= $match['id_match']; ?>') */" class="btn btn-sm btn-danger">Delete</a>
+                                                                <a href="editTeam.php?id=<?= $team['id_team'];?>" onclick="/* GetMatch('<?= $team['id_team']; ?>','<?php //$match['idCategory']; ?>') */" class="btn btn-sm btn-warning">Edit</a>
+                                                                <a href="teams.php?idd=<?= $team['id_team'];?>" onclick="/* DeleteMatch('<?= $team['id_team']; ?>') */" class="btn btn-sm btn-danger">Delete</a>
                                                             </td>
                                                         </tr>
                                                     <?php } ?>

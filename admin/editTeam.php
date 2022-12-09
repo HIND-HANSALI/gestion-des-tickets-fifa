@@ -2,8 +2,10 @@
 $path='Update Team';
 require_once('../controller/teamController.php');
 $TeamController = new TeamController();
-$result=$TeamController -> getOneTeam();
-// print_r($result['nationality']);
+$result=$TeamController ->getOneTeam();
+$TeamController ->updateTeam();
+// print_r($result);
+// die;
 
 
 ?>
@@ -22,7 +24,7 @@ $result=$TeamController -> getOneTeam();
                     </div>
                     <div class="modal-body pt-0 pb-1">
                         <form id="form" method="POST"  enctype="multipart/form-data">
-                        <img class="rounded-circle" src="../assets/img/uploads/<?= $result['picture']?>" alt="" /> 
+                        <img class="rounded-circle" src="../assets/img/uploads/<?= $result['picture']?>" style="width: 100px;"  alt="" /> 
                         <div class="mb-0">
                                 <label class="col-form-label">Picture</label>
                                 <input id="PictureInput" class="dropify" data-max-file-size-preview="10M" data-height="100" type="file"  name="my_image"/>
@@ -35,12 +37,12 @@ $result=$TeamController -> getOneTeam();
                         </div>   -->
                             <div class="mb-0">
                                 <label class="col-form-label">Nationality</label>
-                                <input type="text" class="form-control" value=<?=$result['nationality']?> id="NationalityInput" name="nationality" />
+                                <input type="text" class="form-control" value="<?= $result['nationality']?>" id="NationalityInput" name="nationality" />
                                 <div id="ValidateNationality"></div>
                             </div>
                             <div class="mb-0">
                             <label class="form-label">Groupe</label>
-                            <input type="text" class="form-control" id="equipe_groupe" name="groupe"/>
+                            <input type="text" class="form-control" value="<?= $result['groupe']?>"  id="equipe_groupe" name="groupe"/>
                             <div id="ValidatePicture" class="text-success"></div>
                         </div> 
                            

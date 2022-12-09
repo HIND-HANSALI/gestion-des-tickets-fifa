@@ -9,9 +9,9 @@ class TeamController extends Teams{
         return $result;
     }
     public function getOneTeam(){
-        if(isset($_GET['id_team'])){
+        if(isset($_GET['id'])){
             // $equipe=new Equipe();
-            $result = $this->getOneTeamDB($_GET['id_team']);
+            $result = $this->getOneTeamDB($_GET['id']);
             return $result;
             // if($result){
                 
@@ -37,35 +37,38 @@ class TeamController extends Teams{
             // print_r($_POST);
             // print_r($picture);
             $result=$this->addTeamDB($nationality, $groupe,$picture);
-            print_r($result);
-            die;
-            if($result == 1){
-
-                $_SESSION['icon'] = "success";
-                $_SESSION['message'] = "Team added successfully";
-
-                header('Location: ../admin/teams.php');
+            header('Location: ../admin/teams.php');
                 die;
-            }
+            // if($result == 1){
+
+            //     $_SESSION['icon'] = "success";
+            //     $_SESSION['message'] = "Team added successfully";
+
+            //     header('Location: ../admin/teams.php');
+            //     die;
+            // }
 
         }
     }
     }
     public function updateTeam(){
-        if(isset($_POST['updateTeamForm'])){
-            $equipe=new Equipe();
-            $image= $equipe->uploadimage();
-            extract($_POST);
-            $id= $_GET['id'];
-            $equipe->updateTeamDB($nom, $nationality, $groupe,$image,$id);
-          }
-
+       
+            if(isset($_POST['updateTeamForm'])){
+                $picture=$this->uploadimage();
+                extract($_POST);
+                $id= $_GET['id'];
+                $result=$this->updateTeamDB($nationality, $groupe,$picture,$id);
+                header('Location: ../admin/teams.php');
+                die;
+            }
+       
     }
     public function deleteTeam(){
-        if(isset($_GET['idde'])){
-            $equipe=new Equipe();
-            
-            $equipe->deleteTeamDB($_GET['idde']);
+        
+        if(isset($_GET['idd'])){
+            $result=$this->deleteTeamDB($_GET['idd']);
+            // print_r($result);
+            header('Location: ../admin/teams.php');
         
           }
     }
