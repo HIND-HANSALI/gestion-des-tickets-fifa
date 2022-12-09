@@ -16,18 +16,29 @@
 
     // Read methods
     $AllMatches = $MatchController -> getMatches();
-    $AllTeams = $TeamController -> getTeams();
+
+    
     $AllStades = $StadeController -> getStades();
     $AllStatus = $StatusController -> getStatus();
 
     $TeamController -> addTeam();
     $TeamController -> deleteTeam();
+    $AllTeams =[];
+    if(isset($_POST['searchbtn'])){
+        // echo"searching";
+        $AllTeams =$TeamController -> searchTeam();
+        // if($AllTeams==NULL)
+        // $AllTeams=[];
+    }else{
+        // echo "not searching";
+        $AllTeams = $TeamController -> getTeams();
 
+    }
+    
     // print_r($_REQUEST);
     // die;
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en-US" class="dark">
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
