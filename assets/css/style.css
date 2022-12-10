@@ -50,16 +50,20 @@
 
 
 /* ______________YS______________ */
+
+/* ===================================== Landing_page ===================================== */
+
+/* ________________________________ Start_navbar ________________________________ */
 nav{
     width: 100%;
     background-color: #8A1538;
 }
 
-.logoo img{
+.navbar .nav-logo img{
     width: 10%;
 }
 
-ul{
+.navbar ul{
     list-style: none;
     display: flex;
     justify-content: space-between;
@@ -67,31 +71,107 @@ ul{
     padding-top: 0.75rem;
 }
 
-ul li a{
+.navbar ul li a{
     text-decoration: none;
     color: black;
 }
 
-.authentification{
+.navbar .authentification{
     gap: 0.5rem;
 }
 
-.authentification button{
+.navbar .authentification button{
     background-color: #aa3a5b;
     border: 1px white solid;
     color: white;
 }
 
+.profile{
+    gap: 1rem;
+    margin-right: 1rem;
+    text-align: right;
+}
+
+.profile .profile-photo{
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile .profile-photo img{
+    display: block;
+    width:100%;
+}
+
+.profile .info h5{
+    color: white;
+}
+
+.icon-men{
+    cursor: pointer;
+}
+
+.icon-men i{
+    font-size: 1.5rem;
+    color: #f6f6f6;
+}
+
+.links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #f6f6f6;
+    position: absolute;
+    right: 22px;
+    min-width: 171px;
+    top: 4rem;
+    text-align: center;
+    display: none;
+    font-weight: 700;
+    z-index: 1;
+}
+
+.links ul::before {
+    content: "";
+    border-width: 13px;
+    border-style: solid;
+    border-color: transparent transparent #f6f6f6 transparent;
+    position: absolute;
+    right: 0px;
+    top: -26px;
+}
+
+.links:hover ul {
+    display: block;
+}
+
+.links ul li a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: #333;
+    transition: 0.5s;
+}
+
+.links ul li a:hover {
+    padding-left: 25px;
+}
+
+.links ul li:not(:last-child) a {
+    border-bottom: 1px solid #ddd;
+}
+/* ________________________________ End_navbar ________________________________ */
+
+/* ________________________________ Start_header ________________________________ */
 .header-background{
     width: 100vw;
     height: 60vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.26),rgba(0, 0, 0, 0.26)),url(../img/Qatar-2022-s-32-teams-graphic.webp);
-    background-position: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.26), rgba(0, 0, 0, 0.26)), url(../img/Qatar-2022-s-32-teams-graphic.webp), no-repeat, center;
     background-size: cover;
-    background-repeat: no-repeat;
 }
 
-.header-description{
+.header-background .header-description{
     width: 100%;
     height: 95%;
     display: flex;
@@ -99,33 +179,55 @@ ul li a{
     padding-top: 5rem;
 }
 
-.header-description h1{
+.header-background .header-description h1{
     color: white;
     font-weight: bolder;
     font-size: 3.5rem;
 }
 
-.all{
-    width: 92%;
-    margin: 0 auto;
+@media (max-width: 994px){
+    .header-background .header-description h1{
+        font-size: 2.5rem;
+    }
 }
 
-.all a{
-    color: #8A1538;
+@media (max-width: 734px){
+    .header-background .header-description h1{
+        font-size: 1.5rem;
+    }
+
 }
 
+@media (max-width: 447px){
+    .header-background .header-description h1{
+        font-size: 1.3rem;
+    }
+}
+
+/* ________________________________ End_header ________________________________ */
+
+/* ________________________________ Start_Carts ________________________________ */
 .projects {
     margin-top: 4rem;
 }
 
-.content {
+.projects .all{
+    width: 92%;
+    margin: 0 auto;
+}
+
+.projects .all a{
+    color: #8A1538;
+}
+
+.projects .content {
     display: flex;
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.project-card {
+.projects .content .project-card {
     background-color: #fff;
     border: 1px solid #fff;
     min-height: 14em;
@@ -137,20 +239,20 @@ ul li a{
     transition: 0.7s ease;
 }
 
-.project-image{
+.projects .content .project-card .project-image{
     transition: 0.7s ease;
 }
 
-.project-card:hover .project-image {
+.projects .content .project-card:hover .project-image {
     transform: scale(1.1);
     opacity: 0.9;
 }
 
-.project-image img {
+.projects .content .project-card .project-image img {
     width: 100%
 }
 
-.project-info {
+.projects .content .project-card .project-info {
     padding: 1em;
     display: flex;
     justify-content: space-around;
@@ -158,6 +260,14 @@ ul li a{
     text-transform: uppercase;
     margin-top: 10px;
 }
+
+.projects .content .project-card .project-detais{
+    margin-left: 1rem;
+}
+
+/* ________________________________ End_Carts ________________________________ */
+
+/* ________________________________ Start_img_grp ________________________________ */
 
 .Group {
     width: 92%;
@@ -169,23 +279,18 @@ ul li a{
     width: 100%;
 }
 
-.project-detais{
-    margin-left: 1rem;
-}
+/* ________________________________ End_img_grp ________________________________ */
 
-
+/* ________________________________ Start_footer ________________________________ */
 footer{
     background-color:#8A1538;
-}
-
-footer{
     margin-top: 3rem;
     padding: 2rem;
     color: white;
     font-size: 12px;
 }
 
-.icon{
+footer .icon{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -193,24 +298,285 @@ footer{
     font-size: 1.5rem;
 }
 
+/* ________________________________ End_footer ________________________________ */
 
-@media (max-width: 994px){
-    .header-description h1{
-        font-size: 2.5rem;
+/* ===================================== authentification ===================================== */
+
+.all-authotification{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #8A1538;
+    font-family: 'Poppins', sans-serif;
+}
+
+.all-authotification .container{
+    height: 100vh;
+    width: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.all-authotification .background-img{
+    width: 45%;
+    height: 100%;
+}
+
+.all-authotification .background-img img{
+    width: 100%;
+    height: 100%;
+}
+
+.all-authotification .container .form{
+    width: 600px;
+    padding: 30px;
+}
+
+.all-authotification .container .form .title{
+    position: relative;
+    font-size: 27px;
+    font-weight: 600;
+    color: #FAFAFB;
+}
+
+.all-authotification .container .form form .input-field{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.all-authotification .container .form form .input-field input{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0 35px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    border-bottom: 2px solid #ccc;
+    border-top: 2px solid transparent;
+    transition: all 0.2s ease;
+    background-color: transparent;
+    color: white;
+}
+
+.all-authotification .container .form form .input-field input:is(:focus, :valid){
+    border-bottom-color: rgba(231, 233, 232, 0.8);
+}
+
+.all-authotification .container .form form .input-field i{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 23px;
+    transition: all 0.2s ease;
+}
+
+.all-authotification .container .form form .input-field input:is(:focus, :valid) ~ i{
+    color: rgba(231, 233, 232, 0.8);
+}
+
+.all-authotification .container .form form .input-field i.icon{
+    left: 0;
+}
+.all-authotification .container .form form .input-field i.showHidePw{
+    right: 0;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.all-authotification .container .form form .checkbox-text{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.all-authotification .container .form form .checkbox-text .checkbox-content{
+    display: flex;
+    align-items: center;
+}
+
+.all-authotification .container .form form .checkbox-text .checkbox-content input{
+    margin: 0 8px -2px 4px;
+    accent-color: rgba(231, 233, 232, 0.8);
+}
+
+::placeholder {
+    color: rgba(231, 233, 232, 0.8);;
+    opacity: 1;
+}
+
+.all-authotification .container .form .text{
+    color: #AEB0BF;
+    font-size: 14px;
+}
+
+.all-authotification .container .form a.text{
+    color: rgba(231, 233, 232, 0.8);
+    text-decoration: none;
+}
+
+.all-authotification .container .form a:hover{
+    text-decoration: underline;
+}
+
+.all-authotification .container .form button{
+    width: 100%;
+    height: 100%;
+    border: 1px solid white;
+    color: #FAFAFB;
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 6px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.all-authotification .container .form button:hover{
+    background-color: rgba(231, 233, 232, 0.8);
+    color: #8A1538;
+}
+
+.all-authotification .container .form .login-signup{
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* ================================Error message========================= */
+
+.Error{
+    color: #f3aea9;
+    font-size: 14px;
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.errorEmail{
+    display: none;
+}
+.errorPassword{
+    display: none;
+}
+.errorName {
+    display: none;
+}
+.errorRPassword{
+    display: none;
+}
+
+.validation-input-signin{
+    background-color: #f3aea9;
+    display: none;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    margin: 1rem 0;
+    border-radius: 10px;
+}
+
+.validation-input-signin i{
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    font-size: 1.5rem;
+    color: #ab0d02;
+}
+
+.validation-input-signin h4{
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+}
+
+.validation-input-signup{
+    background-color: #f3aea9;
+    display: none;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    margin: 1rem 0;
+    border-radius: 10px;
+}
+
+.validation-input-signup i{
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    font-size: 1.5rem;
+    color: #ab0d02;
+}
+
+.validation-input-signup h4{
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+}
+
+.message-content{
+    font-size: .875rem;
+    line-height: 1.5rem;
+}
+
+@media (max-width: 768px){
+    .all-authotification .background-img img{
+        display: none;
+    }
+
+    .all-authotification .container{
+        height: 100vh;
+        width: 100%;
+    }
+
+    .all-authotification .background-img{
+        width: 0;
+    }
+
+    .all-authotification .container .form{
+        width: 100%;
     }
 }
 
-@media (max-width: 734px){
-    .header-description h1{
-        font-size: 1.5rem;
-    }
+/* ===================================== Edit Product ===================================== */
+
+.updateprofile{
+    width: 80%;
+    margin: 2rem auto;
+}
+
+.tableau-Match{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.tableau-Match .headProfile{
+    margin-bottom: 2rem;
+}
+
+.tableau-Match table{
+    width: 100%;
+    padding: 1.8rem;
+    text-align: center;
+    transition: all 300ms ease;
+}
+
+.tableau-Match table tr{
+    background-color: #fff;
+    height: 3rem;
 
 }
 
-@media (max-width: 447px){
-    .header-description h1{
-        font-size: 1.3rem;
-    }
+.tableau-Match table tbody td{
+    height: 2.8rem;
+    border-bottom: 1px solid rgba(132, 139,200,  0.18);
+    color: #677483;
+}
+
+.tableau-Match table tbody tr:last-child td{
+    border: none ;
 }
 
 /* ______________HH______________ */
