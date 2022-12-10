@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg px-6">
+<nav class="navbar navbar-expand-lg px-6 " id="navPrint">
     <div class="container-fluid nav-logo">
         <img src="../assets/img/World-Cup-logo-landscape-on-dark.webp" alt="">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">

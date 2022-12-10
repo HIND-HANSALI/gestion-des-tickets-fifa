@@ -40,7 +40,7 @@
                       <div class="card-body">
                         <h5 class="card-title">Tickets starting at</h5>
                         <p class="card-text">$.250</p>
-                        <a href="#" class="btn ">Reserve your e-tickets</a>
+                        <a href="resrvation.php" class="btn ">Reserve your e-tickets</a>
                       </div>
                     </div>
     

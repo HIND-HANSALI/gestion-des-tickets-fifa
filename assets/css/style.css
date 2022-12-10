@@ -608,5 +608,50 @@ footer .icon{
     color: white;
     transition: .5s ease-in-out;
 }
+/* style for page reservation */
+@media print {
+    .ticket{
+        border: solid 2px #bdc4bf ;
+    }
+    .print{
+        display:none !important;
+    }
+    #navPrint{
+        display: none !important;
+    }
+    #footerPrint{
+        display: none !important;
+    }
+}
+.custom-shape-divider-top-1670673240 {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1670673240 svg {
+    position: relative;
+    display: block;
+    width: calc(155% + 1.3px);
+    height: 220px;
+}
+
+.custom-shape-divider-top-1670673240 .shape-fill {
+    fill: #9a1032;
+}
+.logo-cupworld{
+    width: 10rem;
+    height: auto;
+    margin-top: -8rem;
+    z-index: 2;
+    margin-right: 3rem;
+
+}
+.ticket{
+    border: solid 2px #9a1032 ;
+}
 
 
