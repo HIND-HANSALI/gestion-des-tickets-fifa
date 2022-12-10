@@ -45,16 +45,8 @@ $TeamController ->updateTeam();
                             <input type="text" class="form-control" value="<?= $result['groupe']?>"  id="equipe_groupe" name="groupe"/>
                             <div id="ValidatePicture" class="text-success"></div>
                         </div> 
-                           
-                           
-                            
-                            
-                            
-                           
-                           
-                            
                             <div class="modal-footer">
-                                <button type="reset" class="btn btn-outline-light text-black" href="teams.php">Cancel</button>
+                                <button  class="btn btn-outline-light text-black" href="teams.php">Cancel</button>
                                  <button id="updateMatch" type="submit" name="updateTeamForm" class="btn btn-warning text-black">Update</button>
                                 
                             </div>

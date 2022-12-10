@@ -22,6 +22,16 @@ class Teams extends Connection{
         $result = $stmt->fetch();
         return $result;
     }
+
+    protected function getFourTeamsDB(){
+        $sql = "SELECT * FROM teams ORDER BY id_team DESC LIMIT 4";
+        $stmt = $this ->connect()->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
+
     // create equipe
     protected function addTeamDB($nationality,$groupe,$picture){
 
@@ -46,6 +56,16 @@ class Teams extends Connection{
         $stmt->execute([$id]);
         return 1;
     }
+    function searchTeamDB($search){
+        $sql="SELECT * FROM teams WHERE nationality like '%$search%'";
+        $result = $this->connect()->prepare($sql);
+        // $result->setFetchMode(PDO::FETCH_ASSOC);
+        $result->execute();
+        $equipe = $result->fetchAll();
+    
+        // $_SESSION["search"] = "search";
+        return $equipe;
+     } 
 
 
     

@@ -66,6 +66,7 @@
                                             <table class="table table-hover table-striped overflow-hidden">
                                                 <thead>
                                                     <tr>
+                                                        <th scope="col">ID</th>
                                                         <th scope="col">Picture</th>
                                                         <th scope="col">Team 1</th>
                                                         <th scope="col">Team 2</th>
@@ -73,14 +74,16 @@
                                                         <th scope="col">Date & Time</th>
                                                         <th class="text-center" scope="col">Status</th>
                                                         <th class="text-end" scope="col">Price USD($)</th>
+                                                        <th class="text-end" scope="col">Capacity</th>
                                                         <th class="text-end" scope="col">Description</th>
                                                         <th class="text-end" scope="col"></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <?php foreach($AllMatches AS $match){ ?>
+
                                                         <tr class="align-middle" id="Match<?=$match['id_match']; ?>">
-                                                            
+                                                            <td class="text-nowrap"><?=$match['id_match']; ?></td>
                                                             <td class="text-center">
                                                                 <div class="d-flex align-items-center">
                                                                     <div class="avatar avatar-xxl">
@@ -102,6 +105,7 @@
                                                                 <span class="badge badge rounded-pill d-block p-2 badge-soft-<?= $match['status'] == "Soon" ? "secondary" :( $match['status'] == "In Progress" ? "info": "success" ); ?>" id="MatchStatus<?=$match['id_match']; ?>"><?= $match['status'];?></span>
                                                             </td>
                                                             <td class="text-end" id="MatchPrice<?=$match['id_match']; ?>" ><?=$match['price']; ?></td>
+                                                            <td class="text-end" id="MatchCapacity<?=$match['id_match']; ?>" ><?=$match['capacity']; ?></td>
                                                             <td class="text-truncate mb-1"><div style="max-width: 5rem;" id="MatchDescription<?=$match['id_match']; ?>" ><?=$match['description']; ?></div></td>
                                                             <td class="text-center" scope="col">
                                                                 <a href="#" onclick=" getMatch('<?= $match['id_match']; ?>','<?= $match['id_team1']; ?>','<?= $match['id_team2']; ?>','<?= $match['id_stade']; ?>') " class="btn btn-sm btn-warning">Edit</a>
@@ -201,6 +205,11 @@
                             <div class="mb-0">
                                 <label class="col-form-label">Price $(USD)</label>
                                 <input type="number" step=0.01 class="form-control" id="PriceInput" name="price" /> 
+                                <div id="ValidatePrice"></div>
+                            </div>
+                            <div class="mb-0">
+                                <label class="col-form-label">Capacity</label>
+                                <input type="number" step=0.01 class="form-control" id="CapacityInput" name="capacity" /> 
                                 <div id="ValidatePrice"></div>
                             </div>
                             <div class="mb-0">

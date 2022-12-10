@@ -16,32 +16,28 @@ class StadeController extends Stades{
         }
     }
 
-    function uploadimage()
-    {
-     if (isset($_FILES["picture"]["name"])) //name de image 
-    {
-    
-        global $conn;
 
-        $img_name = $_FILES['picture']['name'];
-        $img_size = $_FILES['picture']['size'];
-        $tmp_name = $_FILES['picture']['tmp_name'];// temporer folder
-        $error = $_FILES['picture']['error'];
+    function uploadimage(){
+        if (isset($_FILES["picture"]["name"])) //name de image 
+        {
 
-            if ($error === 0)
-            {
-             
-                if ($img_size > 3000000) 
+            $img_name = $_FILES['picture']['name'];
+            $img_size = $_FILES['picture']['size'];
+            $tmp_name = $_FILES['picture']['tmp_name'];// temporer folder
+            $error = $_FILES['picture']['error'];
+
+                if ($error === 0)
                 {
-                    $_SESSION['Error'] = "Sorry, your file is too large.";
-                    //  header('location: .././pages/home.php');
-                }
-                else
-                {
-                    $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);// return extension of image
-                    $img_ex_lc = strtolower($img_ex);
+                
+                    if ($img_size > 3000000) 
+                    {
+                        $_SESSION['Error'] = "Sorry, your file is too large.";
+                        //  header('location: .././pages/home.php');
+                    }else{
+                        $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);// return extension of image
+                        $img_ex_lc = strtolower($img_ex);
 
-                    $allowed_exs = array("jpg", "jpeg", "png","jfif"); 
+                        $allowed_exs = array("jpg", "jpeg", "png","jfif"); 
 
                         if (in_array($img_ex_lc, $allowed_exs)) 
                         {
@@ -55,26 +51,24 @@ class StadeController extends Stades{
                             $_SESSION['Error'] = "You can't upload files of this type";
                             // header('location: .././pages/home.php'); 
                         }
-                }
-                }
-            else
-            {
+                    }
+                }else{
 
-                $_SESSION['Error'] = 'unknown error occurred!';
-                // header('location: .././pages/home.php'); 
-                
+                    $_SESSION['Error'] = 'unknown error occurred!';
+                    // header('location: .././pages/home.php'); 
+                    
+                }
             }
-    }
     
-    return $new_img_name;
-} 
+        return $new_img_name;
+    } 
 
     public function addStade(){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             if(isset($_REQUEST['addstadeForm'])){
                 
                 extract($_POST);
-                $filename =$this->uploadimage();
+                $filename =$this-> uploadimage();
                 $result = $this -> addStadeDB($name, $location, $capacity, $filename);
                 
                 if($result == 1){
@@ -82,12 +76,32 @@ class StadeController extends Stades{
                     $_SESSION['icon'] = "success";
                     $_SESSION['message'] = "Stade ajouté avec succès";
 
-                    header('Location: ../admin/stades.php');
+                    header('Location:'. $_SERVER['PHP_SELF']);
                     die;
                 }
             }
         }
     }
+
+
+    public function deleteStade(){
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            if(isset($_REQUEST['DeleteStade'])){
+                $id = $_REQUEST['DeleteStade'];
+                $result = $this -> deleteStadeDB($id);
+                if($result == 1){
+                    die;
+                }
+            }
+        }
+    }
+
+
+    public function FourStades(){
+        $result = $this -> getFourStadesDB();
+        return $result;
+    }   
+
 
 
     

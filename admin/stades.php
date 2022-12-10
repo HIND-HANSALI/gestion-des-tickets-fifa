@@ -1,6 +1,6 @@
 <?php
     // Page Title
-    $path = 'stades';
+    $path = 'Stades';
 
     // Requiring Controllers 
     require_once('../controller/stadeController.php');
@@ -11,6 +11,7 @@
     // Read methods
     $AllStades = $StadeController -> getStades();
     $StadeController -> addStade();
+    $StadeController -> deleteStade();
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +37,7 @@
                                         <h5 class="mb-0" >All Stades</h5>
                                     </div>
                                     <div class="justify-content-end">
-                                        <a class="btn rounded-pill btn-success px-lg-3" onclick="createModal()">
+                                        <a class="btn rounded-pill btn-success px-lg-3" onclick="createStade()">
                                             <i class="fas fa-plus mr-2"></i>
                                             <b>Add Stade</b>
                                         </a>
@@ -59,7 +60,7 @@
                                                 </thead>
                                                 <tbody>
                                                     <?php foreach($AllStades As $stade){ ?>
-                                                        <tr class="align-middle">
+                                                        <tr class="align-middle" id="Stade<?= $stade['id_stade']; ?>">
                                                             <td class="text-nowrap">
                                                                 <div class="d-flex align-items-center">
                                                                     <div class="avatar avatar-xl">
@@ -72,7 +73,7 @@
                                                             <td class="text-nowrap"><?=$stade['capacity']; ?></td>
                                                             <td class="text-end">
                                                                 <a href="#" onclick="/* Getstade('<?= $stade['id_stade']; ?>') */" class="btn btn-sm btn-warning">Edit</a>
-                                                                <a href="#" onclick="/* Deletestade('<?= $stade['id_stade']; ?>') */" class="btn btn-sm btn-danger">Delete</a>
+                                                                <a href="#" onclick="DeleteStade('<?= $stade['id_stade']; ?>') " class="btn btn-sm btn-danger">Delete</a>
                                                             </td>
                                                         </tr>
                                                     <?php } ?>
@@ -109,7 +110,7 @@
                 <div class="modal-content background ">
                     <div class="modal-header">
                         <h5 class="" id="exampleModalLabel">Add Stade</h5>
-                        <button type="button" class="px-1 p-0 m-0" data-bs-dismiss="modal" aria-label="Close">x</button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body pt-0 pb-1">
                         <form id="form" method="POST" enctype="multipart/form-data">

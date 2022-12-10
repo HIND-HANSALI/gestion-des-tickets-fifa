@@ -1,3 +1,5 @@
+// Matches
+
 function createModule() {
     // initialiser Match form
     document.getElementById('form').reset();
@@ -50,6 +52,7 @@ function getMatch(id, team1, team2, stade) {
     }
     console.log(id);
     document.getElementById('PriceInput').value = document.querySelector(`#MatchPrice${id}`).innerText;
+    document.getElementById('CapacityInput').value = document.querySelector(`#MatchCapacity${id}`).innerText;
     document.getElementById('DateInput').value = document.querySelector(`#MatchTime${id}`).innerText;
     document.getElementById('DescriptionInput').value = document.querySelector(`#MatchDescription${id}`).innerText;
     // setting the id of the match to the hidden input field
@@ -87,19 +90,68 @@ function deleteMatch(id) {
         }
     });
 }
-function createModuleTeams(){
-        // initialiser Match form
-        document.getElementById('form').reset();
 
-        // Afficher le boutton save
-        document.getElementById('saveTeams').style.display = 'block';
-        document.getElementById('editTeams').style.display = 'none';
-        // Ouvrir modal form
+// Teams
+
+function createTeam() {
+    // initialiser Match form
+    document.getElementById('form').reset();
+
+    // Afficher le boutton save
+    document.getElementById('saveTeams').style.display = 'block';
+    document.getElementById('editTeams').style.display = 'none';
+    // Ouvrir modal form
     $('#teamModal').modal('show');
-    
 }
 
-function createModal() {
+function GetTeam(id) {
+    // Afficher le boutton edit
+    document.getElementById('saveTeams').style.display = 'none';
+    document.getElementById('editTeams').style.display = 'block';
+    // Ouvrir modal form
+    $('#teamModal').modal('show');
+    // getting the team data from the dom and setting it to the input fields
+    document.getElementById('NationalityInput').value = document.querySelector(`#TeamNationality${id}`).innerText;
+    document.getElementById('GroupeInput').value = document.querySelector(`#TeamGroupe${id}`).innerText;
+    // setting the id of the team to the hidden input field
+    document.getElementById('IdInput').value = id;
+}
+
+function DeleteTeam(id) {
+    // Delete action confirmation using SweetAlert2 combined with Ajax
+    // SweetAlert2 pop up
+    Swal.fire({
+        background: '#1e1e2d',
+        color: '#F0F6FC',
+        title: 'Are you sure you want to delete this team?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!',
+    }).then((result) => {
+        // after confirmation is succesfull
+        if (result.isConfirmed) {
+            Swal.fire({ background: '#1e1e2d', color: '#F0F6FC', title: 'Deleted!', text: 'Your team has been deleted successfully. ', icon: 'error' });
+            // using ajax to send data without refresh
+            $.ajax({
+                url: 'teams.php',
+                method: 'POST',
+                data: { DeleteTeam: id },
+                dataType: 'html',
+                success: function () {
+                    // removing element from dom
+                    document.querySelector(`#Team${id}`).remove();
+                },
+            });
+        }
+    });
+}
+
+// Stades
+
+function createStade() {
     // initialiser Match form
     document.getElementById('form').reset();
 
@@ -110,4 +162,50 @@ function createModal() {
 
     // Ouvrir modal form
     $('#stadeModal').modal('show');
+}
+
+function GetStade(id) {
+    /* // Afficher le boutton edit
+    document.getElementById('savestade').style.display = 'none';
+    document.getElementById('editstade').style.display = 'block';
+    // Ouvrir modal form
+    $('#stadeModal').modal('show');
+    // getting the team data from the dom and setting it to the input fields
+    document.getElementById('NameInput').value = document.querySelector(`#StadeName${id}`).innerText;
+    document.getElementById('CityInput').value = document.querySelector(`#StadeCity${id}`).innerText;
+    document.getElementById('CapacityInput').value = document.querySelector(`#StadeCapacity${id}`).innerText;
+    // setting the id of the team to the hidden input field
+    document.getElementById('IdInput').value = id; */
+}
+
+function DeleteStade(id) {
+    // Delete action confirmation using SweetAlert2 combined with Ajax
+    // SweetAlert2 pop up
+    Swal.fire({
+        background: '#1e1e2d',
+        color: '#F0F6FC',
+        title: 'Are you sure you want to delete this stade?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!',
+    }).then((result) => {
+        // after confirmation is succesfull
+        if (result.isConfirmed) {
+            Swal.fire({ background: '#1e1e2d', color: '#F0F6FC', title: 'Deleted!', text: 'Your stade has been deleted successfully. ', icon: 'error' });
+            // using ajax to send data without refresh
+            $.ajax({
+                url: 'stades.php',
+                method: 'POST',
+                data: { DeleteStade: id },
+                dataType: 'html',
+                success: function () {
+                    // removing element from dom
+                    document.querySelector(`#Stade${id}`).remove();
+                },
+            });
+        }
+    });
 }
