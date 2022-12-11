@@ -23204,8 +23204,8 @@ h5,
     color: var(--falcon-navbar-card-hr-color);
 }
 .navbar-vertical.navbar-vibrant .navbar-collapse {
-    background-image: -o-linear-gradient(135deg, rgba(0, 160, 255, 0.86), #0048a2), url(../img/generic/bg-navbar.png);
-    background-image: linear-gradient(-45deg, rgba(0, 160, 255, 0.86), #0048a2), url(../img/generic/bg-navbar.png);
+    background-image: -o-linear-gradient(135deg, rgba(127, 26, 57), #8A1538);
+    background-image: linear-gradient(-45deg, rgba(127, 26, 57), #8A1538);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

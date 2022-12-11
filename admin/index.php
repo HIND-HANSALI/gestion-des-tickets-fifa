@@ -130,7 +130,7 @@
                                     <div class="row g-0 h-100 align-items-center">
                                         <div class="col">
                                             <div class="d-flex align-items-center">
-                                                <img class="me-3" src="assets/img/icons/weather-icon.png" alt="" height="60" />
+                                                <img class="me-3" src="" alt="" height="60" />
                                                 <div>
                                                     <h6 class="mb-2">New York City</h6>
                                                     <div class="fs--2 fw-semi-bold">

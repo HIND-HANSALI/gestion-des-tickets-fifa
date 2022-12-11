@@ -1,31 +1,18 @@
 <?php
     // Page Title
-    $path = 'Matches';
+    $path = 'Users';
     session_start();
 
-    // Requiring Controllers 
-    require_once('../controller/matchController.php');
-    require_once('../controller/teamController.php');
-    require_once('../controller/stadeController.php');
-    require_once('../controller/statusController.php');
+    require_once '../controller/userController.php';
 
-    // instanciate the class
-    $MatchController = new MatchController();
-    $TeamController = new TeamController();
-    $StadeController = new StadeController();
-    $StatusController = new StatusController();
+    $Users = new UsersController();
 
-    // Read methods
-    $AllMatches = $MatchController -> getMatches();
-    $AllTeams = $TeamController -> getTeams();
-    $AllStades = $StadeController -> getStades();
-    $AllStatus = $StatusController -> getStatus();
+    $AllUsers = $Users -> getUsers(); 
+    $Users -> setRole();
+    $Users -> deleteUser();
+    
 
-    $MatchController -> addMatch();
-    $MatchController -> deleteMatch();
-    $MatchController -> updateMatch();
-     /* print_r($_SERVER['REQUEST_METHOD']); */
-     /* die; */
+
 
 ?>
 
@@ -49,13 +36,7 @@
                             <div class="card-header border-bottom">
                                 <div class=" d-flex justify-content-between">
                                     <div class="col-auto align-self-center">
-                                        <h5 class="mb-0" >All Matches</h5>
-                                    </div>
-                                    <div class="justify-content-end">
-                                        <a class="btn rounded-pill btn-success px-lg-3" onclick="createModule()">
-                                            <i class="fas fa-plus mr-2"></i>
-                                            <b>Add Match</b>
-                                        </a>
+                                        <h5 class="mb-0" >All Users</h5>
                                     </div>
                                 </div>
                             </div>
@@ -67,49 +48,30 @@
                                                 <thead>
                                                     <tr>
                                                         <th scope="col">ID</th>
-                                                        <th scope="col">Picture</th>
-                                                        <th scope="col">Team 1</th>
-                                                        <th scope="col">Team 2</th>
-                                                        <th scope="col">Stade</th>
-                                                        <th scope="col">Date & Time</th>
-                                                        <th class="text-center" scope="col">Status</th>
-                                                        <th class="text-end" scope="col">Price USD($)</th>
-                                                        <th class="text-end" scope="col">Capacity</th>
-                                                        <th class="text-end" scope="col">Description</th>
+                                                        <th scope="col">Full Name</th>
+                                                        <th scope="col">Email</th>
+                                                        <th scope="col">Role</th>
                                                         <th class="text-end" scope="col"></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php foreach($AllMatches AS $match){ ?>
+                                                    <?php foreach($AllUsers AS $user){ ?>
 
-                                                        <tr class="align-middle" id="Match<?=$match['id_match']; ?>">
-                                                            <td class="text-nowrap"><?=$match['id_match']; ?></td>
-                                                            <td class="text-center">
-                                                                <div class="d-flex align-items-center">
-                                                                    <div class="avatar avatar-xxl">
-                                                                        <?php 
-                                                                            if(!empty($match['picture'])){
-                                                                                echo '<img id="MatchPicture'. $match['id_match'].'" src="'.$match['picture'].'" style="width:3rem;" />';
-                                                                            }else{
-                                                                                echo '<img class="m-0" src="../assets/img/essential/frame.png" style="width:3rem;height: 2.7rem;" />';
-                                                                            } 
-                                                                        ?>
-                                                                    </div>
+                                                        <tr class="align-middle" id="User<?=$user['id_user']; ?>">
+                                                            <td class="text-nowrap"><?=$user['id_user']; ?></td>
+                                                            <td id="userName<?=$user['id_user']; ?>" class="text-nowrap"><?=$user['fullname']; ?></td>
+                                                            <td id="userEmail<?=$user['id_user']; ?>" class="text-nowrap"><?=$user['email']; ?></td>
+                                                            <td id="userRole<?=$user['id_user']; ?>" class="text-nowrap">
+                                                                <div class="form-check form-switch">
+                                                                    <input class="form-check-input" type="checkbox" name="UserRole<?=$user['id_user']; ?>" id="flexSwitchCheckDefault" onclick="setRole('<?=$user['id_user']; ?>')" 
+                                                                    <?php if($user['id_role'] == '1') 
+                                                                        echo 'checked';?> > Admin
                                                                 </div>
                                                             </td>
-                                                            <td id="MatchTeam1<?=$match['id_match']; ?>" class="text-nowrap"><?=$match['team1']; ?></td>
-                                                            <td id="MatchTeam2<?=$match['id_match']; ?>" class="text-nowrap"><?=$match['team2']; ?></td>
-                                                            <td id="MatchStade<?=$match['id_match']; ?>" class="text-nowrap"><?=$match['stade']; ?></td>
-                                                            <td id="MatchTime<?=$match['id_match']; ?>" class="text-nowrap"><?=$match['time']; ?></td>
-                                                            <td>
-                                                                <span class="badge badge rounded-pill d-block p-2 badge-soft-<?= $match['status'] == "Soon" ? "secondary" :( $match['status'] == "In Progress" ? "info": "success" ); ?>" id="MatchStatus<?=$match['id_match']; ?>"><?= $match['status'];?></span>
-                                                            </td>
-                                                            <td class="text-end" id="MatchPrice<?=$match['id_match']; ?>" ><?=$match['price']; ?></td>
-                                                            <td class="text-end" id="MatchCapacity<?=$match['id_match']; ?>" ><?=$match['capacity']; ?></td>
-                                                            <td class="text-truncate mb-1"><div style="max-width: 5rem;" id="MatchDescription<?=$match['id_match']; ?>" ><?=$match['description']; ?></div></td>
+                                                            
                                                             <td class="text-center" scope="col">
-                                                                <a href="#" onclick=" getMatch('<?= $match['id_match']; ?>','<?= $match['id_team1']; ?>','<?= $match['id_team2']; ?>','<?= $match['id_stade']; ?>') " class="btn btn-sm btn-warning">Edit</a>
-                                                                <a href="#" onclick=" deleteMatch('<?= $match['id_match']; ?>') " class="btn btn-sm btn-danger">Delete</a>
+                                                                <!-- <a href="#" onclick="" class="btn btn-sm btn-warning">Edit</a> -->
+                                                                <a href="#" onclick="DeleteUser(<?=$user['id_user']; ?>)" class="btn btn-sm btn-danger">Delete</a>
                                                             </td>
                                                         </tr>
                                                     <?php } ?>
@@ -207,7 +169,7 @@
                                 <input type="number" step=0.01 class="form-control" id="PriceInput" name="price" /> 
                                 <div id="ValidatePrice"></div>
                             </div>
-                            <div class="mb-0" id="CapacityHolder">
+                            <div class="mb-0">
                                 <label class="col-form-label">Capacity</label>
                                 <input type="number" step=0.01 class="form-control" id="CapacityInput" name="capacity" /> 
                                 <div id="ValidatePrice"></div>
