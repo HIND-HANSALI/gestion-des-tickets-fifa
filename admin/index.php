@@ -21,7 +21,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en-US" class="dark">
+<html lang="en-US">
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <head>
         <?php include('../include/dashboard/head.php'); ?>
@@ -37,9 +37,7 @@
                             <div class="card h-md-100 ecommerce-card-min-width">
                                 <div class="card-header pb-0">
                                     <h6 class="mb-0 mt-2 d-flex align-items-center">
-                                        Nbr des matchs joués<!-- <span class="ms-1 text-400" data-bs-toggle="tooltip" data-bs-placement="top" title="Calculated according to last week's sales"
-                                            > --><span class="far fa-question-circle" data-fa-transform="shrink-1"></span
-                                        ></span>
+                                        Nbr des matchs joués
                                     </h6>
                                 </div>
                                 <div class="card-body d-flex flex-column justify-content-end">
@@ -97,18 +95,7 @@
                             <div class="card h-md-100">
                                 <div class="card-header d-flex flex-between-center pb-0">
                                     <h6 class="mb-0">Nbr des e-tickets</h6>
-                                    <div class="dropdown font-sans-serif btn-reveal-trigger">
-                                        <button
-                                            class="btn btn-link text-600 btn-sm dropdown-toggle dropdown-caret-none btn-reveal"
-                                            type="button"
-                                            id="dropdown-weather-update"
-                                            data-bs-toggle="dropdown"
-                                            data-boundary="viewport"
-                                            aria-haspopup="true"
-                                            aria-expanded="false">
-                                            <span class="fas fa-ellipsis-h fs--2"></span>
-                                        </button>
-                                    </div>
+                                    
                                 </div>
                                 <div class="card-body pt-2">
                                     <div class="row g-0 h-100 align-items-center">

@@ -17,7 +17,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en-US" class="dark">
+<html lang="en-US">
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <head>
         <?php include('../include/dashboard/head.php'); ?>

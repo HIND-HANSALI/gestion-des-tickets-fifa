@@ -1,8 +1,8 @@
-<?php
+ <?php
     // Page Title
     $path = 'Stades';
     session_start();
-    
+
     // Requiring Controllers 
     require_once('../controller/stadeController.php');
 
@@ -13,10 +13,11 @@
     $AllStades = $StadeController -> getStades();
     $StadeController -> addStade();
     $StadeController -> deleteStade();
+    $StadeController->updateStade();
 ?>
 
 <!DOCTYPE html>
-<html lang="en-US" class="dark">
+<html lang="en-US">
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <head>
         <?php include('../include/dashboard/head.php'); ?>
@@ -73,7 +74,7 @@
                                                             <td class="text-nowrap"><?=$stade['location']; ?></td>
                                                             <td class="text-nowrap"><?=$stade['capacity']; ?></td>
                                                             <td class="text-end">
-                                                                <a href="#" onclick="/* Getstade('<?= $stade['id_stade']; ?>') */" class="btn btn-sm btn-warning">Edit</a>
+                                                                <a href="#" onclick="Getstade('<?= $stade['id_stade']; ?>','<?= $stade['name']; ?>','<?= $stade['location']; ?>','<?= $stade['capacity']; ?>')" class="btn btn-sm btn-warning">Edit</a>
                                                                 <a href="#" onclick="DeleteStade('<?= $stade['id_stade']; ?>') " class="btn btn-sm btn-danger">Delete</a>
                                                             </td>
                                                         </tr>
@@ -122,17 +123,17 @@
                             </div>
                             <div class="mb-0">
                                 <label class="col-form-label">name</label>
-                                <input type="text" step=0.01 class="form-control" id="location" name="name" />
+                                <input type="text" step=0.01 class="form-control" id="NameInput" name="name" />
                             </div>
                             
-                            <input type="hidden" id="IdInput" name="" />
+                            <input type="hidden" id="IdInput" name="id" />
                             <div class="mb-0">
                                 <label class="col-form-label" for="location">location</label>
-                                <input type="text" step=0.01 class="form-control" id="location" name="location" /> 
+                                <input type="text" step=0.01 class="form-control" id="locationInput" name="location" /> 
                             </div>
                             <div class="mb-0">
                                 <label for="capacity" class="col-form-label">capacity</label>
-                                <input class="form-control" type="number" required id="capacity" name="capacity" />
+                                <input class="form-control" type="number" required id="CapacityInput" name="capacity" />
                             </div>  
                             <div class="modal-footer">
                                 <button type="reset" class="btn btn-outline-light text-black" data-bs-dismiss="modal">Cancel</button>
