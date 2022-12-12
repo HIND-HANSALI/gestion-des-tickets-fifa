@@ -107,7 +107,6 @@ function createTeam() {
     // Ouvrir modal form
     $('#teamModal').modal('show');
 }
-
 function GetTeam(id) {
     // Afficher le boutton edit
     document.getElementById('saveTeams').style.display = 'none';
@@ -119,7 +118,9 @@ function GetTeam(id) {
     document.getElementById('GroupeInput').value = document.querySelector(`#TeamGroupe${id}`).innerText;
     // setting the id of the team to the hidden input field
     document.getElementById('IdInput').value = id;
+
 }
+
 
 function DeleteTeam(id) {
     // Delete action confirmation using SweetAlert2 combined with Ajax
@@ -160,7 +161,7 @@ function createStade() {
     document.getElementById('form').reset();
 
     // Ouvrir modal form
-    $('#teamModal').modal('show');
+    // $('#teamModal').modal('show');
     document.getElementById('savestade').style.display = 'block';
     document.getElementById('editstade').style.display = 'none';
 
@@ -168,18 +169,19 @@ function createStade() {
     $('#stadeModal').modal('show');
 }
 
-function GetStade(id) {
-    /* // Afficher le boutton edit
+function Getstade(id ,name , location , capacity) {
+    // Afficher le boutton edit
     document.getElementById('savestade').style.display = 'none';
     document.getElementById('editstade').style.display = 'block';
+    
     // Ouvrir modal form
     $('#stadeModal').modal('show');
     // getting the team data from the dom and setting it to the input fields
-    document.getElementById('NameInput').value = document.querySelector(`#StadeName${id}`).innerText;
-    document.getElementById('CityInput').value = document.querySelector(`#StadeCity${id}`).innerText;
-    document.getElementById('CapacityInput').value = document.querySelector(`#StadeCapacity${id}`).innerText;
+    document.getElementById('NameInput').value = name ;
+    document.getElementById('locationInput').value = location;
+    document.getElementById('CapacityInput').value = capacity;
     // setting the id of the team to the hidden input field
-    document.getElementById('IdInput').value = id; */
+    document.getElementById('IdInput').value = id; 
 }
 
 function DeleteStade(id) {

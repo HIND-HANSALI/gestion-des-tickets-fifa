@@ -62,7 +62,6 @@ class TeamController extends Teams{
             if(isset($_POST['updateTeamForm'])){
                 $picture=$this->uploadimage();
                 extract($_POST);
-                $id= $_GET['id'];
                 $result=$this->updateTeamDB($nationality, $groupe,$picture,$id);
                 header('Location: ../admin/teams.php');
                 die;

@@ -30,9 +30,9 @@ class Stades extends Connection{
         return 1;
     }
 
-    protected function updateStadeDB($id, $name, $location, $capacity, $picture){
+    protected function updateStadeDB($name, $location, $capacity, $picture,$id){
 
-        $sql = "UPDATE stades SET name = ?, location = ?, capacity = ?, picture = ? WHERE id_match = ?";
+        $sql = "UPDATE stades SET name = ?, location = ?, capacity = ?, picture = ? WHERE id_stade = ?";
         $stmt = $this ->connect() -> prepare($sql);
         $stmt->execute([$name, $location, $capacity, $picture ,$id]);
         return 1;
