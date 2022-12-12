@@ -653,5 +653,7 @@ footer .icon{
 .ticket{
     border: solid 2px #9a1032 ;
 }
-
+.print{
+    background-color: #9a1032 !important;
+}
 

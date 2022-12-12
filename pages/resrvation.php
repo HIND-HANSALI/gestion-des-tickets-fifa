@@ -7,7 +7,8 @@
     <?php
         include_once dirname(__DIR__) . "/include/navbar.php"
     ?>
-   <div class="ticket">
+<div class="container pt-5">
+   <div class=" ticket">
     <div class="">
         <div class="heade-ticket  ">
             <div class="custom-shape-divider-top-1670673240">
@@ -30,9 +31,10 @@
         </div>
     </div>
    </div>
+   <button class="print btn mt-4"> <a class=" btn text-white" href="javascript:window.print()">Print</a> </button> 
+</div>
 
-
-   <a class="print" href="javascript:window.print()">Print</a>
+  
    <?php
 include_once "../include/footer.php"
 ?>
