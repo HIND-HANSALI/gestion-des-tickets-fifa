@@ -47,6 +47,13 @@ class Stades extends Connection{
     }
 
 
+    protected function getFourStadesDB(){
+        $sql = "SELECT * FROM stades ORDER BY id_stade DESC LIMIT 4";
+        $stmt = $this ->connect()->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result;
+    }
     
 
 

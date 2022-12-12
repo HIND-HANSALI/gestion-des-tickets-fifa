@@ -1,7 +1,8 @@
 <?php
     // Page Title
-    $path = 'stades';
-
+    $path = 'Stades';
+    session_start();
+    
     // Requiring Controllers 
     require_once('../controller/stadeController.php');
 
@@ -11,6 +12,7 @@
     // Read methods
     $AllStades = $StadeController -> getStades();
     $StadeController -> addStade();
+    $StadeController -> deleteStade();
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +38,7 @@
                                         <h5 class="mb-0" >All Stades</h5>
                                     </div>
                                     <div class="justify-content-end">
-                                        <a class="btn rounded-pill btn-success px-lg-3" onclick="createModal()">
+                                        <a class="btn rounded-pill btn-success px-lg-3" onclick="createStade()">
                                             <i class="fas fa-plus mr-2"></i>
                                             <b>Add Stade</b>
                                         </a>
@@ -59,7 +61,7 @@
                                                 </thead>
                                                 <tbody>
                                                     <?php foreach($AllStades As $stade){ ?>
-                                                        <tr class="align-middle">
+                                                        <tr class="align-middle" id="Stade<?= $stade['id_stade']; ?>">
                                                             <td class="text-nowrap">
                                                                 <div class="d-flex align-items-center">
                                                                     <div class="avatar avatar-xl">
@@ -72,7 +74,7 @@
                                                             <td class="text-nowrap"><?=$stade['capacity']; ?></td>
                                                             <td class="text-end">
                                                                 <a href="#" onclick="/* Getstade('<?= $stade['id_stade']; ?>') */" class="btn btn-sm btn-warning">Edit</a>
-                                                                <a href="#" onclick="/* Deletestade('<?= $stade['id_stade']; ?>') */" class="btn btn-sm btn-danger">Delete</a>
+                                                                <a href="#" onclick="DeleteStade('<?= $stade['id_stade']; ?>') " class="btn btn-sm btn-danger">Delete</a>
                                                             </td>
                                                         </tr>
                                                     <?php } ?>
@@ -109,7 +111,7 @@
                 <div class="modal-content background ">
                     <div class="modal-header">
                         <h5 class="" id="exampleModalLabel">Add Stade</h5>
-                        <button type="button" class="px-1 p-0 m-0" data-bs-dismiss="modal" aria-label="Close">x</button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body pt-0 pb-1">
                         <form id="form" method="POST" enctype="multipart/form-data">
@@ -118,12 +120,6 @@
                                 <input id="PictureInput" class="dropify" data-max-file-size-preview="10M" value="ggg" data-height="100" type="file"  name="picture"  />
                                 <div id="ValidatePicture" class="text-success"></div>
                             </div>
-                            <!-- <div class="mb-0">
-                                <label class="col-form-label">Nationality</label>
-                                <input type="text" class="form-control" id="NationalityInput" name="nationality" />
-                                <div id="ValidateNationality"></div>
-                            </div> -->  
-
                             <div class="mb-0">
                                 <label class="col-form-label">name</label>
                                 <input type="text" step=0.01 class="form-control" id="location" name="name" />
@@ -142,7 +138,6 @@
                                 <button type="reset" class="btn btn-outline-light text-black" data-bs-dismiss="modal">Cancel</button>
                                 <button id="savestade" type="submit" name="addstadeForm" class="btn btn-primary">Save</button>
                                 <div id="editstade" style="display: none">
-                                    <!-- <button type="submit" id="deleteValidation" name="deletestadeForm" class="btn btn-danger text-black">Delete</button> -->
                                     <button id="updatestade" type="submit" name="updatestadeForm" class="btn btn-warning text-black">Update</button>
                                 </div>
                             </div>

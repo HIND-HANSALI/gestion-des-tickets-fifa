@@ -22,6 +22,16 @@ class Teams extends Connection{
         $result = $stmt->fetch();
         return $result;
     }
+
+    protected function getFourTeamsDB(){
+        $sql = "SELECT * FROM teams ORDER BY id_team DESC LIMIT 4";
+        $stmt = $this ->connect()->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
+
     // create equipe
     protected function addTeamDB($nationality,$groupe,$picture){
 
