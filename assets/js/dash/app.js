@@ -88,7 +88,7 @@ function deleteMatch(id) {
     });
 }
 function createModuleTeams(){
-        // initialiser Match form
+        // initialiser Team form
         document.getElementById('form').reset();
 
         // Afficher le boutton save
@@ -96,7 +96,21 @@ function createModuleTeams(){
         document.getElementById('editTeams').style.display = 'none';
         // Ouvrir modal form
     $('#teamModal').modal('show');
+
     
+}
+function getTeam(){
+    // Afficher le boutton edit
+    document.getElementById('saveTeam').style.display = 'none';
+    document.getElementById('updateTeam').style.display = 'block';
+
+     // Ouvrir modal form
+     $('#teamModal').modal('show');
+
+     // getting the Team data from the dom and setting it to the input fields
+
+
+
 }
 
 function createModal() {

@@ -42,7 +42,7 @@ class Teams extends Connection{
     protected function deleteTeamDB($id){
 
         $sql = "DELETE FROM teams WHERE id_team = ?";
-        $stmt = $this->connect() -> prepare($sql);
+        $stmt = $this->connect() ->prepare($sql);
         $stmt->execute([$id]);
         return 1;
     }

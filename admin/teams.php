@@ -105,8 +105,10 @@
                                                             
                                                             
                                                             <td class="text-end">
-                                                                <a href="editTeam.php?id=<?= $team['id_team'];?>" onclick="/* GetMatch('<?= $team['id_team']; ?>','<?php //$match['idCategory']; ?>') */" class="btn btn-sm btn-warning">Edit</a>
-                                                                <a href="teams.php?idd=<?= $team['id_team'];?>" onclick="/* DeleteMatch('<?= $team['id_team']; ?>') */" class="btn btn-sm btn-danger">Delete</a>
+                                                                <a href="editTeam.php?id=<?= $team['id_team'];?>" onclick="/* GetTeam('<?= $team['id_team']; ?>','<?php //$match['idCategory']; ?>') */" class="btn btn-sm btn-warning">Edit</a>
+                                                                <!-- <a href="#"  onclick="GetTeam('<?= $team['id_team']; ?>')" class="btn btn-sm btn-warning">Edit</a> -->
+                                                
+                                                                <a href="teams.php?idd=<?= $team['id_team'];?>" onclick="/* DeleteTeam('<?= $team['id_team']; ?>') */" class="btn btn-sm btn-danger">Delete</a>
                                                             </td>
                                                         </tr>
                                                     <?php } ?>
@@ -164,7 +166,7 @@
                             </div>
                             <div class="mb-0">
                             <label class="form-label">Groupe</label>
-                            <input type="text" class="form-control" id="equipe_groupe" name="groupe"/>
+                            <input type="text" class="form-control" id="GroupeInput" name="groupe"/>
                             <div id="ValidatePicture" class="text-success"></div>
                         </div> 
                            
@@ -177,10 +179,10 @@
                             
                             <div class="modal-footer">
                                 <button type="reset" class="btn btn-outline-light text-black" data-bs-dismiss="modal">Cancel</button>
-                                <button id="saveTeams" type="submit" name="addTeamForm" class="btn btn-primary">Save</button>
+                                <button id="saveTeam" type="submit" name="addTeamForm" class="btn btn-primary">Save</button>
                                 <div id="editTeams" style="display: none">
                                     <!-- <button type="submit" id="deleteValidation" name="deleteMatchForm" class="btn btn-danger text-black">Delete</button> -->
-                                    <button id="updateMatch" type="submit" name="updateTeamForm" class="btn btn-warning text-black">Update</button>
+                                    <button id="updateTeam" type="submit" name="updateTeamForm" class="btn btn-warning text-black">Update</button>
                                 </div>
                             </div>
                         </form>
