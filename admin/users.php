@@ -70,7 +70,6 @@
                                                             </td>
                                                             
                                                             <td class="text-center" scope="col">
-                                                                <!-- <a href="#" onclick="" class="btn btn-sm btn-warning">Edit</a> -->
                                                                 <a href="#" onclick="DeleteUser(<?=$user['id_user']; ?>)" class="btn btn-sm btn-danger">Delete</a>
                                                             </td>
                                                         </tr>
@@ -99,103 +98,7 @@
                 </div>
             </div>
         </main>
-        <!-- ===============================================-->
-        <!--    End of Main Content-->
-        <!-- ===============================================-->
-        <!-- Match MODAL -->
-        <div class="modal fade" id="matchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered mt-3 mb-1">
-                <div class="modal-content background ">
-                    <div class="modal-header">
-                        <h5 class="" id="exampleModalLabel">Add Match</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body pt-0 pb-1">
-                        <form id="form" method="POST" enctype="multipart/form-data">
-                            <div class="mb-0">
-                                <label class="col-form-label">Picture</label>
-                                <input id="PictureInput" class="dropify" data-max-file-size-preview="10M" data-height="100" type="file"  name="picture"  />
-                                <div id="ValidatePicture" class="text-success"></div>
-                                
-                            </div>
-                            <!-- <div class="mb-0">
-                                <label class="col-form-label">Nationality</label>
-                                <input type="text" class="form-control" id="NationalityInput" name="nationality" />
-                                <div id="ValidateNationality"></div>
-                            </div> -->  
-                            <div class="mb-0">
-                                <label class="col-form-label">Team 1</label>
-                                <select class="form-select" id="Team1Input" name="idTeam1" required>
-                                    <option value selected disabled>Please select</option>
-                                    <?php foreach($AllTeams as $team) {
-                                        echo '<option value="'.$team['id_team'].'">'.$team['nationality'].'</option>';
-                                    } ?>    
-                                    
-                                </select>
-                            </div>
-                            <div class="mb-0">
-                                <label class="col-form-label">Team 2</label>
-                                <select class="form-select" id="Team2Input" name="idTeam2" required>
-                                    <option value selected disabled>Please select</option>
-                                    <?php foreach($AllTeams as $team) {
-                                        echo '<option value="'.$team['id_team'].'">'.$team['nationality'].'</option>';
-                                    } ?>    
-                                    
-                                </select>
-                            </div>
-                            <div class="mb-0">
-                                <label class="col-form-label">Stades</label>
-                                <select class="form-select" id="StadeInput" name="idStade" required>
-                                    <option value selected disabled>Please select</option>
-                                    <?php foreach($AllStades as $stade) {
-                                        echo '<option value="'.$stade['id_stade'].'">'.$stade['name'].'</option>';
-                                    } ?>    
-                                    
-                                </select>
-                            </div>
-                            <div class="mb-0">
-                                <label class="col-form-label">Status</label>
-                                <select class="form-select" id="StatusInput" name="idStatus" required>
-                                    <option value selected disabled>Please select</option>
-                                    <?php foreach($AllStatus as $status) {
-                                        echo '<option value="'.$status['id_status'].'">'.$status['name'].'</option>';
-                                    } ?>    
-                                    
-                                </select>
-                            </div>
-                            <input type="hidden" id="IdInput" name="id" />
-                            <div class="mb-0">
-                                <label class="col-form-label">Price $(USD)</label>
-                                <input type="number" step=0.01 class="form-control" id="PriceInput" name="price" /> 
-                                <div id="ValidatePrice"></div>
-                            </div>
-                            <div class="mb-0">
-                                <label class="col-form-label">Capacity</label>
-                                <input type="number" step=0.01 class="form-control" id="CapacityInput" name="capacity" /> 
-                                <div id="ValidatePrice"></div>
-                            </div>
-                            <div class="mb-0">
-                                <label for="taskDate" class="col-form-label">Date</label>
-                                <input class="form-control" type="datetime-local" required id="DateInput" name="time" />
-                            </div>  
-                            <div class="mb-0">
-                                <label class="col-form-label">Description</label>
-                                <textarea class="form-control" id="DescriptionInput" rows="8" name="description"></textarea>
-                                <span id="ValidateDescription"></span>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="reset" class="btn btn-outline-light text-black" data-bs-dismiss="modal">Cancel</button>
-                                <button id="saveMatch" type="submit" name="addMatchForm" class="btn btn-primary">Save</button>
-                                <div id="editMatch" style="display: none">
-                                    <!-- <button type="submit" id="deleteValidation" name="deleteMatchForm" class="btn btn-danger text-black">Delete</button> -->
-                                    <button id="updateMatch" type="submit" name="updateMatchForm" class="btn btn-warning text-black">Update</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
        <?php include('../include/dashboard/scripts.php'); ?>
     </body>
 </html>

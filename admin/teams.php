@@ -1,6 +1,7 @@
 <?php
     // Page Title
     $path = 'Teams';
+    session_start();
 
     // Requiring Controllers 
     require_once('../controller/matchController.php');
@@ -148,10 +149,6 @@
                                 <div id="ValidatePicture" class="text-success"></div>
                                 
                             </div>
-                             <!-- <div class="mb-0">
-                            <label class="form-label">Name</label>
-                            <input type="text" class="form-control" id="equipe_title" name="nom"/>
-                        </div>   -->
                             <div class="mb-0">
                                 <label class="col-form-label">Nationality</label>
                                 <input type="text" class="form-control" id="NationalityInput" name="nationality" />
@@ -166,7 +163,6 @@
                                 <button type="reset" class="btn btn-outline-light text-black" data-bs-dismiss="modal">Cancel</button>
                                 <button id="saveTeams" type="submit" name="addTeamForm" class="btn btn-primary">Save</button>
                                 <div id="editTeams" style="display: none">
-                                    <!-- <button type="submit" id="deleteValidation" name="deleteMatchForm" class="btn btn-danger text-black">Delete</button> -->
                                     <button id="updateMatch" type="submit" name="updateTeamForm" class="btn btn-warning text-black">Update</button>
                                 </div>
                             </div>

@@ -152,15 +152,10 @@
                         <form id="form" method="POST" enctype="multipart/form-data">
                             <div class="mb-0">
                                 <label class="col-form-label">Picture</label>
-                                <input id="PictureInput" class="dropify" data-max-file-size-preview="10M" data-height="100" type="file"  name="picture"  />
+                                <input id="PictureInput" class="dropify" data-max-file-size-preview="10M" data-height="100" type="file"  name="picture" required />
                                 <div id="ValidatePicture" class="text-success"></div>
                                 
                             </div>
-                            <!-- <div class="mb-0">
-                                <label class="col-form-label">Nationality</label>
-                                <input type="text" class="form-control" id="NationalityInput" name="nationality" />
-                                <div id="ValidateNationality"></div>
-                            </div> -->  
                             <div class="mb-0">
                                 <label class="col-form-label">Team 1</label>
                                 <select class="form-select" id="Team1Input" name="idTeam1" required>
@@ -204,7 +199,7 @@
                             <input type="hidden" id="IdInput" name="id" />
                             <div class="mb-0">
                                 <label class="col-form-label">Price $(USD)</label>
-                                <input type="number" step=0.01 class="form-control" id="PriceInput" name="price" /> 
+                                <input type="number" step=0.01 class="form-control" id="PriceInput" name="price" required/> 
                                 <div id="ValidatePrice"></div>
                             </div>
                             <div class="mb-0" id="CapacityHolder">
@@ -214,18 +209,17 @@
                             </div>
                             <div class="mb-0">
                                 <label for="taskDate" class="col-form-label">Date</label>
-                                <input class="form-control" type="datetime-local" required id="DateInput" name="time" />
+                                <input class="form-control" type="datetime-local" required id="DateInput" name="time" required/>
                             </div>  
                             <div class="mb-0">
                                 <label class="col-form-label">Description</label>
-                                <textarea class="form-control" id="DescriptionInput" rows="8" name="description"></textarea>
+                                <textarea class="form-control" id="DescriptionInput" rows="8" name="description" required></textarea>
                                 <span id="ValidateDescription"></span>
                             </div>
                             <div class="modal-footer">
                                 <button type="reset" class="btn btn-outline-light text-black" data-bs-dismiss="modal">Cancel</button>
                                 <button id="saveMatch" type="submit" name="addMatchForm" class="btn btn-primary">Save</button>
                                 <div id="editMatch" style="display: none">
-                                    <!-- <button type="submit" id="deleteValidation" name="deleteMatchForm" class="btn btn-danger text-black">Delete</button> -->
                                     <button id="updateMatch" type="submit" name="updateMatchForm" class="btn btn-warning text-black">Update</button>
                                 </div>
                             </div>

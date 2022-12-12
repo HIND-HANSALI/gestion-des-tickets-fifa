@@ -1,7 +1,8 @@
 <?php
     // Page Title
     $path = 'Stades';
-
+    session_start();
+    
     // Requiring Controllers 
     require_once('../controller/stadeController.php');
 
@@ -119,12 +120,6 @@
                                 <input id="PictureInput" class="dropify" data-max-file-size-preview="10M" value="ggg" data-height="100" type="file"  name="picture"  />
                                 <div id="ValidatePicture" class="text-success"></div>
                             </div>
-                            <!-- <div class="mb-0">
-                                <label class="col-form-label">Nationality</label>
-                                <input type="text" class="form-control" id="NationalityInput" name="nationality" />
-                                <div id="ValidateNationality"></div>
-                            </div> -->  
-
                             <div class="mb-0">
                                 <label class="col-form-label">name</label>
                                 <input type="text" step=0.01 class="form-control" id="location" name="name" />
@@ -143,7 +138,6 @@
                                 <button type="reset" class="btn btn-outline-light text-black" data-bs-dismiss="modal">Cancel</button>
                                 <button id="savestade" type="submit" name="addstadeForm" class="btn btn-primary">Save</button>
                                 <div id="editstade" style="display: none">
-                                    <!-- <button type="submit" id="deleteValidation" name="deletestadeForm" class="btn btn-danger text-black">Delete</button> -->
                                     <button id="updatestade" type="submit" name="updatestadeForm" class="btn btn-warning text-black">Update</button>
                                 </div>
                             </div>
