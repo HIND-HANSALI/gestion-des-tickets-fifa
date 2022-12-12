@@ -31,8 +31,10 @@ class StadeController extends Stades{
                 
                     if ($img_size > 3000000) 
                     {
-                        $_SESSION['Error'] = "Sorry, your file is too large.";
-                        //  header('location: .././pages/home.php');
+                        $_SESSION['icon'] = "error";
+                        $_SESSION['message'] = "Sorry, your file is too large.";
+                         header('location: ../admin/stades.php');
+                        die;
                     }else{
                         $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);// return extension of image
                         $img_ex_lc = strtolower($img_ex);
@@ -48,14 +50,17 @@ class StadeController extends Stades{
 
                         }
                         else {
-                            $_SESSION['Error'] = "You can't upload files of this type";
-                            // header('location: .././pages/home.php'); 
+                            $_SESSION['icon'] = "error";
+                            $_SESSION['message'] = "You can't upload files of this type";
+                            header('location: ../admin/stades.php');
+                            die;
                         }
                     }
                 }else{
-
-                    $_SESSION['Error'] = 'unknown error occurred!';
-                    // header('location: .././pages/home.php'); 
+                    $_SESSION['icon'] = "error";
+                    $_SESSION['message'] = 'unknown error occurred!';
+                    header('location: ../admin/stades.php');
+                    die;
                     
                 }
             }
@@ -68,16 +73,25 @@ class StadeController extends Stades{
             if(isset($_REQUEST['addstadeForm'])){
                 
                 extract($_POST);
-                $filename =$this-> uploadimage();
-                $result = $this -> addStadeDB($name, $location, $capacity, $filename);
-                
-                if($result == 1){
 
-                    $_SESSION['icon'] = "success";
-                    $_SESSION['message'] = "Stade ajouté avec succès";
-
-                    header('Location:'. $_SERVER['PHP_SELF']);
+                if( empty($name) || empty($location) || empty($capacity)){
+                    $_SESSION['icon'] = "error";
+                    $_SESSION['message'] = "Veuillez remplir tous les champs";
+                    header('Location: ../admin/stades.php');
                     die;
+                }
+                else{
+                    $filename =$this-> uploadimage();
+                    $result = $this -> addStadeDB($name, $location, $capacity, $filename);
+                    
+                    if($result == 1){
+    
+                        $_SESSION['icon'] = "success";
+                        $_SESSION['message'] = "Stade ajouté avec succès";
+    
+                        header('Location:'. $_SERVER['PHP_SELF']);
+                        die;
+                    }
                 }
             }
         }
@@ -100,9 +114,35 @@ class StadeController extends Stades{
     public function FourStades(){
         $result = $this -> getFourStadesDB();
         return $result;
-    }   
+    }
+
+    public function updateStade()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if (isset($_REQUEST['updatestadeForm'])) {
+                extract($_POST);
+                if (empty($id) ||empty($name) || empty($location) || empty($capacity)) {
+                    $_SESSION['icon'] = "error";
+                    $_SESSION['message'] = "Veuillez remplir tous les champs";
+                    header('Location: ../admin/stades.php'); 
+                    die;
+                } else {
+                    $filename = $this->uploadimage();
+                    $result = $this->updateStadeDB($name, $location, $capacity, $filename,$id);
+
+                    if ($result == 1) {
+
+                        $_SESSION['icon'] = "success";
+                        $_SESSION['message'] = "Stade ajouté avec succès";
+
+                        header('Location:' . $_SERVER['PHP_SELF']);
+                        die;
+                    }
+                }
+            }
+        }
 
 
 
-    
+    }
 }
