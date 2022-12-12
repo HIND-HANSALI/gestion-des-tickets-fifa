@@ -10,7 +10,7 @@
         <span class="navbar-toggle-icon"><span class="toggle-line"></span></span>
     </button>
     <a class="navbar-brand me-1 me-sm-3 mt-xs-2 mt-sm-1" href="index.php">
-        <div class="d-flex align-items-center"><img class="me-2" src="assets/img/" alt="" width="10" /><span class="font-sans-serif my-lg-3">YouTicket</span></div>
+        <div class="d-flex align-items-center"><img class="me-2" src="assets/img/" alt="" width="10" /><span class="font-sans-serif my-lg-3" style="color: #8A1538 !important">YouTicket</span></div>
     </a>
     <ul class="navbar-nav align-items-center d-none d-lg-block">
         <li class="nav-item">

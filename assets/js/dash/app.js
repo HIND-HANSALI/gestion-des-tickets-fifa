@@ -11,6 +11,8 @@ function createModule() {
     // Ouvrir modal form
     $('#matchModal').modal('show');
 
+    document.getElementById('CapacityHolder').style.display = 'none';
+
     document.getElementById('ValidatePicture').innerText = '';
     document.getElementById('PictureFileField').setAttribute('style', 'border-radius: 1em !important; background-color: #151521 !important;');
     document.getElementById('PictureFileField').setAttribute('class', 'dropify-wrapper');
@@ -25,6 +27,8 @@ function getMatch(id, team1, team2, stade) {
 
     // Ouvrir modal form
     $('#matchModal').modal('show');
+
+    document.getElementById('CapacityHolder').style.display = 'block';
 
     // Récupérer les données du match
     // getting the image path from the image tag and setting it to the input field and previewing it
@@ -204,6 +208,72 @@ function DeleteStade(id) {
                 success: function () {
                     // removing element from dom
                     document.querySelector(`#Stade${id}`).remove();
+                },
+            });
+        }
+    });
+}
+
+// Users
+
+function setRole(id) {
+    // Set Role action confirmation using SweetAlert2 combined with Ajax
+    /* var input = document.querySelector(`input[name='UserRole${id}']`); */
+
+    // SweetAlert2 pop up
+    Swal.fire({
+        background: '#1e1e2d',
+        color: '#F0F6FC',
+        title: "Are you sure you want to change this user's role?",
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, Change it!',
+    }).then((result) => {
+        // after confirmation is succesfull
+        if (result.isConfirmed) {
+            Swal.fire({ background: '#1e1e2d', color: '#F0F6FC', title: 'Changed!', text: "User's role has been changed successfully. ", icon: 'success' });
+            // using ajax to send data without refresh
+            $.ajax({
+                url: 'users.php',
+                method: 'POST',
+                data: { setRole: id },
+                dataType: 'html',
+            });
+        } else {
+            location.reload();
+        }
+    });
+}
+
+function DeleteUser(id) {
+    // Delete action confirmation using SweetAlert2 combined with Ajax
+    // SweetAlert2 pop up
+    Swal.fire({
+        background: '#1e1e2d',
+        color: '#F0F6FC',
+        title: 'Are you sure you want to delete this user?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!',
+    }).then((result) => {
+        // after confirmation is succesfull
+        if (result.isConfirmed) {
+            Swal.fire({ background: '#1e1e2d', color: '#F0F6FC', title: 'Deleted!', text: 'Your user has been deleted successfully. ', icon: 'error' });
+            // using ajax to send data without refresh
+            $.ajax({
+                url: 'users.php',
+                method: 'POST',
+                data: { DeleteUser: id },
+                dataType: 'html',
+                success: function () {
+                    // removing element from dom
+                    document.querySelector(`#User${id}`).remove();
                 },
             });
         }
