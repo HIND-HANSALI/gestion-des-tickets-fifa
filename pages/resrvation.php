@@ -21,7 +21,7 @@
         </div>
         <div class="body-ticket d-flex justify-content-between">
             <div class="g centent-ticket px-3 mb-3 ">
-                <h4><strong>Satade :</strong> </h4>
+                <h4><strong>Stade :</strong> </h4>
                 <h4> <strong>team 1</strong>  <strong>vs</strong>   <strong>team 2</strong> </h4>
                 <span><strong>Date de match :</strong> </span> <br>
                 <span><strong>Name :</strong> </span> <br>

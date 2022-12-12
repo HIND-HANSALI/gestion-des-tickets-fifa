@@ -16,11 +16,8 @@
     $StatusController = new StatusController();
 
     // Read methods
-    $AllMatches = $MatchController -> getMatches();
-
+    $TeamController -> updateTeam() ;
     
-    $AllStades = $StadeController -> getStades();
-    $AllStatus = $StatusController -> getStatus();
 
     $TeamController -> addTeam();
     $TeamController -> deleteTeam();
@@ -102,6 +99,7 @@
                                                             
                                                             <td class="text-end">
                                                             <a onclick="GetTeam('<?= $team['id_team']; ?>')" class="btn btn-sm btn-warning">Edit</a>
+
                                                             <a onclick="DeleteTeam('<?= $team['id_team']; ?>') " class="btn btn-sm btn-danger">Delete</a>
                                                             </td>
                                                         </tr>
@@ -143,6 +141,7 @@
                     </div>
                     <div class="modal-body pt-0 pb-1">
                         <form id="form" method="POST"  enctype="multipart/form-data">
+                        <input type="hidden" id="IdInput" name="id" />
                             <div class="mb-0">
                                 <label class="col-form-label">Picture</label>
                                 <input id="PictureInput" class="dropify" data-max-file-size-preview="10M" data-height="100" type="file"  name="my_image"/>
@@ -161,7 +160,7 @@
                         </div> 
                             <div class="modal-footer">
                                 <button type="reset" class="btn btn-outline-light text-black" data-bs-dismiss="modal">Cancel</button>
-                                <button id="saveTeam" type="submit" name="addTeamForm" class="btn btn-primary">Save</button>
+                                <button id="saveTeams" type="submit" name="addTeamForm" class="btn btn-primary">Save</button>
                                 <div id="editTeams" style="display: none">
                                     <!-- <button type="submit" id="deleteValidation" name="deleteMatchForm" class="btn btn-danger text-black">Delete</button> -->
                                     <button id="updateTeam" type="submit" name="updateTeamForm" class="btn btn-warning text-black">Update</button>
