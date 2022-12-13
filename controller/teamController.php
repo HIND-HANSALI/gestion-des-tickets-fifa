@@ -12,22 +12,8 @@ class TeamController extends Teams{
     
     public function getOneTeam(){
         if(isset($_GET['id'])){
-            // $equipe=new Equipe();
             $result = $this->getOneTeamDB($_GET['id']);
             return $result;
-            // if($result){
-                
-            //     $nom=$result['name'];
-            //     $nationality=$result['nationality'];
-            //     $groupe=$result['groupe'];
-            //     $image=$result['image'];
-        
-            // }else{
-            //     // redirecting to the team page
-            //     header('Location: equipetab.php');
-            // }
-        
-        
         }
     }
 
@@ -41,8 +27,50 @@ class TeamController extends Teams{
                 // print_r($_POST);
                 // print_r($picture);
                 $result=$this->addTeamDB($nationality, $groupe,$picture);
-                /* header('Location: ../admin/teams.php');
-                    die; */
+                if($result == 1){
+
+                    $_SESSION['icon'] = "success";
+                    $_SESSION['message'] = "Team added successfully";
+
+                    header('Location: ../admin/teams.php');
+                    die;
+                }
+            }
+        }
+    }
+
+
+    public function updateTeam(){
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            if(isset($_POST['updateTeamForm'])){
+                extract($_POST);
+                if(empty($nationality)||empty($groupe)){
+                    $_SESSION['icon'] = 'error' ;
+                    $_SESSION['message'] = 'Veuillez remplir tous les champs';
+                    header('Location: ../admin/allteams.php');
+                    die;
+                }else{
+                    $picture=$this->uploadimage();
+                    $result=$this->updateTeamDB($nationality, $groupe,$picture,$id);
+                    if($result =1){
+                        $_SESSION['icon'] = 'success' ;
+                        $_SESSION['message'] = 'teame Update avec succes';
+                        header('Location: ../admin/teams.php');
+                        die;
+                    }
+                   
+                }
+                
+            }
+        }
+    }
+
+    public function LastPicUpdate($id, $nationality,$groupe){
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            if(isset($_POST['addTeamForm'])){
+                extract($_POST);
+                $picture= $this->uploadimage();
+                $result=$this->LastPicUpdateDB($id, $nationality, $groupe);
                 if($result == 1){
 
                     $_SESSION['icon'] = "success";
@@ -54,20 +82,6 @@ class TeamController extends Teams{
 
             }
         }
-    }
-
-
-    public function updateTeam(){
-       
-            if(isset($_POST['updateTeamForm'])){
-                $picture=$this->uploadimage();
-                extract($_POST);
-                $id= $_GET['id'];
-                $result=$this->updateTeamDB($nationality, $groupe,$picture,$id);
-                header('Location: ../admin/teams.php');
-                die;
-            }
-       
     }
 
 
@@ -86,13 +100,10 @@ class TeamController extends Teams{
 
 
     public function searchTeam(){
-            $search=$_POST['search'];
-            // print_r($search);die;
-            $result=$this->searchTeamDB($search);
-            
-            return $result ;
+        $search=$_POST['search'];
+        $result=$this->searchTeamDB($search); 
+        return $result ;
 
-        
     }
 
 
@@ -100,8 +111,6 @@ class TeamController extends Teams{
     {
      if (isset($_FILES['my_image'])) //name de image 
     {
-    
-        global $conn;
 
         $img_name = $_FILES['my_image']['name'];
         $img_size = $_FILES['my_image']['size'];
@@ -113,8 +122,9 @@ class TeamController extends Teams{
              
                 if ($img_size > 3000000) 
                 {
-                    $_SESSION['Error'] = "Sorry, your file is too large.";
-                    //  header('location: .././pages/home.php');
+                    $_SESSION['icon'] = 'error' ;
+                    $_SESSION['message'] = 'Sorry, your file is too large.';
+                    header('Location: ../admin/teams.php'); 
                 }
                 else
                 {
@@ -131,22 +141,24 @@ class TeamController extends Teams{
 
                         }
                         else {
-                            $_SESSION['Error'] = "You can't upload files of this type";
-                            // header('location: .././pages/home.php'); 
+                            $_SESSION['icon'] = 'error' ;
+                            $_SESSION['message'] = "You can't upload files of this type";
+                            header('Location: ../admin/teams.php'); 
+                            die;
                         }
                 }
                 }
             else
             {
-
-                $_SESSION['Error'] = 'unknown error occurred!';
-                // header('location: .././pages/home.php'); 
+                $_SESSION['icon'] = 'error' ;
+                $_SESSION['message'] = 'unknown error occurred!';
+                header('Location: ../admin/teams.php'); 
+                die;
                 
             }
-    }
-    
-    return $new_img_name;
-} 
+        }
+        return $img_upload_path;
+    } 
     
 
     public function FourTeams(){

@@ -7,40 +7,43 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav m-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active text-white" aria-current="page" href="#">About</a>
+                    <a class="nav-link text-white" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#">News</a>
+                    <a class="nav-link text-white" href="allmatches.php">Matches</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Teams</a>
+                    <a class="nav-link text-white" href="allteams.php">Teams</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link text-white" href="#">Contact</a>
+                    <a class="nav-link text-white" href="allstades.php">Stades</a>
                 </li>
             </ul>
             <?php if(isset($_SESSION["good"])) {?>
             <div class="profile d-flex justify-content-center align-items-center">
                 <div class="profile-photo">
-                    <img src="../assets/img/cropped-DSC_0043.jpg">
+                    <img src="../assets/img/essential/user1.png">
                 </div>
                 <div class="info">
-                    <h5><?php echo $_SESSION["Username"];?></h5>
+                    <h5><?php echo $_SESSION["name"];?></h5>
                 </div>
                 <div class="links">
                     <div class="icon-men">
                         <i class="fa-solid fa-caret-down"></i>
                     </div>
                     <ul>
-                        <li><a href="../pages/profile.php">Profile</a></li>
-                        <li><a href="../controller/logoutController.php">Logout</a></li>
+                        <li><a href="../pages/profile.php"><i class="fa-solid fa-user me-4"></i>Profil</a></li>
+                        <?php if($_SESSION["role"]===1){ ?>
+                            <li><a href="../admin/index.php">Dashboard</a></li>
+                        <?php }?>
+                        <li><a href="../include/signout.php">Logout</a></li>
                     </ul>
                 </div>
             </div>
             <?php }else{ ?>
             <div class="authentification d-flex justify-content-center">
-                <a href="sign.in.php?id=1"><button class="btn Log-in">Log in</button></a>
-                <a href="sign.up.php?id=1"><button class="btn sing-up">Sing Up</button></a>
+                <a href="login.php"><button class="btn Log-in">Log in</button></a>
+                <a href="signup.php"><button class="btn sing-up">Sign Up</button></a>
             </div>
             <?php } ?>
         </div>

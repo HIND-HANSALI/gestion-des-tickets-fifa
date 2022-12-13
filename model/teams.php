@@ -38,7 +38,7 @@ class Teams extends Connection{
         $sql = "INSERT INTO teams (nationality,picture,groupe) VALUES (?, ?, ?)";
         $stmt = $this ->connect() -> prepare($sql);
         $stmt->execute([$nationality,$picture,$groupe]);
-         return 1;
+        return 1;
     }
 
     protected function updateTeamDB($nationality,$groupe,$picture,$idTeam){
@@ -52,11 +52,12 @@ class Teams extends Connection{
     protected function deleteTeamDB($id){
 
         $sql = "DELETE FROM teams WHERE id_team = ?";
-        $stmt = $this->connect() -> prepare($sql);
+        $stmt = $this->connect() ->prepare($sql);
         $stmt->execute([$id]);
         return 1;
     }
-    function searchTeamDB($search){
+
+    protected function searchTeamDB($search){
         $sql="SELECT * FROM teams WHERE nationality like '%$search%'";
         $result = $this->connect()->prepare($sql);
         // $result->setFetchMode(PDO::FETCH_ASSOC);
@@ -65,7 +66,17 @@ class Teams extends Connection{
     
         // $_SESSION["search"] = "search";
         return $equipe;
-     } 
+    }
+
+    protected function LastPicUpdateDB($id, $nationality,$groupe){
+
+        $sql = "INSERT INTO teams (nationality,groupe) VALUES (? ,?) WHERE id_team = ?)";
+        $stmt = $this ->connect() -> prepare($sql);
+        $stmt->execute([$nationality, $groupe, $id]);
+        return 1;
+    }
+
+
 
 
     

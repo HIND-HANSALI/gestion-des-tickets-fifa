@@ -11,7 +11,7 @@
                 <span class="navbar-toggle-icon"><span class="toggle-line"></span></span>
             </button>
         </div>
-        <a class="navbar-brand" href="index.php">
+        <a class="navbar-brand" href="../pages/index.php">
             <div class="d-flex align-items-center "><img class="me-2" src="assets/img/" alt="" width="10" /><span class="font-sans-serif" style="color: #8A1538 !important">YouTicket</span></div>
         </a>
     </div>

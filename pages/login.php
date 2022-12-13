@@ -1,19 +1,19 @@
 <?php
+    session_start();
+    require_once dirname(__DIR__) . '/controller/userController.php';
 
-require_once dirname(__DIR__) . '/controller/loginController.php';
+    $signupController = new UsersController();
+    $signupController->loginUser();
 
-$LoginContr = new LoginContr();
-$LoginContr->checkUser();
+    $error="Veuillez remplir les champs ci-dessous.";
 
-$error="Veuillez remplir les champs ci-dessous.";
-
-if(isset($_GET["error"])=="wronglogin"){
-    $email = $_SESSION["email"];
-    $password =  $_SESSION["password"];
-    $error="l'adresse courriel ou le mot de passe que vous avez saisis sont incorrects. Veuillez réessayer.";
-}
-$title = "Login";
-include_once dirname(__DIR__) . "/include/header.php"
+    if(isset($_GET["error"])=="wronglogin"){
+        $email = $_SESSION["email"];
+        $password =  $_SESSION["password"];
+        $error="l'adresse courriel ou le mot de passe que vous avez saisis sont incorrects. Veuillez réessayer.";
+    }
+    $title = "Login";
+    include_once dirname(__DIR__) . "/include/header.php"
 ?>
 
 <body>
@@ -24,7 +24,6 @@ include_once dirname(__DIR__) . "/include/navbar.php"
     <div class="container">
         <div class="form login">
             <span class="title">Login</span>
-
             <div class="validation-input-signin" <?php if(isset($_GET["error"])=="wronglogin"){ ?> style="display: flex;" <?php }?>>
                 <div>
                     <i class="fa-solid fa-circle-exclamation"></i>
@@ -48,20 +47,10 @@ include_once dirname(__DIR__) . "/include/navbar.php"
                 <div class="input-field">
                     <input type="password" value="<?php echo $password??''?>" name="passwordSignin" class="passwordSignin" placeholder="Enter your password" oninput="checkPasswordSignin()">
                     <i class="fa-solid fa-lock"></i>
-                    <i class="fa-solid fa-eye showHidePw"></i>
                 </div>
 
                 <div class="Error errorPassword">
                     <P>Entrer a password</P>
-                </div>
-
-                <div class="checkbox-text">
-                    <div class="checkbox-content">
-                        <input type="checkbox" id="logCheck">
-                        <label for="logCheck" class="text">Remember me</label>
-                    </div>
-
-                    <a href="#" class="text">Forgot password?</a>
                 </div>
 
                 <div class="input-field button">
@@ -71,7 +60,7 @@ include_once dirname(__DIR__) . "/include/navbar.php"
 
             <div class="login-signup">
                 <span class="text">Not a member?
-                    <a href="sign.up.php" class="text signup-link">Signup Now</a>
+                    <a href="signup.php" class="text signup-link">Signup Now</a>
                 </span>
             </div>
         </div>

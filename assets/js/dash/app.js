@@ -107,7 +107,6 @@ function createTeam() {
     // Ouvrir modal form
     $('#teamModal').modal('show');
 }
-
 function GetTeam(id) {
     // Afficher le boutton edit
     document.getElementById('saveTeams').style.display = 'none';
@@ -119,7 +118,9 @@ function GetTeam(id) {
     document.getElementById('GroupeInput').value = document.querySelector(`#TeamGroupe${id}`).innerText;
     // setting the id of the team to the hidden input field
     document.getElementById('IdInput').value = id;
+
 }
+
 
 function DeleteTeam(id) {
     // Delete action confirmation using SweetAlert2 combined with Ajax

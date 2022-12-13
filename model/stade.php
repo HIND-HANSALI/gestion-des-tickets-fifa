@@ -62,6 +62,16 @@ class Stades extends Connection{
         $result = $stmt->fetchAll();
         return $result;
     }
+    function searchStadeDB($search){
+        $sql="SELECT * FROM stades WHERE name like '%$search%'";
+        $result = $this->connect()->prepare($sql);
+        // $result->setFetchMode(PDO::FETCH_ASSOC);
+        $result->execute();
+        $stade = $result->fetchAll();
+    
+        // $_SESSION["search"] = "search";
+        return $stade;
+     } 
     
 
 

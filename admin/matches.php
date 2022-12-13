@@ -21,11 +21,22 @@
     $AllStades = $StadeController -> getStades();
     $AllStatus = $StatusController -> getStatus();
 
+    // Create, Update, Delete methods
     $MatchController -> addMatch();
     $MatchController -> deleteMatch();
     $MatchController -> updateMatch();
-     /* print_r($_SERVER['REQUEST_METHOD']); */
-     /* die; */
+    /*  print_r($AllMatches);
+     die; */
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['searchbtn'])){
+        
+        $AllMatches = $MatchController -> searchMatch();
+       
+    }else{
+        
+        $AllMatches = $MatchController -> getMatches();
+
+
+    }
 
 ?>
 
@@ -80,8 +91,11 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php foreach($AllMatches AS $match){ ?>
-
+                                                    <?php foreach($AllMatches AS $match){ 
+                                                        if(empty($match)){
+                                                            echo '<tr><td colspan="11" class="text-center">No Matches Found</td></tr>';
+                                                        }else{
+                                                        ?>
                                                         <tr class="align-middle" id="Match<?=$match['id_match']; ?>">
                                                             <td class="text-nowrap"><?=$match['id_match']; ?></td>
                                                             <td class="text-center">
@@ -112,7 +126,7 @@
                                                                 <a href="#" onclick=" deleteMatch('<?= $match['id_match']; ?>') " class="btn btn-sm btn-danger">Delete</a>
                                                             </td>
                                                         </tr>
-                                                    <?php } ?>
+                                                    <?php } }?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -152,7 +166,7 @@
                         <form id="form" method="POST" enctype="multipart/form-data">
                             <div class="mb-0">
                                 <label class="col-form-label">Picture</label>
-                                <input id="PictureInput" class="dropify" data-max-file-size-preview="10M" data-height="100" type="file"  name="picture" required />
+                                <input id="PictureInput" class="dropify" data-max-file-size-preview="10M" data-height="100" type="file"  name="picture" />
                                 <div id="ValidatePicture" class="text-success"></div>
                                 
                             </div>

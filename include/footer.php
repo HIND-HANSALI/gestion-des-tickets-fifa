@@ -1,4 +1,4 @@
-<footer class="d-flex flex-column mb-3 " id="footerPrint">
+<footer class="d-flex flex-column " id="footerPrint">
     <div class=" d-flex justify-content-between align-items-center row">
         <div class="col-xs col-md-5 ff-mt-16 d-md-flex justify-content-start">
             <h2>FIFA World Cup <span class="d-block">Qatar 2022™</span></h2>

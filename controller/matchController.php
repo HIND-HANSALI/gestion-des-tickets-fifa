@@ -86,6 +86,13 @@ class MatchController extends Matches{
         }
     }
 
+    public function searchMatch(){
+        $search=$_POST['search'];
+        $result=$this->searchMatchDB($search); 
+        return $result ;
+    }
+
+
     public function updateMatch(){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             if(isset($_REQUEST['updateMatchForm'])){

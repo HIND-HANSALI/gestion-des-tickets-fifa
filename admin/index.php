@@ -2,20 +2,30 @@
     $path = 'Dashboard';
     session_start();
     
+    
     // include Controllers
     include_once('../controller/matchController.php');
     include_once('../controller/teamController.php');
     include_once('../controller/stadeController.php');
+    include_once('../controller/statisticsController.php');
 
     // instantiate the controller
     $MatchController = new MatchController();
     $TeamController = new TeamController();
     $StadeController = new StadeController();
+    $StatisticsController = new StatisticsController();
+
 
     // get matches
     $FourMatches = $MatchController -> FourMatches();
     $FourTeams = $TeamController -> FourTeams();
     $FourStades = $StadeController -> FourStades();
+
+    //get statistics
+    $CountMatches = $StatisticsController -> countMatches();
+    $CountStades = $StatisticsController -> countStades();
+    // $CountTeams = $StatisticsController -> countTeams();
+
 
 
 ?>
@@ -43,7 +53,7 @@
                                 <div class="card-body d-flex flex-column justify-content-end">
                                     <div class="row">
                                         <div class="col">
-                                            <p class="font-sans-serif lh-1 mb-1 fs-4">2300</p>
+                                            <p class="font-sans-serif lh-1 mb-1 fs-4"><?=$CountMatches;?></p>
                                             <span class="badge badge-soft-success rounded-pill fs--2">+3.5%</span>
                                         </div>
                                         <div class="col-auto ps-0">
@@ -61,7 +71,7 @@
                                 <div class="card-body d-flex flex-column justify-content-end">
                                     <div class="row justify-content-between">
                                         <div class="col-auto align-self-end">
-                                            <div class="fs-4 fw-normal font-sans-serif text-700 lh-1 mb-1">58</div>
+                                            <div class="fs-4 fw-normal font-sans-serif text-700 lh-1 mb-1"><?=$CountStades;?></div>
                                             <span class="badge rounded-pill fs--2 bg-200 text-primary"><span class="fas fa-caret-up me-1"></span>13.6%</span>
                                         </div>
                                         <div class="col-auto ps-0 mt-n4">
@@ -217,7 +227,7 @@
                                                                         <div class="avatar avatar-xxl">
                                                                             <?php 
                                                                                 if(!empty($team['picture'])){
-                                                                                    echo '<img src="'.$team['picture'].'" style="width:3rem;height: 3.7rem;" />';
+                                                                                    echo '<img src="../assets/img/uploads/'.$team['picture'].'" style="width:3rem;height: 3.7rem;" />';
                                                                                 }else{
                                                                                     echo '<img class="m-0" src="../assets/img/essential/frame.png" style="width:3rem;" />';
                                                                                 } 
