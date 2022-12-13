@@ -28,7 +28,6 @@ class TeamController extends Teams{
                     $_SESSION['message'] = "Veuillez selectioner une image";
                     header('Location: ../admin/teams.php');
                     die;
-                    
                 }else{
                     if($result == 1){
                         $result=$this->addTeamDB($nationality, $groupe,$picture);
