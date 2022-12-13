@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 include_once('database.php');  // Path to the DataBase
 
 class Users extends Connection{
