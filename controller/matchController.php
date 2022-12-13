@@ -22,7 +22,7 @@ class MatchController extends Matches{
                 if( empty($idTeam1) || empty($idTeam2) || empty($idStade)  || empty($idStatus)|| empty($price) || empty($time) || empty($description) ){
                     $_SESSION['icon'] = "error";
                     $_SESSION['message'] = "Veuillez remplir tous les champs";
-                    header('Location: ../admin/matches.php'); //redirect to page
+                    header('Location: ../admin/singlematch.php'); //redirect to page
                     die;
                 }else{
                     if ($_FILES['picture']['name'] != "") {
@@ -53,19 +53,19 @@ class MatchController extends Matches{
                                 } else {
                                     $_SESSION['message'] = "erreur";
                                     $_SESSION['message'] = "La taille de fichier est trop grand!!";
-                                    header('Location: ../admin/matches.php'); //to avoid alerts when refresh page
+                                    header('Location: ../admin/singlematch.php'); //to avoid alerts when refresh page
                                     die;
                                 }
                             } else {
                                 $_SESSION['message'] = "erreur";
                                 $_SESSION['message'] = "Erreur de téléchargement de fichier!!";
-                                header('Location: ../admin/matches.php'); //to avoid alerts when refresh page
+                                header('Location: ../admin/singlematch.php'); //to avoid alerts when refresh page
                                 die;
                             }
                         } else {
                             $_SESSION['message'] = "erreur";
                             $_SESSION['message'] = "Erreur de type de fichier!!";
-                            header('Location: ../admin/matches.php'); //to avoid alerts when refresh page
+                            header('Location: ../admin/singlematch.php'); //to avoid alerts when refresh page
                             die;
                         }
                     }
@@ -102,7 +102,7 @@ class MatchController extends Matches{
                 if( empty($idTeam1) || empty($idTeam2) || empty($idStade)  || empty($idStatus)|| empty($price) || empty($time) || empty($description) || empty($capacity) ){
                     $_SESSION['icon'] = "error";
                     $_SESSION['message'] = "Veuillez remplir tous les champs";
-                    header('Location: ../admin/matches.php'); //redirect to page
+                    header('Location: ../admin/singlematch.php'); //redirect to page
                     die;
                 }else{
                     if ($_FILES['picture']['name'] != "") {
@@ -133,25 +133,25 @@ class MatchController extends Matches{
                                 } else {
                                     $_SESSION['message'] = "erreur";
                                     $_SESSION['message'] = "La taille de fichier est trop grand!!";
-                                    header('Location: ../admin/matches.php'); //to avoid alerts when refresh page
+                                    header('Location: ../admin/singlematch.php'); //to avoid alerts when refresh page
                                     die;
                                 }
                             } else {
                                 $_SESSION['message'] = "erreur";
                                 $_SESSION['message'] = "Erreur de téléchargement de fichier!!";
-                                header('Location: ../admin/matches.php'); //to avoid alerts when refresh page
+                                header('Location: ../admin/singlematch.php'); //to avoid alerts when refresh page
                                 die;
                             }
                         } else {
                             $_SESSION['message'] = "erreur";
                             $_SESSION['message'] = "Erreur de type de fichier!!";
-                            header('Location: ../admin/matches.php'); //to avoid alerts when refresh page
+                            header('Location: ../admin/singlematch.php'); //to avoid alerts when refresh page
                             die;
                         }
                     }else{
                         $result = $this -> lastPicUpdateDB($id, $idTeam1, $idTeam2, $idStade, $idStatus, $capacity, $price, $time, $description);
                         if($result == 1){
-                            header('Location: ../admin/matches.php'); //refresh page
+                            header('Location: ../admin/singlematch.php'); //refresh page
                             $_SESSION['icon'] = "warning";
                             $_SESSION['message'] = "Match modifie avec succès";
                             die;

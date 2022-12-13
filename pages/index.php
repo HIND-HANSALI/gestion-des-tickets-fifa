@@ -1,5 +1,5 @@
 <?php
-    session_start();
+
     $title = "FifaWorldCup";
     include_once dirname(__DIR__) . "/include/header.php";
 
@@ -30,7 +30,7 @@
     <section class="projects">
         <div class="all d-flex justify-content-between align-items-center">
             <h3>Upcoming Matchs</h3>
-            <a href="matches.php">view all ></a>
+            <a href="allmatches.php">view all ></a>
         </div>
         <div class="content">
             <div class="project-card">
