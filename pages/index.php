@@ -13,7 +13,7 @@
     $StadeController = new StadeController();
      // get matches
      $AllMatches = $MatchController -> getMatches();
-     $AllTeams = $TeamController ->  getTeams();;
+     $AllTeams = $TeamController ->  getTeams();
      $AllStades = $StadeController ->getStades();
 
     
