@@ -50,7 +50,6 @@ class TeamController extends Teams{
                     $_SESSION['message'] = 'Veuillez remplir tous les champs';
                     header('Location: ../admin/teams.php'); 
                     die;
-
                 }else{
                     $picture=$this->uploadimage();
                     $result=$this->updateTeamDB($nationality, $groupe,$picture,$id);
