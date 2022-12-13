@@ -5,11 +5,6 @@
     $signupController = new UsersController();
     $signupController->loginUser();
 
-    require_once dirname(__DIR__) . '/controller/userController.php';
-
-    $signupController = new UsersController();
-    $signupController->loginUser();
-
     $error="Veuillez remplir les champs ci-dessous.";
 
     if(isset($_GET["error"])=="wronglogin"){

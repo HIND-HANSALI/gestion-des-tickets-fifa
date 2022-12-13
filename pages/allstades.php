@@ -12,7 +12,6 @@ include_once dirname(__DIR__) . "/include/navbar.php"
     <section class="projects">
         <div class="all d-flex justify-content-between align-items-center">
             <h3>Browse Available Stadiums</h3>
-            <a href="stade.php">view all ></a>
         </div>
         <div class="content">
 

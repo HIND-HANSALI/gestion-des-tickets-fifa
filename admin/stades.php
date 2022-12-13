@@ -65,22 +65,20 @@
                                             <table class="table table-hover table-striped overflow-hidden">
                                                 <thead>
                                                     <tr>
-                                                        <th scope="col">picture</th>
-                                                        <th scope="col">name</th>
-                                                        <th scope="col"> location </th>
-                                                        <th scope="col">capacity</th>
+                                                        <th scope="col">Id</th>
+                                                        <th scope="col">Picture</th>
+                                                        <th scope="col">Name</th>
+                                                        <th scope="col">Location </th>
+                                                        <th scope="col">Capacity</th>
                                                         <th class="text-end" scope="col"></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <?php foreach($AllStades As $stade){ ?>
                                                         <tr class="align-middle" id="Stade<?= $stade['id_stade']; ?>">
+                                                            <td class="col-1"><?=$stade['id_stade']; ?></td>
                                                             <td class="text-nowrap">
-                                                                <div class="d-flex align-items-center">
-                                                                    <div class="avatar avatar-xl">
-                                                                        <img class="rounded-circle" src=" ../assets/img/uploads/<?=$stade['picture']; ?>" alt="" />
-                                                                    </div>
-                                                                </div>
+                                                                <img src="<?=$stade['picture']; ?>" alt="" style="width:3rem;"/>
                                                             </td>
                                                             <td class="text-nowrap"><?=$stade['name']; ?></td>
                                                             <td class="text-nowrap"><?=$stade['location']; ?></td>

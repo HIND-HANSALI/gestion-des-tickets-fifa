@@ -21,14 +21,10 @@
 
     $TeamController -> addTeam();
     $TeamController -> deleteTeam();
-    $AllTeams =[];
+
     if(isset($_POST['searchbtn'])){
-        // echo"searching";
         $AllTeams =$TeamController -> searchTeam();
-        // if($AllTeams==NULL)
-        // $AllTeams=[];
     }else{
-        // echo "not searching";
         $AllTeams = $TeamController -> getTeams();
     }
     
@@ -75,8 +71,8 @@
                                                     <tr>
                                                         <th scope="col">Id</th>
                                                         <th scope="col">Picture</th>
-                                                        <th scope="col">nationality</th>
-                                                        <th scope="col">groupe</th>
+                                                        <th scope="col">Nationality</th>
+                                                        <th scope="col">Groupe</th>
                                                         <th class="text-end" scope="col"></th>
                                                     </tr>
                                                 </thead>
@@ -85,12 +81,7 @@
                                                         <tr class="align-middle" id="Team<?=$team['id_team']; ?>">
                                                             <td class="text-nowrap"><?=$team['id_team']; ?></td>
                                                             <td class="text-nowrap">
-                                                                <div class="d-flex align-items-center">
-                                                                    <div class="avatar avatar-xl">
-                                                                        <img class="rounded-circle" src="../assets/img/uploads/<?= $team['picture'];?>" alt="" />
-                                                                    
-                                                                    </div>
-                                                                </div>
+                                                                <img id src="<?= $team['picture'];?>" style="width:3rem;"/>
                                                             </td>
                                                             <td id="TeamNationality<?= $team['id_team']; ?>" class="text-nowrap"><?=$team['nationality']; ?></td>
                                                             <td id="TeamGroupe<?= $team['id_team']; ?>" class="text-nowrap"><?=$team['groupe']; ?></td>

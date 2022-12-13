@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     $title = "FifaWorldCup";
     include_once dirname(__DIR__) . "/include/header.php";
 
@@ -7,10 +7,12 @@
     include_once('../controller/matchController.php');
     include_once('../controller/teamController.php');
     include_once('../controller/stadeController.php');
+
      // instantiate the controller
     $MatchController = new MatchController();
     $TeamController = new TeamController();
     $StadeController = new StadeController();
+
      // get matches
      $FourMatches = $MatchController -> FourMatches();
      $FourTeams = $TeamController ->  FourTeams();;
@@ -31,7 +33,7 @@
             <a href="allmatches.php">view all ></a>
         </div>
         <div class="content">
-            <?php foreach($FourMatches as $match){ 
+            <?php foreach($FourMatches as $match){
                 $Date = new DateTimeImmutable($match['time']);
                 $Month = $Date->format('M');
                 $Day = $Date->format('d');
@@ -46,7 +48,7 @@
                         </div>
                         <div class="project-detai">
                             <h6><?=$match['team1']; ?> vs <?=$match['team2']; ?></h6>
-                            <span class="d-block">$<?=$match['price']; ?></span>
+                            <span class="d-block"><b>$</b><?=$match['price']; ?></span>
                             <span class="d-block"><i class="fa-solid fa-location-dot mx-1"></i><?=$match['stade']; ?></span>
                         </div>
                     </div>

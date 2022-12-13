@@ -16,24 +16,25 @@
     $StatusController = new StatusController();
 
     // Read methods
-    // $AllMatches = $MatchController -> getMatches();
+    $AllMatches = $MatchController -> getMatches();
     $AllTeams = $TeamController -> getTeams();
     $AllStades = $StadeController -> getStades();
     $AllStatus = $StatusController -> getStatus();
 
+    // Create, Update, Delete methods
     $MatchController -> addMatch();
     $MatchController -> deleteMatch();
     $MatchController -> updateMatch();
-     /* print_r($_SERVER['REQUEST_METHOD']); */
-     /* die; */
-
-     if(isset($_POST['searchbtn'])){
+    /*  print_r($AllMatches);
+     die; */
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['searchbtn'])){
         
         $AllMatches = $MatchController -> searchMatch();
        
     }else{
         
         $AllMatches = $MatchController -> getMatches();
+
 
     }
 
@@ -90,8 +91,11 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php foreach($AllMatches AS $match){ ?>
-
+                                                    <?php foreach($AllMatches AS $match){ 
+                                                        if(empty($match)){
+                                                            echo '<tr><td colspan="11" class="text-center">No Matches Found</td></tr>';
+                                                        }else{
+                                                        ?>
                                                         <tr class="align-middle" id="Match<?=$match['id_match']; ?>">
                                                             <td class="text-nowrap"><?=$match['id_match']; ?></td>
                                                             <td class="text-center">
@@ -122,7 +126,7 @@
                                                                 <a href="#" onclick=" deleteMatch('<?= $match['id_match']; ?>') " class="btn btn-sm btn-danger">Delete</a>
                                                             </td>
                                                         </tr>
-                                                    <?php } ?>
+                                                    <?php } }?>
                                                 </tbody>
                                             </table>
                                         </div>

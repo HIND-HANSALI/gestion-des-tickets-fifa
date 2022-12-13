@@ -32,10 +32,9 @@ class TeamController extends Teams{
                     $_SESSION['icon'] = "success";
                     $_SESSION['message'] = "Team added successfully";
 
-                    header('Location: ../admin/allteams.php');
+                    header('Location: ../admin/teams.php');
                     die;
                 }
-
             }
         }
     }
@@ -56,7 +55,7 @@ class TeamController extends Teams{
                     if($result =1){
                         $_SESSION['icon'] = 'success' ;
                         $_SESSION['message'] = 'teame Update avec succes';
-                        header('Location: ../admin/allteams.php');
+                        header('Location: ../admin/teams.php');
                         die;
                     }
                    
@@ -153,12 +152,12 @@ class TeamController extends Teams{
             {
                 $_SESSION['icon'] = 'error' ;
                 $_SESSION['message'] = 'unknown error occurred!';
-                header('Location: ../admin/teams.php');  
+                header('Location: ../admin/teams.php'); 
+                die;
                 
             }
         }
-        
-        return $new_img_name;
+        return $img_upload_path;
     } 
     
 

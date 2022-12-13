@@ -14,11 +14,11 @@
     </a>
     <ul class="navbar-nav align-items-center d-none d-lg-block">
         <li class="nav-item">
-            <div class="search-box" data-list='{"valueNames":["title"]}'>
-                <form method="post" class="position-relative" data-bs-toggle="search" data-bs-display="static">
-                    <input name="search" class="form-control search-input fuzzy-search" type="search" placeholder="Search..." aria-label="Search" />
+            <div class="search-box">
+                <form method="post" class="position-relative"  >
+                    <input name="search" class="form-control search-input fuzzy-search" placeholder="Search..." aria-label="Search" />
                     <!-- <button type="submit" name="searchbtn" class="fas fa-search search-box-icon"></button> -->
-                    <button type="submit" name="searchbtn" ><i class="fas fa-search search-box-icon"></i></button>
+                    <button type="submit" name="searchbtn" class="fas fa-search search-box-icon"></button>
                 </form>
                 <div class="btn-close-falcon-container position-absolute end-0 top-50 translate-middle shadow-none" data-bs-dismiss="search">
                     <button class="btn btn-link btn-close-falcon p-0" aria-label="Close"></button>

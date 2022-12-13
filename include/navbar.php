@@ -32,7 +32,7 @@
                         <i class="fa-solid fa-caret-down"></i>
                     </div>
                     <ul>
-                        <li><a href="../pages/profile.php"><i class="fa-solid fa-user me-4"></i>Profile</a></li>
+                        <li><a href="../pages/profile.php"><i class="fa-solid fa-user me-4"></i>Profil</a></li>
                         <?php if($_SESSION["role"]===1){ ?>
                             <li><a href="../admin/index.php">Dashboard</a></li>
                         <?php }?>
@@ -43,7 +43,7 @@
             <?php }else{ ?>
             <div class="authentification d-flex justify-content-center">
                 <a href="login.php"><button class="btn Log-in">Log in</button></a>
-                <a href="signup.php"><button class="btn sing-up">Sing Up</button></a>
+                <a href="signup.php"><button class="btn sing-up">Sign Up</button></a>
             </div>
             <?php } ?>
         </div>
