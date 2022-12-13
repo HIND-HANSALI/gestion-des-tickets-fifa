@@ -10,13 +10,13 @@
                     <a class="nav-link text-white" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="matches.php">Matches</a>
+                    <a class="nav-link text-white" href="allmatches.php">Matches</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="equipe.php">Teams</a>
+                    <a class="nav-link text-white" href="allteams.php">Teams</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link text-white" href="stade.php">Stades</a>
+                    <a class="nav-link text-white" href="allstades.php">Stades</a>
                 </li>
             </ul>
             <?php if(isset($_SESSION["good"])) {?>
@@ -36,7 +36,7 @@
                         <?php if($_SESSION["role"]===1){ ?>
                             <li><a href="../admin/index.php">Dashboard</a></li>
                         <?php }?>
-                        <li><a href="../controller/logoutController.php">Logout</a></li>
+                        <li><a href="../include/signout.php">Logout</a></li>
                     </ul>
                 </div>
             </div>
