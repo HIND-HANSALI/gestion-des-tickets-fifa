@@ -37,6 +37,14 @@ class Stades extends Connection{
         $stmt->execute([$name, $location, $capacity, $picture ,$id]);
         return 1;
     }
+    
+    protected function updateStadenoimageDB($name, $location, $capacity,$id){
+
+        $sql = "UPDATE stades SET name = ?, location = ?, capacity = ? WHERE id_stade = ?";
+        $stmt = $this ->connect() -> prepare($sql);
+        $stmt->execute([$name, $location, $capacity,$id]);
+        return 1;
+    }
 
     protected function deleteStadeDB($id){
 

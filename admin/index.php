@@ -270,7 +270,7 @@
                                                                         <div class="avatar avatar-xxl">
                                                                             <?php 
                                                                                 if(!empty($stade['picture'])){
-                                                                                    echo '<img src="'.$stade['picture'].'" style="width:3rem;" />';
+                                                                                    echo '<img src="../assets/img/uploads/'.$stade['picture'].'" style="width:3rem;" />';
                                                                                 }else{
                                                                                     echo '<img class="m-0" src="../assets/img/essential/frame.png" style="width:3rem;" />';
                                                                                 } 

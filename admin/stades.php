@@ -8,7 +8,6 @@
 
     // instanciate the class
     $StadeController = new StadeController();
-
     // Read methods
     $AllStades = $StadeController -> getStades();
     $StadeController -> addStade();
@@ -118,7 +117,7 @@
                         <form id="form" method="POST" enctype="multipart/form-data">
                             <div class="mb-0">
                                 <label class="col-form-label">Picture</label>
-                                <input id="PictureInput" class="dropify" data-max-file-size-preview="10M" value="ggg" data-height="100" type="file"  name="picture"  />
+                                <input id="PictureInput" class="dropify" data-max-file-size-preview="10M" data-height="100" type="file"  name="picture"  />
                                 <div id="ValidatePicture" class="text-success"></div>
                             </div>
                             <div class="mb-0">
