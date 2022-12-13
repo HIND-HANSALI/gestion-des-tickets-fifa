@@ -7,16 +7,16 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav m-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active text-white" aria-current="page" href="#">About</a>
+                    <a class="nav-link text-white" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#">News</a>
+                    <a class="nav-link text-white" href="matches.php">Matches</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Teams</a>
+                    <a class="nav-link text-white" href="equipe.php">Teams</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link text-white" href="#">Contact</a>
+                    <a class="nav-link text-white" href="stade.php">Stades</a>
                 </li>
             </ul>
             <?php if(isset($_SESSION["good"])) {?>
@@ -33,14 +33,17 @@
                     </div>
                     <ul>
                         <li><a href="../pages/profile.php">Profile</a></li>
+                        <?php if($_SESSION["role"]===1){ ?>
+                            <li><a href="../admin/index.php">Dashboard</a></li>
+                        <?php }?>
                         <li><a href="../controller/logoutController.php">Logout</a></li>
                     </ul>
                 </div>
             </div>
             <?php }else{ ?>
             <div class="authentification d-flex justify-content-center">
-                <a href="sign.in.php"><button class="btn Log-in">Log in</button></a>
-                <a href="sign.up.php"><button class="btn sing-up">Sing Up</button></a>
+                <a href="login.php"><button class="btn Log-in">Log in</button></a>
+                <a href="signup.php"><button class="btn sing-up">Sing Up</button></a>
             </div>
             <?php } ?>
         </div>

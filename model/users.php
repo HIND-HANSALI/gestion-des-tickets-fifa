@@ -78,8 +78,9 @@ class Users extends Connection{
             exit();
         } elseif ($checkPwd == true) {
             $_SESSION["name"] = $pwdHashed[0]["fullname"];
-            $_SESSION["email"] = $email;
             $_SESSION["id"] = $pwdHashed[0]["id_user"];
+            $_SESSION["role"] = $pwdHashed[0]["id_role"];
+            $_SESSION["email"] = $email;
             $_SESSION["good"] = "goode";
         }
         $stmt = null;
@@ -98,8 +99,6 @@ class Users extends Connection{
             header("location : ../pages/signup.php?error=stmtfailed");
             exit();
         }
-        $_SESSION["Username"] = $name;
-        $_SESSION["good"] = "goode";
         $stmt = null;
     }
 

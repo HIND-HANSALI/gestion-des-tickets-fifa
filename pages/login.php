@@ -53,20 +53,10 @@ include_once dirname(__DIR__) . "/include/navbar.php"
                 <div class="input-field">
                     <input type="password" value="<?php echo $password??''?>" name="passwordSignin" class="passwordSignin" placeholder="Enter your password" oninput="checkPasswordSignin()">
                     <i class="fa-solid fa-lock"></i>
-                    <i class="fa-solid fa-eye showHidePw"></i>
                 </div>
 
                 <div class="Error errorPassword">
                     <P>Entrer a password</P>
-                </div>
-
-                <div class="checkbox-text">
-                    <div class="checkbox-content">
-                        <input type="checkbox" id="logCheck">
-                        <label for="logCheck" class="text">Remember me</label>
-                    </div>
-
-                    <a href="#" class="text">Forgot password?</a>
                 </div>
 
                 <div class="input-field button">

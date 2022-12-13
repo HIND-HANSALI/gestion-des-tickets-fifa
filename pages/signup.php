@@ -81,18 +81,10 @@ include_once dirname(__DIR__) . "/include/navbar.php"
                 <div class="input-field">
                     <input type="password" value="<?php echo $Repeatpassword??''?>" name="Repeatpassword" class="PasswordRPassword" placeholder="Enter your password" oninput="checkMatchPassword()">
                     <i class="fa-solid fa-lock lockRepeatpassword"></i>
-                    <i class="fa-solid fa-eye showHidePw"></i>
                 </div>
 
                 <div class="Error errorRPassword">
                     <P>password don't match</P>
-                </div>
-
-                <div class="checkbox-text">
-                    <div class="checkbox-content">
-                        <input type="checkbox" id="termCon">
-                        <label for="termCon" class="text">I accepted all terms and conditions</label>
-                    </div>
                 </div>
 
                 <div class="input-field button">
