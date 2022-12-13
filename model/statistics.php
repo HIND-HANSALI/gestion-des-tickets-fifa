@@ -4,7 +4,7 @@ include_once('database.php');  // Path to the DataBase
 class Statistics extends Connection{
 function countMatchesDB(){
 
-    global $conn;
+   
     //SQL SELECT
     $sql="SELECT count(id_match) as matches FROM matches m WHERE m.id_status=3 ";
     
@@ -16,7 +16,7 @@ function countMatchesDB(){
   }
   function countTeamsDB(){
 
-    global $conn;
+   
     //SQL SELECT
     $sql="SELECT count(id_team) as teams FROM teams";
     

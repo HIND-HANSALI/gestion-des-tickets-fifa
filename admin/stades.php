@@ -14,6 +14,18 @@
     $StadeController -> addStade();
     $StadeController -> deleteStade();
     $StadeController->updateStade();
+
+
+    if(isset($_POST['searchbtn'])){
+        // echo"searching";
+        $AllStades = $StadeController -> searchStade();
+        // if($AllTeams==NULL)
+        // $AllTeams=[];
+    }else{
+        // echo "not searching";
+        $AllStades = $StadeController -> getStades();
+
+    }
 ?>
 
 <!DOCTYPE html>
