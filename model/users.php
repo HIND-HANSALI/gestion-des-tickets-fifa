@@ -50,7 +50,7 @@ class Users extends Connection{
 
         if (!$stmt->execute(array($email))) {
             $stmt = null;
-            header("location : ../pages/sign.in.php?error=stmtfailed");
+            header("location : ../pages/login.php?error=stmtfailed");
             exit();
         }
 
@@ -59,7 +59,7 @@ class Users extends Connection{
             $stmt = null;
             $_SESSION["email"] = $email;
             $_SESSION["password"] = $password;
-            header("location: ../pages/sign.in.php?error=wronglogin");
+            header("location: ../pages/login.php?error=wronglogin");
             exit();
         }
 
@@ -74,7 +74,7 @@ class Users extends Connection{
             $stmt = null;
             $_SESSION["email"] = $email;
             $_SESSION["password"] = $password;
-            header("location: ../pages/sign.in.php?error=wronglogin");
+            header("location: ../pages/login.php?error=wronglogin");
             exit();
         } elseif ($checkPwd == true) {
             $_SESSION["name"] = $pwdHashed[0]["fullname"];
@@ -95,7 +95,7 @@ class Users extends Connection{
 
         if(!$stmt -> execute(array($name, $email, $hashedPwd))){
             $stmt = null;
-            header("location : ../pages/sign.up.php?error=stmtfailed");
+            header("location : ../pages/signup.php?error=stmtfailed");
             exit();
         }
         $_SESSION["Username"] = $name;
@@ -109,7 +109,7 @@ class Users extends Connection{
 
         if(!$stmt -> execute(array($email))){
             $stmt = null;
-            header("location : ../pages/sign.up.php?error=stmtfailed");
+            header("location : ../pages/signup.php?error=stmtfailed");
             exit();
         }
 

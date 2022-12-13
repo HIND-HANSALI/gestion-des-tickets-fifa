@@ -56,10 +56,10 @@ class UsersController extends Users{
     public function validateLogin($email,$password){
 
         if(!$this->emptyInputLogin($email, $password)){
-            header("location: ../pages/sign.in.php?error=emptyinput");
+            header("location: ../pages/login.php?error=emptyinput");
             exit();
         }elseif(!$this->invalidEmail($email)){
-            header("location: ../pages/sign.in.php?error=Erroremail");
+            header("location: ../pages/login.php?error=Erroremail");
             exit();
         }else{
             $this->getUser($email, $password);
@@ -87,27 +87,27 @@ class UsersController extends Users{
     public function validateSignup($name,$email,$password,$RepeatPassword){
 
         if(!$this->emptyInputSignup($name, $email, $password, $RepeatPassword)){
-            header("location: ../pages/sign.up.php?error=emptyinput");
+            header("location: ../pages/signup.php?error=emptyinput");
             exit();
         }
         elseif(!$this->invalidName($name)){
-            header("location: ../pages/sign.up.php?error=Errorusername");
+            header("location: ../pages/signup.php?error=Errorusername");
             exit();
         }
         elseif(!$this->invalidEmail($email)){
-            header("location: ../pages/sign.up.php?error=Erroremail");
+            header("location: ../pages/signup.php?error=Erroremail");
             exit();
         }
         elseif(!$this->passwordMatch($password, $RepeatPassword)){
-            header("location: ../pages/sign.up.php?error=Matchpassword");
+            header("location: ../pages/signup.php?error=Matchpassword");
             exit();
         }
         elseif(!$this->checkEmailSignup($email)){
-            header("location: ../pages/sign.up.php?error=emailtaken");
+            header("location: ../pages/signup.php?error=emailtaken");
             exit();
         }else{
             $this->setUser($name,$email,$password);
-            header('location: ../pages/sign.in.php');
+            header('location: ../pages/login.php');
         }
     }
 

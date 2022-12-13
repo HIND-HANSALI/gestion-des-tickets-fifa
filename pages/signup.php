@@ -102,7 +102,7 @@ include_once dirname(__DIR__) . "/include/navbar.php"
 
             <div class="login-signup">
                 <span class="text">Already a member?
-                    <a href="sign.in.php" class="text login-link">Login Now</a>
+                    <a href="login.php" class="text login-link">Login Now</a>
                 </span>
             </div>
         </div>
