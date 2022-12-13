@@ -26,6 +26,18 @@
         <div class="header-description">
             <h1>Exclusive Matchs, priceless moments</h1>
         </div>
+        <div class="header-search">
+            <div class="inputes-field">
+                <div class="inputs">
+                    <input type="text" placeholder="Search by matches, team,stadium, and more" class="input-serach">
+                    <div class="input-date">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <input type="text" name="daterange" placeholder="Select date" />
+                    </div>
+                </div>
+                <button class="btn-serach"><i class="fa-solid fa-magnifying-glass search-icon"></i><span>Search</span></button>
+            </div>
+        </div>
     </section>
     <section class="projects">
         <div class="all d-flex justify-content-between align-items-center">

@@ -185,9 +185,89 @@ nav{
     font-size: 3.5rem;
 }
 
+.header-search{
+    width: 100%;
+    height: 12%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-search .inputes-field{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.inputs{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-search .inputes-field input{
+    height: 100%;
+    width: 45%;
+    min-width: 200px;
+    padding: 10px;
+    border: 0;
+}
+.header-search .inputes-field .input-date{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 45%;
+    min-width: 220px;
+    height: 100%;
+}
+
+.header-search .inputes-field .input-date input{
+    width: 95%;
+    height: 100%;
+}
+
+
+.header-search .inputes-field button{
+    width: 10%;
+    height: 70%;
+    border: 0;
+    background-color: #8A1538;
+    color: white;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+.header-search .inputes-field .search-icon{
+    margin-right: 3px;
+}
+
+hr{
+    width: 1px;
+    background-color: #DDDDDE;
+}
+
+.fa-calendar-days{
+    margin: 0 5px;
+}
+
 @media (max-width: 994px){
     .header-background .header-description h1{
         font-size: 2.5rem;
+    }
+
+    .header-search .inputes-field{
+        width: 90%;
+    }
+
+    .header-search .inputes-field .search-icon{
+        display: none;
     }
 }
 
@@ -196,11 +276,39 @@ nav{
         font-size: 1.5rem;
     }
 
+    .header-search .inputes-field{
+        width: 95%;
+    }
+}
+
+@media (max-width: 594px){
+    .header-search .inputes-field{
+        display: block;
+        width: 100%;
+    }
+
+    .header-search .inputes-field button{
+        width: 50%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .header-search .inputes-field .search-icon{
+        display: block;
+    }
 }
 
 @media (max-width: 447px){
     .header-background .header-description h1{
         font-size: 1.3rem;
+    }
+
+    .header-search .inputes-field button{
+        width: 100%;
     }
 }
 
