@@ -92,6 +92,20 @@ class Matches extends Connection {
         return 1;
     }
 
+    function searchMatchDB($search){
+         $sql = "SELECT m.id_match AS id_match , m.id_team1, m.id_team2, m.id_stade, m.capacity, st.name AS status, m.time, m.picture, m.description, m.price, t1.nationality AS team1, t2.nationality AS team2, sd.name AS stade
+         FROM matches m INNER JOIN teams t1 ON m.id_team1 = t1.id_team INNER JOIN teams t2 ON m.id_team2 = t2.id_team 
+         INNER JOIN stades sd ON m.id_stade = sd.id_stade 
+         INNER JOIN status st ON m.id_status = st.id_status 
+         WHERE t1.nationality  like '%$search%'";
+        $result = $this->connect()->prepare($sql);
+        
+        $result->execute();
+        $match = $result->fetchAll();
+    
+        
+        return $match;
+     } 
 
 
 
