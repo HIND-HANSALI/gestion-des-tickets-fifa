@@ -12,9 +12,9 @@
     $TeamController = new TeamController();
     $StadeController = new StadeController();
      // get matches
-     $AllMatches = $MatchController -> getMatches();
-     $AllTeams = $TeamController ->  getTeams();;
-     $AllStades = $StadeController ->getStades();
+     $FourMatches = $MatchController -> FourMatches();
+     $FourTeams = $TeamController ->  FourTeams();;
+     $FourStades = $StadeController ->FourStades();
 
     
 ?>
@@ -33,66 +33,27 @@
             <a href="matches.php">view all ></a>
         </div>
         <div class="content">
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="../assets/img/feH6rS1pFNK5DYyn_768x432.jpg" alt="">
-                </div>
-                <div class="project-info">
-                    <div class="project-date">
-                        <p>Nov <span class="d-block">23</span></p>
+            <?php foreach($FourMatches as $match){ 
+                $Date = new DateTimeImmutable($match['time']);
+                $Month = $Date->format('M');
+                $Day = $Date->format('d');
+                ?>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="../assets/img/feH6rS1pFNK5DYyn_768x432.jpg" alt="">
                     </div>
-                    <div class="project-detai">
-                        <h6>Morocco vs Crotia</h6>
-                        <span class="d-block">$150</span>
-                        <span class="d-block"><i class="fa-solid fa-location-dot mx-1"></i>Ahmed Bin Ali Stadium</span>
-                    </div>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="../assets/img/feH6rS1pFNK5DYyn_768x432.jpg" alt="">
-                </div>
-                <div class="project-info">
-                    <div class="project-date">
-                        <p>Nov <span class="d-block">23</span></p>
-                    </div>
-                    <div class="project-detai">
-                        <h6>Morocco vs Crotia</h6>
-                        <span class="d-block">$150</span>
-                        <span class="d-block"><i class="fa-solid fa-location-dot mx-1"></i>Ahmed Bin Ali Stadium</span>
+                    <div class="project-info">
+                        <div class="project-date">
+                            <p><?=$Month; ?><span class="d-block"><?=$Day; ?> </span></p>
+                        </div>
+                        <div class="project-detai">
+                            <h6><?=$match['team1']; ?> vs <?=$match['team2']; ?></h6>
+                            <span class="d-block">$<?=$match['price']; ?></span>
+                            <span class="d-block"><i class="fa-solid fa-location-dot mx-1"></i><?=$match['stade']; ?></span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="../assets/img/feH6rS1pFNK5DYyn_768x432.jpg" alt="">
-                </div>
-                <div class="project-info">
-                    <div class="project-date">
-                        <p>Nov <span class="d-block">23</span></p>
-                    </div>
-                    <div class="project-detai">
-                        <h6>Morocco vs Crotia</h6>
-                        <span class="d-block">$150</span>
-                        <span class="d-block"><i class="fa-solid fa-location-dot mx-1"></i>Ahmed Bin Ali Stadium</span>
-                    </div>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="../assets/img/feH6rS1pFNK5DYyn_768x432.jpg" alt="">
-                </div>
-                <div class="project-info">
-                    <div class="project-date">
-                        <p>Nov <span class="d-block">23</span></p>
-                    </div>
-                    <div class="project-detai">
-                        <h6>Morocco vs Crotia</h6>
-                        <span class="d-block">$150</span>
-                        <span class="d-block"><i class="fa-solid fa-location-dot mx-1"></i>Ahmed Bin Ali Stadium</span>
-                    </div>
-                </div>
-            </div>
+            <?php } ?>
         </div>
     </section>
     <section class="Group">
@@ -104,7 +65,7 @@
             <a href="equipe.php">view all ></a>
         </div>
         <div class="content">
-        <?php foreach($AllTeams AS $team){ ?>
+        <?php foreach($FourTeams AS $team){ ?>
             <div class="project-card">
                 <div class="project-image">
                     <img src="../assets/img/feH6rS1pFNK5DYyn_768x432.jpg" alt="">
@@ -117,36 +78,6 @@
                 </div>
             </div>
             <?php } ?>
-            <!-- <div class="project-card">
-                <div class="project-image">
-                    <img src="../assets/img/feH6rS1pFNK5DYyn_768x432.jpg" alt="">
-                </div>
-                <div class="project-detais">
-                    <h6>Morocco vs Crotia</h6>
-                    <span class="d-block">$150</span>
-                    <span class="d-block"><i class="fa-solid fa-location-dot mx-1"></i>Ahmed Bin Ali Stadium</span>
-                </div>
-            </div> -->
-            <!-- <div class="project-card">
-                <div class="project-image">
-                    <img src="../assets/img/feH6rS1pFNK5DYyn_768x432.jpg" alt="">
-                </div>
-                <div class="project-detais">
-                    <h6>Morocco vs Crotia</h6>
-                    <span class="d-block">$150</span>
-                    <span class="d-block"><i class="fa-solid fa-location-dot mx-1"></i>Ahmed Bin Ali Stadium</span>
-                </div>
-            </div> -->
-            <!-- <div class="project-card">
-                <div class="project-image">
-                    <img src="../assets/img/feH6rS1pFNK5DYyn_768x432.jpg" alt="">
-                </div>
-                <div class="project-detais">
-                    <h6>Morocco vs Crotia</h6>
-                    <span class="d-block">$150</span>
-                    <span class="d-block"><i class="fa-solid fa-location-dot mx-1"></i>Ahmed Bin Ali Stadium</span>
-                </div>
-            </div> -->
         </div>
     </section>
     <section class="projects">
@@ -155,7 +86,7 @@
             <a href="stade.php">view all ></a>
         </div>
         <div class="content">
-        <?php foreach($AllStades As $stade){ ?>
+        <?php foreach($FourStades As $stade){ ?>
             <div class="project-card">
                 <div class="project-image">
                     <img src="../assets/img/feH6rS1pFNK5DYyn_768x432.jpg" alt="">
@@ -167,37 +98,6 @@
                 </div>
             </div>
             <?php } ?>
-
-            <!-- <div class="project-card">
-                <div class="project-image">
-                    <img src="../assets/img/feH6rS1pFNK5DYyn_768x432.jpg" alt="">
-                </div>
-                <div class="project-detais">
-                    <h6>Morocco vs Crotia</h6>
-                    <span class="d-block">$150</span>
-                    <span class="d-block"><i class="fa-solid fa-location-dot mx-1"></i>Ahmed Bin Ali Stadium</span>
-                </div>
-            </div> -->
-            <!-- <div class="project-card">
-                <div class="project-image">
-                    <img src="../assets/img/feH6rS1pFNK5DYyn_768x432.jpg" alt="">
-                </div>
-                <div class="project-detais">
-                    <h6>Morocco vs Crotia</h6>
-                    <span class="d-block">$150</span>
-                    <span class="d-block"><i class="fa-solid fa-location-dot mx-1"></i>Ahmed Bin Ali Stadium</span>
-                </div>
-            </div> -->
-            <!-- <div class="project-card">
-                <div class="project-image">
-                    <img src="../assets/img/feH6rS1pFNK5DYyn_768x432.jpg" alt="">
-                </div>
-                <div class="project-detais">
-                    <h6>Morocco vs Crotia</h6>
-                    <span class="d-block">$150</span>
-                    <span class="d-block"><i class="fa-solid fa-location-dot mx-1"></i>Ahmed Bin Ali Stadium</span>
-                </div>
-            </div> -->
         </div>
     </section>
 <?php

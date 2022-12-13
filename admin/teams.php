@@ -30,7 +30,6 @@
     }else{
         // echo "not searching";
         $AllTeams = $TeamController -> getTeams();
-
     }
     
     // print_r($_REQUEST);

@@ -22,7 +22,7 @@
             <?php if(isset($_SESSION["good"])) {?>
             <div class="profile d-flex justify-content-center align-items-center">
                 <div class="profile-photo">
-                    <img src="../assets/img/cropped-DSC_0043.jpg">
+                    <img src="../assets/img/essential/user1.png">
                 </div>
                 <div class="info">
                     <h5><?php echo $_SESSION["name"];?></h5>
@@ -32,11 +32,11 @@
                         <i class="fa-solid fa-caret-down"></i>
                     </div>
                     <ul>
-                        <li><a href="../pages/profile.php">Profile</a></li>
+                        <li><a href="../pages/profile.php"><i class="fa-solid fa-user me-4"></i>Profile</a></li>
                         <?php if($_SESSION["role"]===1){ ?>
                             <li><a href="../admin/index.php">Dashboard</a></li>
                         <?php }?>
-                        <li><a href="../controller/logoutController.php">Logout</a></li>
+                        <li><a href="../controller/logoutController.php"><i class="fa-solid fa-right-from-bracket me-4"></i>Logout</a></li>
                     </ul>
                 </div>
             </div>

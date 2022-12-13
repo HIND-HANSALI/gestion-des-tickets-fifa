@@ -42,7 +42,7 @@ class TeamController extends Teams{
 
 
     public function updateTeam(){
-       
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
             if(isset($_POST['updateTeamForm'])){
                 extract($_POST);
                 if(empty($nationality)||empty($groupe)){
@@ -64,7 +64,26 @@ class TeamController extends Teams{
                 }
                 
             }
-       
+        }
+    }
+
+    public function LastPicUpdate($id, $nationality,$groupe){
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            if(isset($_POST['addTeamForm'])){
+                extract($_POST);
+                $picture= $this->uploadimage();
+                $result=$this->LastPicUpdateDB($id, $nationality, $groupe);
+                if($result == 1){
+
+                    $_SESSION['icon'] = "success";
+                    $_SESSION['message'] = "Team added successfully";
+
+                    header('Location: ../admin/teams.php');
+                    die;
+                }
+
+            }
+        }
     }
 
 
@@ -83,11 +102,10 @@ class TeamController extends Teams{
 
 
     public function searchTeam(){
-            $search=$_POST['search'];
-            $result=$this->searchTeamDB($search); 
-            return $result ;
+        $search=$_POST['search'];
+        $result=$this->searchTeamDB($search); 
+        return $result ;
 
-        
     }
 
 
@@ -95,8 +113,6 @@ class TeamController extends Teams{
     {
      if (isset($_FILES['my_image'])) //name de image 
     {
-    
-        global $conn;
 
         $img_name = $_FILES['my_image']['name'];
         $img_size = $_FILES['my_image']['size'];
@@ -110,7 +126,8 @@ class TeamController extends Teams{
                 {
                     $_SESSION['icon'] = 'error' ;
                     $_SESSION['message'] = 'Sorry, your file is too large.';
-                    header('Location: ../admin/teams.php'); 
+                    header('Location: ../admin/teams.php');
+                    die;
                 }
                 else
                 {
@@ -130,6 +147,7 @@ class TeamController extends Teams{
                             $_SESSION['icon'] = 'error' ;
                             $_SESSION['message'] = "You can't upload files of this type";
                             header('Location: ../admin/teams.php'); 
+                            die;
                         }
                 }
                 }
@@ -137,13 +155,13 @@ class TeamController extends Teams{
             {
                 $_SESSION['icon'] = 'error' ;
                 $_SESSION['message'] = 'unknown error occurred!';
-                header('Location: ../admin/teams.php');  
-                
+                header('Location: ../admin/teams.php');
+                die;
             }
-    }
-    
-    return $new_img_name;
-} 
+        }
+        
+        return $new_img_name;
+    } 
     
 
     public function FourTeams(){

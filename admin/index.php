@@ -2,6 +2,7 @@
     $path = 'Dashboard';
     session_start();
     
+    
     // include Controllers
     include_once('../controller/matchController.php');
     include_once('../controller/teamController.php');
