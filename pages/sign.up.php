@@ -1,9 +1,9 @@
 <?php
 
-require_once dirname(__DIR__) . '/controller/signupController.php';
+require_once dirname(__DIR__) . '/controller/userController.php';
 
-$signupController = new SignupContr();
-$signupController->addUser();
+$signupController = new UsersController();
+$signupController->signupUser();
 
 $error="Veuillez remplir les champs ci-dessous.";
 

@@ -25,7 +25,7 @@
                     <img src="../assets/img/cropped-DSC_0043.jpg">
                 </div>
                 <div class="info">
-                    <h5><?php echo $_SESSION["Username"];?></h5>
+                    <h5><?php echo $_SESSION["name"];?></h5>
                 </div>
                 <div class="links">
                     <div class="icon-men">
@@ -39,8 +39,8 @@
             </div>
             <?php }else{ ?>
             <div class="authentification d-flex justify-content-center">
-                <a href="sign.in.php?id=1"><button class="btn Log-in">Log in</button></a>
-                <a href="sign.up.php?id=1"><button class="btn sing-up">Sing Up</button></a>
+                <a href="sign.in.php"><button class="btn Log-in">Log in</button></a>
+                <a href="sign.up.php"><button class="btn sing-up">Sing Up</button></a>
             </div>
             <?php } ?>
         </div>

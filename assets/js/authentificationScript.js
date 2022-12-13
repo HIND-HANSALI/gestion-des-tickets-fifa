@@ -1,10 +1,6 @@
+/* ======================================= SignIn ======================================= */
 EmailLogin = document.querySelector(".emailSignin");
 passwordLogin = document.querySelector(".passwordSignin");
-
-NameSinup = document.querySelector(".nameSignup");
-EmailSinup = document.querySelector(".emailSignup");
-passwordSinup = document.querySelector(".passwordSignup");
-PasswordSignuprepeat = document.querySelector(".PasswordRPassword");
 
 iconenvelope = document.querySelector(".fa-envelope");
 iconlock = document.querySelector(".fa-lock");
@@ -19,7 +15,6 @@ errorEmail = document.querySelector(".errorEmail");
 errorpassword = document.querySelector(".errorPassword");
 errorpasswordrepaeat = document.querySelector(".errorRPassword");
 
-buttonSubmit = document.querySelector("#signup");
 buttonSubmitlogin = document.querySelector("#login");
 
 form = document.getElementsByTagName("form");
@@ -74,12 +69,21 @@ function checkPasswordSignin() {
   }
 }
 
+/* ======================================= SignUp ======================================= */
+
+NameSinup = document.querySelector(".nameSignup");
+EmailSinup = document.querySelector(".emailSignup");
+passwordSinup = document.querySelector(".passwordSignup");
+PasswordSignuprepeat = document.querySelector(".PasswordRPassword");
+
+buttonSubmit = document.querySelector("#signup");
+
 function valideSignup() {
   if (
-    NameSinup.value == "" ||
-    EmailSinup.value == "" ||
-    passwordSinup.value == "" ||
-    PasswordSignuprepeat.value == ""
+      NameSinup.value == "" ||
+      EmailSinup.value == "" ||
+      passwordSinup.value == "" ||
+      PasswordSignuprepeat.value == ""
   ) {
     if (NameSinup.value === "") {
       errorName.style.display = "block";
@@ -162,8 +166,8 @@ function checkMatchPassword() {
   console.log(passwordSinup.value);
   console.log(PasswordSignuprepeat.value);
   if (
-    passwordSinup.value !== PasswordSignuprepeat.value ||
-    PasswordSignuprepeat.value === ""
+      passwordSinup.value !== PasswordSignuprepeat.value ||
+      PasswordSignuprepeat.value === ""
   ) {
     console.log("hhhh");
     buttonSubmit.setAttribute("type", "button");
@@ -175,5 +179,68 @@ function checkMatchPassword() {
     errorpasswordrepaeat.style.display = "none";
     iconlockRepPsw.style.color = "#85E8FD";
     PasswordSignuprepeat.style.borderBottomColor = "#85E8FD";
+  }
+}
+
+/* ======================================= Update ======================================= */
+
+NameEdit = document.querySelector("#user_name");
+EmailEdit = document.querySelector("#user_email");
+passwordEdit = document.querySelector("#user_password");
+PasswordEditrepeat = document.querySelector("#user_Rpassword");
+
+buttonUpdate = document.querySelector("#update");
+
+function valideUpdate() {
+  if (
+      NameEdit.value == "" ||
+      EmailEdit.value == ""
+  ) {
+    if (NameEdit.value === "") {
+      errorName.style.display = "block";
+    }
+
+    if (EmailEdit.value === "") {
+      errorEmail.style.display = "block";
+    }
+
+    buttonUpdate.setAttribute("type", "button");
+    validationInputSignup.style.display = "flex";
+  } else {
+    buttonUpdate.setAttribute("type", "submit");
+    validationInputSignup.style.display = "none";
+  }
+}
+
+function checkNameUpdate() {
+  var NameFormat = /^[a-zA-Z0-9]*$/;
+  if (NameEdit.value.match(NameFormat)) {
+    buttonUpdate.setAttribute("type", "submit");
+    errorName.style.display = "none";
+  } else {
+    buttonUpdate.setAttribute("type", "button");
+    errorName.style.display = "block";
+  }
+}
+
+function checkEmailUpdate() {
+  var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+  if (EmailEdit.value.match(mailformat)) {
+    buttonUpdate.setAttribute("type", "submit");
+    errorEmail.style.display = "none";
+  } else {
+    buttonUpdate.setAttribute("type", "button");
+    errorEmail.style.display = "block";
+  }
+}
+
+function checkMatchPasswordUpdate() {
+  if (passwordEdit.value !== PasswordEditrepeat.value) {
+    buttonUpdate.setAttribute("type", "button");
+    errorpasswordrepaeat.style.display = "block";
+  } else {
+    buttonUpdate.setAttribute("type", "submit");
+    errorpasswordrepaeat.style.display = "none";
   }
 }
