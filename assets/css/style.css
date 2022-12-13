@@ -384,28 +384,6 @@ footer .icon{
 .all-authotification .container .form form .input-field i.icon{
     left: 0;
 }
-.all-authotification .container .form form .input-field i.showHidePw{
-    right: 0;
-    cursor: pointer;
-    padding: 10px;
-}
-
-.all-authotification .container .form form .checkbox-text{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 20px;
-}
-
-.all-authotification .container .form form .checkbox-text .checkbox-content{
-    display: flex;
-    align-items: center;
-}
-
-.all-authotification .container .form form .checkbox-text .checkbox-content input{
-    margin: 0 8px -2px 4px;
-    accent-color: rgba(231, 233, 232, 0.8);
-}
 
 ::placeholder {
     color: rgba(231, 233, 232, 0.8);;

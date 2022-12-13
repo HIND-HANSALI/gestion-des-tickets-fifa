@@ -1,9 +1,14 @@
 <?php
 
-require_once dirname(__DIR__) . '/controller/loginController.php';
+require_once dirname(__DIR__) . '/controller/userController.php';
 
-$LoginContr = new LoginContr();
-$LoginContr->checkUser();
+$signupController = new UsersController();
+$signupController->loginUser();
+
+require_once dirname(__DIR__) . '/controller/userController.php';
+
+$signupController = new UsersController();
+$signupController->loginUser();
 
 $error="Veuillez remplir les champs ci-dessous.";
 
@@ -48,20 +53,10 @@ include_once dirname(__DIR__) . "/include/navbar.php"
                 <div class="input-field">
                     <input type="password" value="<?php echo $password??''?>" name="passwordSignin" class="passwordSignin" placeholder="Enter your password" oninput="checkPasswordSignin()">
                     <i class="fa-solid fa-lock"></i>
-                    <i class="fa-solid fa-eye showHidePw"></i>
                 </div>
 
                 <div class="Error errorPassword">
                     <P>Entrer a password</P>
-                </div>
-
-                <div class="checkbox-text">
-                    <div class="checkbox-content">
-                        <input type="checkbox" id="logCheck">
-                        <label for="logCheck" class="text">Remember me</label>
-                    </div>
-
-                    <a href="#" class="text">Forgot password?</a>
                 </div>
 
                 <div class="input-field button">
@@ -71,7 +66,7 @@ include_once dirname(__DIR__) . "/include/navbar.php"
 
             <div class="login-signup">
                 <span class="text">Not a member?
-                    <a href="sign.up.php" class="text signup-link">Signup Now</a>
+                    <a href="signup.php" class="text signup-link">Signup Now</a>
                 </span>
             </div>
         </div>
