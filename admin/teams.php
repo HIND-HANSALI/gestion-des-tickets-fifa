@@ -16,7 +16,7 @@
     $StatusController = new StatusController();
 
     // Read methods
-    $TeamController -> updateTeam() ;
+    $TeamController -> updateTeam();
     
 
     $TeamController -> addTeam();

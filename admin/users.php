@@ -1,17 +1,16 @@
 <?php
     // Page Title
     $path = 'Users';
+    
     session_start();
 
     require_once '../controller/userController.php';
 
     $Users = new UsersController();
 
-    $AllUsers = $Users -> getUsers(); 
+    $AllUsers = $Users -> getUsers();
     $Users -> setRole();
     $Users -> deleteUser();
-    
-
 
 
 ?>

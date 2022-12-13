@@ -84,7 +84,6 @@ class Matches extends Connection {
             unlink($picture);
         }
 
-
         $sql = "DELETE FROM matches WHERE id_match = ?";
         $stmt = $this->connect() -> prepare($sql);
         $stmt->execute([$id]);
