@@ -30,7 +30,7 @@
     <section class="projects">
         <div class="all d-flex justify-content-between align-items-center">
             <h3>Upcoming Matchs</h3>
-            <a href="">view all ></a>
+            <a href="matches.php">view all ></a>
         </div>
         <div class="content">
             <div class="project-card">
@@ -101,7 +101,7 @@
     <section class="projects">
         <div class="all d-flex justify-content-between align-items-center">
             <h3>Browse National Teams</h3>
-            <a href="">view all ></a>
+            <a href="equipe.php">view all ></a>
         </div>
         <div class="content">
         <?php foreach($AllTeams AS $team){ ?>
@@ -152,7 +152,7 @@
     <section class="projects">
         <div class="all d-flex justify-content-between align-items-center">
             <h3>Browse Available Stadiums</h3>
-            <a href="">view all ></a>
+            <a href="stade.php">view all ></a>
         </div>
         <div class="content">
         <?php foreach($AllStades As $stade){ ?>
