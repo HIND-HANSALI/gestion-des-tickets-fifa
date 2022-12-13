@@ -89,7 +89,7 @@ class MatchController extends Matches{
     public function searchMatch(){
         $search=$_POST['search'];
         $result=$this->searchMatchDB($search); 
-        return $result ;
+        return $result;
     }
 
 

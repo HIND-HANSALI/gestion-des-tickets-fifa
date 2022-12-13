@@ -1,7 +1,16 @@
 <?php
+    session_start();
+    $title = "FifaWorldCup";
+    include_once dirname(__DIR__) . "/include/header.php";
 
-$title = "FifaWorldCup";
-include_once dirname(__DIR__) . "/include/header.php";
+    // include controllers
+    include_once "../controller/TeamController.php";
+
+    // inialize controllers
+    $teamController = new TeamController();
+
+    // get all teams
+    $AllTeams = $teamController->getTeams();
 
 
 ?>
@@ -14,26 +23,20 @@ include_once dirname(__DIR__) . "/include/navbar.php"
             <h3>Browse National Teams</h3>
         </div>
         <div class="content">
+            <?php
+            foreach($AllTeams AS $team ){
+                ?>
             <div class="project-card">
                 <div class="project-image">
-                    <img src="../assets/img/feH6rS1pFNK5DYyn_768x432.jpg" alt="">
+                    <img src="<?=$team['picture']; ?>" alt="">
                 </div>
                 <div class="project-detais">
-                    <h6>Morocco vs Crotia</h6>
-                    <span class="d-block">$150</span>
-                    <span class="d-block"><i class="fa-solid fa-location-dot mx-1"></i>Ahmed Bin Ali Stadium</span>
+                    <h6><?=$team['nationality']; ?></h6>
+                    <span class="d-block"><b>Groupe : </b><?=$team['groupe']; ?></span>
                 </div>
             </div>
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="../assets/img/feH6rS1pFNK5DYyn_768x432.jpg" alt="">
-                </div>
-                <div class="project-detais">
-                    <h6>Morocco vs Crotia</h6>
-                    <span class="d-block">$150</span>
-                    <span class="d-block"><i class="fa-solid fa-location-dot mx-1"></i>Ahmed Bin Ali Stadium</span>
-                </div>
-            </div>
+            <?php
+            }   ?>
 
         </div>
     </section>

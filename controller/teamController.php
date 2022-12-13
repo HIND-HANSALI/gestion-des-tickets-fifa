@@ -23,17 +23,21 @@ class TeamController extends Teams{
             if(isset($_POST['addTeamForm'])){
                 extract($_POST);
                 $picture= $this->uploadimage();
-                // $picture=$_FILES["my_image"]["name"];
-                // print_r($_POST);
-                // print_r($picture);
-                $result=$this->addTeamDB($nationality, $groupe,$picture);
-                if($result == 1){
-
-                    $_SESSION['icon'] = "success";
-                    $_SESSION['message'] = "Team added successfully";
-
+                if($picture =="null"){
+                    $_SESSION['icon'] = "error";
+                    $_SESSION['message'] = "Veuillez selectioner une image";
                     header('Location: ../admin/teams.php');
                     die;
+                    
+                }else{
+                    if($result == 1){
+                        $result=$this->addTeamDB($nationality, $groupe,$picture);
+                        $_SESSION['icon'] = "success";
+                        $_SESSION['message'] = "Team added successfully";
+
+                        header('Location: ../admin/teams.php');
+                        die;
+                    }
                 }
             }
         }
@@ -44,17 +48,27 @@ class TeamController extends Teams{
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             if(isset($_POST['updateTeamForm'])){
                 extract($_POST);
+                $picture=$this->uploadimage();
                 if(empty($nationality)||empty($groupe)){
                     $_SESSION['icon'] = 'error' ;
                     $_SESSION['message'] = 'Veuillez remplir tous les champs';
                     header('Location: ../admin/allteams.php');
                     die;
-                }else{
-                    $picture=$this->uploadimage();
-                    $result=$this->updateTeamDB($nationality, $groupe,$picture,$id);
-                    if($result =1){
+                }
+                elseif($picture =="null"){
+                    $result = $this -> LastPicUpdateDB($id, $nationality, $groupe);
+                    if($result ==1){
                         $_SESSION['icon'] = 'success' ;
-                        $_SESSION['message'] = 'teame Update avec succes';
+                        $_SESSION['message'] = 'Team modifie avec succes';
+                        header('Location: ../admin/teams.php');
+                        die;
+                        }
+                }else{
+                    
+                    $result=$this->updateTeamDB($nationality, $groupe,$picture,$id);
+                    if($result ==1){
+                        $_SESSION['icon'] = 'success' ;
+                        $_SESSION['message'] = 'Team modifie avec succes';
                         header('Location: ../admin/teams.php');
                         die;
                     }
@@ -65,7 +79,7 @@ class TeamController extends Teams{
         }
     }
 
-    public function LastPicUpdate($id, $nationality,$groupe){
+/*     public function LastPicUpdate($id, $nationality,$groupe){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             if(isset($_POST['addTeamForm'])){
                 extract($_POST);
@@ -82,7 +96,7 @@ class TeamController extends Teams{
 
             }
         }
-    }
+    } */
 
 
     public function deleteTeam(){
@@ -150,11 +164,7 @@ class TeamController extends Teams{
                 }
             else
             {
-                $_SESSION['icon'] = 'error' ;
-                $_SESSION['message'] = 'unknown error occurred!';
-                header('Location: ../admin/teams.php'); 
-                die;
-                
+                $img_upload_path = 'null';
             }
         }
         return $img_upload_path;

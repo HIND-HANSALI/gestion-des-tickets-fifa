@@ -64,10 +64,10 @@ class StadeController extends Stades{
                     die;
                 }
             }else {
-                $new_img_name = "null";
+                $img_upload_path = "null";
             }
 
-            }
+        }
     
         return $img_upload_path;
     } 
@@ -83,18 +83,17 @@ class StadeController extends Stades{
                     $_SESSION['message'] = "Veuillez remplir tous les champs";
                     header('Location: ../admin/stades.php');
                     die;
-                }
-                else{
+                }else{
                     
-                       $result = $this -> addStadeDB($name, $location, $capacity, $filename);
-                        if($result == 1){
+                    $result = $this -> addStadeDB($name, $location, $capacity, $filename);
+                    if($result == 1){
 
-                            $_SESSION['icon'] = "success";
-                            $_SESSION['message'] = "Stade ajouté avec succès";
+                        $_SESSION['icon'] = "success";
+                        $_SESSION['message'] = "Stade ajouté avec succès";
 
-                            header('Location:'. $_SERVER['PHP_SELF']);
-                            die;
-                        }
+                        header('Location:'. $_SERVER['PHP_SELF']);
+                        die;
+                    }
                 }
             }
         }
@@ -148,7 +147,7 @@ class StadeController extends Stades{
                             die;
                         }
                      }else {
-                        $result = $this->updateStadenoimageDB($name, $location, $capacity, $id);
+                        $result = $this->previousPicUpdateDB($id, $name, $location, $capacity);
                         if ($result == 1) {
 
                             $_SESSION['icon'] = "success";

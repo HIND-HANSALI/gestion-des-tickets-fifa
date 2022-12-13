@@ -1,8 +1,16 @@
 <?php
+    session_start();
+    $title = "FifaWorldCup";
+    include_once dirname(__DIR__) . "/include/header.php";
 
-$title = "FifaWorldCup";
-include_once dirname(__DIR__) . "/include/header.php";
+    // include controllers
+    include_once "../controller/StadeController.php";
 
+    // inialize controllers
+    $stadeController = new StadeController();
+
+    // get all teams
+    $AllStades = $stadeController->getStades();
 
 ?>
     <body style=" background-color: #E1E1E1; overflow-x: hidden;">
@@ -14,27 +22,21 @@ include_once dirname(__DIR__) . "/include/navbar.php"
             <h3>Browse Available Stadiums</h3>
         </div>
         <div class="content">
-
+            <?php
+            foreach($AllStades AS $stade ){
+                ?>
             <div class="project-card">
                 <div class="project-image">
-                    <img src="../assets/img/feH6rS1pFNK5DYyn_768x432.jpg" alt="">
+                    <img src="<?=$stade['picture']; ?>" alt="">
                 </div>
                 <div class="project-detais">
-                    <h6>Morocco vs Crotia</h6>
-                    <span class="d-block">$150</span>
-                    <span class="d-block"><i class="fa-solid fa-location-dot mx-1"></i>Ahmed Bin Ali Stadium</span>
+                    <h6><?=$stade['name']; ?></h6>
+                    <span class="d-block"><?=$stade['capacity']; ?></span>
+                    <span class="d-block"><i class="fa-solid fa-location-dot mx-1"></i><?=$stade['location']; ?></span>
                 </div>
             </div>
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="../assets/img/feH6rS1pFNK5DYyn_768x432.jpg" alt="">
-                </div>
-                <div class="project-detais">
-                    <h6>Morocco vs Crotia</h6>
-                    <span class="d-block">$150</span>
-                    <span class="d-block"><i class="fa-solid fa-location-dot mx-1"></i>Ahmed Bin Ali Stadium</span>
-                </div>
-            </div>
+            <?php
+            }   ?>
         </div>
     </section>
 <?php

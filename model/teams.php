@@ -70,7 +70,7 @@ class Teams extends Connection{
 
     protected function LastPicUpdateDB($id, $nationality,$groupe){
 
-        $sql = "INSERT INTO teams (nationality,groupe) VALUES (? ,?) WHERE id_team = ?)";
+        $sql = "UPDATE teams SET nationality = ? ,groupe = ? WHERE id_team = ?";
         $stmt = $this ->connect() -> prepare($sql);
         $stmt->execute([$nationality, $groupe, $id]);
         return 1;

@@ -54,7 +54,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <p class="font-sans-serif lh-1 mb-1 fs-4"><?=$CountMatches;?></p>
-                                            <span class="badge badge-soft-success rounded-pill fs--2">+3.5%</span>
+                                            <span class="badge badge-soft-success rounded-pill fs--2"></span>
                                         </div>
                                         <div class="col-auto ps-0">
                                             <div class="echart-bar-weekly-sales h-100"></div>
@@ -72,7 +72,7 @@
                                     <div class="row justify-content-between">
                                         <div class="col-auto align-self-end">
                                             <div class="fs-4 fw-normal font-sans-serif text-700 lh-1 mb-1"><?=$CountStades;?></div>
-                                            <span class="badge rounded-pill fs--2 bg-200 text-primary"><span class="fas fa-caret-up me-1"></span>13.6%</span>
+                                            <!-- <span class="badge rounded-pill fs--2 bg-200 text-primary"><span class="fas fa-caret-up me-1"></span></span> -->
                                         </div>
                                         <div class="col-auto ps-0 mt-n4">
                                             <div
@@ -227,7 +227,7 @@
                                                                         <div class="avatar avatar-xxl">
                                                                             <?php 
                                                                                 if(!empty($team['picture'])){
-                                                                                    echo '<img src="../assets/img/uploads/'.$team['picture'].'" style="width:3rem;height: 3.7rem;" />';
+                                                                                    echo '<img src="'.$team['picture'].'" style="width:3rem;height: 3.7rem;" />';
                                                                                 }else{
                                                                                     echo '<img class="m-0" src="../assets/img/essential/frame.png" style="width:3rem;" />';
                                                                                 } 
@@ -280,7 +280,7 @@
                                                                         <div class="avatar avatar-xxl">
                                                                             <?php 
                                                                                 if(!empty($stade['picture'])){
-                                                                                    echo '<img src="../assets/img/uploads/'.$stade['picture'].'" style="width:3rem;" />';
+                                                                                    echo '<img src="'.$stade['picture'].'" style="width:3rem;" />';
                                                                                 }else{
                                                                                     echo '<img class="m-0" src="../assets/img/essential/frame.png" style="width:3rem;" />';
                                                                                 } 

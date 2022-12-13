@@ -8,10 +8,17 @@
 
     $Users = new UsersController();
 
-    $AllUsers = $Users -> getUsers();
+    
     $Users -> setRole();
     $Users -> deleteUser();
 
+    if($_SERVER ['REQUEST_METHOD'] == 'POST'){
+        if(isset($_POST['searchbtn'])){
+            $AllUsers = $Users -> SearchUser();
+        }
+    }else{
+        $AllUsers = $Users -> getUsers();
+    }
 
 ?>
 

@@ -73,21 +73,25 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php foreach($AllStades As $stade){ ?>
-                                                        <tr class="align-middle" id="Stade<?= $stade['id_stade']; ?>">
-                                                            <td class="col-1"><?=$stade['id_stade']; ?></td>
-                                                            <td class="text-nowrap">
-                                                                <img src="<?=$stade['picture']; ?>" alt="" style="width:3rem;"/>
-                                                            </td>
-                                                            <td class="text-nowrap"><?=$stade['name']; ?></td>
-                                                            <td class="text-nowrap"><?=$stade['location']; ?></td>
-                                                            <td class="text-nowrap"><?=$stade['capacity']; ?></td>
-                                                            <td class="text-end">
-                                                                <a href="#" onclick="Getstade('<?= $stade['id_stade']; ?>','<?= $stade['name']; ?>','<?= $stade['location']; ?>','<?= $stade['capacity']; ?>')" class="btn btn-sm btn-warning">Edit</a>
-                                                                <a href="#" onclick="DeleteStade('<?= $stade['id_stade']; ?>') " class="btn btn-sm btn-danger">Delete</a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php } ?>
+                                                    <?php if(empty($AllStades))
+                                                            echo '<tr class="align-middle"><th class="col-3">No result found.</th> </tr>';
+                                                        else{
+                                                            foreach($AllStades As $stade){ ?>
+                                                            <tr class="align-middle" id="Stade<?= $stade['id_stade']; ?>">
+                                                                <td class="col-1"><?=$stade['id_stade']; ?></td>
+                                                                <td class="text-nowrap">
+                                                                    <img id="StadePicture<?= $stade['id_stade']; ?>" src="<?=$stade['picture']; ?>" alt="" style="width:3rem;"/>
+                                                                </td>
+                                                                <td class="text-nowrap"><?=$stade['name']; ?></td>
+                                                                <td class="text-nowrap"><?=$stade['location']; ?></td>
+                                                                <td class="text-nowrap"><?=$stade['capacity']; ?></td>
+                                                                <td class="text-end">
+                                                                    <a href="#" onclick="Getstade('<?= $stade['id_stade']; ?>','<?= $stade['name']; ?>','<?= $stade['location']; ?>','<?= $stade['capacity']; ?>')" class="btn btn-sm btn-warning">Edit</a>
+                                                                    <a href="#" onclick="DeleteStade('<?= $stade['id_stade']; ?>') " class="btn btn-sm btn-danger">Delete</a>
+                                                                </td>
+                                                            </tr>
+                                                    <?php }
+                                                    } ?>
                                                 </tbody>
                                             </table>
                                         </div>

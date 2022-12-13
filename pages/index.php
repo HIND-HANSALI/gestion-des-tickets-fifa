@@ -40,7 +40,7 @@
                 ?>
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="../assets/img/feH6rS1pFNK5DYyn_768x432.jpg" alt="">
+                        <img src="<?=$match['picture']; ?>" alt="">
                     </div>
                     <div class="project-info">
                         <div class="project-date">
@@ -68,13 +68,12 @@
         <?php foreach($FourTeams AS $team){ ?>
             <div class="project-card">
                 <div class="project-image">
-                    <img src="../assets/img/feH6rS1pFNK5DYyn_768x432.jpg" alt="">
-                    <!-- <img src="../assets/img/uploads/<?= $team['picture'];?>" style="width: 100px;" alt=""> -->
+                    <img src="<?= $team['picture'];?>" alt="">
+                    <!-- <img src="../assets/img/uploads/<?= $team['picture'];?>"  alt=""> -->
                 </div>
                 <div class="project-detais">
                     <h6><?=$team['nationality']; ?> National Team</h6>
-                    <span class="d-block"><?=$team['groupe']; ?></span>
-                    <span class="d-block"><i class="fa-solid fa-location-dot mx-1"></i><?=$team['nationality']; ?></span>
+                    <span class="d-block"><b>Groupe : </b><?=$team['groupe']; ?></span>
                 </div>
             </div>
             <?php } ?>
@@ -89,7 +88,7 @@
         <?php foreach($FourStades As $stade){ ?>
             <div class="project-card">
                 <div class="project-image">
-                    <img src="../assets/img/feH6rS1pFNK5DYyn_768x432.jpg" alt="">
+                    <img src="<?= $stade['picture'];?>" alt="">
                 </div>
                 <div class="project-detais">
                     <h6><?=$stade['name']; ?></h6>

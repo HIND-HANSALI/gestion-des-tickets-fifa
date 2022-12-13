@@ -40,6 +40,14 @@ class Users extends Connection{
         return 1;
     }
 
+    protected function SearchUserDB($search){
+        $sql = "SELECT * FROM users WHERE fullname LIKE '%$search%' OR email LIKE '%$search%'";
+        $stmt = $this ->connect()->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
     /* ============================== Login ============================== */
 
     protected function getUser($email, $password)

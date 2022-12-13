@@ -38,7 +38,7 @@ class Stades extends Connection{
         return 1;
     }
     
-    protected function updateStadenoimageDB($name, $location, $capacity,$id){
+    protected function previousPicUpdateDB($id, $name, $location, $capacity){
 
         $sql = "UPDATE stades SET name = ?, location = ?, capacity = ? WHERE id_stade = ?";
         $stmt = $this ->connect() -> prepare($sql);

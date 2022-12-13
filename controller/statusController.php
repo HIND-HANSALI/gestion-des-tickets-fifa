@@ -8,9 +8,5 @@ class StatusController extends Status{
         $result = $this -> getStatusDB();
         return $result;
     }
-
-
-
-
     
 }
