@@ -6,7 +6,7 @@ function countMatchesDB(){
 
     global $conn;
     //SQL SELECT
-    $sql="SELECT count(id_match) as matches FROM matches";
+    $sql="SELECT count(id_match) as matches FROM matches m WHERE m.id_status=3 ";
     
     $stmt = $this ->connect()->prepare($sql);//sql injection
     $stmt->execute();
