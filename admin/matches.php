@@ -16,7 +16,7 @@
     $StatusController = new StatusController();
 
     // Read methods
-    $AllMatches = $MatchController -> getMatches();
+    // $AllMatches = $MatchController -> getMatches();
     $AllTeams = $TeamController -> getTeams();
     $AllStades = $StadeController -> getStades();
     $AllStatus = $StatusController -> getStatus();
@@ -26,6 +26,16 @@
     $MatchController -> updateMatch();
      /* print_r($_SERVER['REQUEST_METHOD']); */
      /* die; */
+
+     if(isset($_POST['searchbtn'])){
+        
+        $AllMatches = $MatchController -> searchMatch();
+       
+    }else{
+        
+        $AllMatches = $MatchController -> getMatches();
+
+    }
 
 ?>
 

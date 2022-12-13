@@ -115,6 +115,13 @@ class StadeController extends Stades{
         $result = $this -> getFourStadesDB();
         return $result;
     }
+    public function searchStade(){
+        $search=$_POST['search'];
+        $result=$this->searchStadeDB($search); 
+        return $result ;
+
+    
+}
 
     public function updateStade()
     {
@@ -145,4 +152,5 @@ class StadeController extends Stades{
 
 
     }
+
 }

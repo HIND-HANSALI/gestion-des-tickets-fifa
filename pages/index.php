@@ -1,5 +1,5 @@
 <?php
-    session_start();
+
     $title = "FifaWorldCup";
     include_once dirname(__DIR__) . "/include/header.php";
 
@@ -15,8 +15,6 @@
      $FourMatches = $MatchController -> FourMatches();
      $FourTeams = $TeamController ->  FourTeams();;
      $FourStades = $StadeController ->FourStades();
-
-    
 ?>
 <body style=" background-color: #E1E1E1; overflow-x: hidden;">
     <?php
@@ -30,7 +28,7 @@
     <section class="projects">
         <div class="all d-flex justify-content-between align-items-center">
             <h3>Upcoming Matchs</h3>
-            <a href="matches.php">view all ></a>
+            <a href="allmatches.php">view all ></a>
         </div>
         <div class="content">
             <?php foreach($FourMatches as $match){ 

@@ -32,7 +32,7 @@ class TeamController extends Teams{
                     $_SESSION['icon'] = "success";
                     $_SESSION['message'] = "Team added successfully";
 
-                    header('Location: ../admin/teams.php');
+                    header('Location: ../admin/allteams.php');
                     die;
                 }
 
@@ -48,7 +48,7 @@ class TeamController extends Teams{
                 if(empty($nationality)||empty($groupe)){
                     $_SESSION['icon'] = 'error' ;
                     $_SESSION['message'] = 'Veuillez remplir tous les champs';
-                    header('Location: ../admin/teams.php'); 
+                    header('Location: ../admin/allteams.php');
                     die;
                 }else{
                     $picture=$this->uploadimage();
@@ -56,7 +56,7 @@ class TeamController extends Teams{
                     if($result =1){
                         $_SESSION['icon'] = 'success' ;
                         $_SESSION['message'] = 'teame Update avec succes';
-                        header('Location: ../admin/teams.php');
+                        header('Location: ../admin/allteams.php');
                         die;
                     }
                    
@@ -125,8 +125,7 @@ class TeamController extends Teams{
                 {
                     $_SESSION['icon'] = 'error' ;
                     $_SESSION['message'] = 'Sorry, your file is too large.';
-                    header('Location: ../admin/teams.php');
-                    die;
+                    header('Location: ../admin/teams.php'); 
                 }
                 else
                 {
@@ -154,8 +153,8 @@ class TeamController extends Teams{
             {
                 $_SESSION['icon'] = 'error' ;
                 $_SESSION['message'] = 'unknown error occurred!';
-                header('Location: ../admin/teams.php');
-                die;
+                header('Location: ../admin/teams.php');  
+                
             }
         }
         
