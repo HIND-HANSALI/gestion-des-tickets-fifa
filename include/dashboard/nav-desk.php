@@ -10,15 +10,16 @@
         <span class="navbar-toggle-icon"><span class="toggle-line"></span></span>
     </button>
     <a class="navbar-brand me-1 me-sm-3 mt-xs-2 mt-sm-1" href="../pages/index.php">
-        <div class="d-flex align-items-center"><img class="me-2" src="assets/img/" alt="" width="10" /><span class="font-sans-serif my-lg-3" style="color: #8A1538 !important">YouTicket</span></div>
+        <div class="d-flex align-items-center"><span class="font-sans-serif my-lg-3" style="color: #8A1538 !important">YouTicket</span></div>
     </a>
     <ul class="navbar-nav align-items-center d-none d-lg-block">
         <li class="nav-item">
-            <div class="search-box" data-list='{"valueNames":["title"]}'>
-                <form method="post" class="position-relative" data-bs-toggle="search" data-bs-display="static">
-                    <input name="search" class="form-control search-input fuzzy-search" type="search" placeholder="Search..." aria-label="Search" />
+            <div class="search-box">
+                <form method="POST" class="position-relative">
+                    <input name="search" class="form-control search-input" placeholder="Search..." />
                     <!-- <button type="submit" name="searchbtn" class="fas fa-search search-box-icon"></button> -->
-                    <button type="submit" name="searchbtn" ><i class="fas fa-search search-box-icon"></i></button>
+                    <i class="fas fa-search search-box-icon"></i>
+                    <button type="submit" name="searchbtn" class="d-none"></button>
                 </form>
                 <div class="btn-close-falcon-container position-absolute end-0 top-50 translate-middle shadow-none" data-bs-dismiss="search">
                     <button class="btn btn-link btn-close-falcon p-0" aria-label="Close"></button>

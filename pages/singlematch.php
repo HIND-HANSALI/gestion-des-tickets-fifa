@@ -1,3 +1,16 @@
+<?php
+    // Page Title
+    $path = 'Stades';
+    session_start();
+
+    // Requiring Controllers 
+    require_once('../controller/resevationController.php');
+
+   
+   
+  
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,13 +50,14 @@
             
             <div class=""> 
                     <div class="card ">
+                        <form action="../controller/resevationController.php" method="POST">
                       <div class="card-body">
                         <h5 class="card-title">Tickets starting at</h5>
                         <p class="card-text">$.250</p>
-                        <a href="resrvation.php" class="btn ">Reserve your e-tickets</a>
+                        <button class="btn" name="reserve">Reserve your e-tickets</button>
                       </div>
+                      </form>
                     </div>
-    
             </div>
     
         </div>

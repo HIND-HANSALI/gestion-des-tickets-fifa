@@ -39,6 +39,12 @@ class UsersController extends Users{
         }
     }
 
+    public function SearchUser(){
+        $search=$_POST['search'];
+        $result=$this->SearchUserDB($search); 
+        return $result;
+    }
+
     /* ============================== Login ============================== */
 
     public function loginUser(){

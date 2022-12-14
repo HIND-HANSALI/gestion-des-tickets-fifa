@@ -21,16 +21,11 @@
 
     $TeamController -> addTeam();
     $TeamController -> deleteTeam();
-    $AllTeams =[];
-    if(isset($_POST['searchbtn'])){
-        // echo"searching";
-        $AllTeams =$TeamController -> searchTeam();
-        // if($AllTeams==NULL)
-        // $AllTeams=[];
-    }else{
-        // echo "not searching";
-        $AllTeams = $TeamController -> getTeams();
 
+    if(isset($_POST['searchbtn'])){
+        $AllTeams =$TeamController -> searchTeam();
+    }else{
+        $AllTeams = $TeamController -> getTeams();
     }
     
     // print_r($_REQUEST);
@@ -76,34 +71,33 @@
                                                     <tr>
                                                         <th scope="col">Id</th>
                                                         <th scope="col">Picture</th>
-                                                        <th scope="col">nationality</th>
-                                                        <th scope="col">groupe</th>
+                                                        <th scope="col">Nationality</th>
+                                                        <th scope="col">Groupe</th>
                                                         <th class="text-end" scope="col"></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php foreach($AllTeams AS $team){ ?>
-                                                        <tr class="align-middle" id="Team<?=$team['id_team']; ?>">
-                                                            <td class="text-nowrap"><?=$team['id_team']; ?></td>
-                                                            <td class="text-nowrap">
-                                                                <div class="d-flex align-items-center">
-                                                                    <div class="avatar avatar-xl">
-                                                                        <img class="rounded-circle" src="../assets/img/uploads/<?= $team['picture'];?>" alt="" />
-                                                                    
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td id="TeamNationality<?= $team['id_team']; ?>" class="text-nowrap"><?=$team['nationality']; ?></td>
-                                                            <td id="TeamGroupe<?= $team['id_team']; ?>" class="text-nowrap"><?=$team['groupe']; ?></td>
-                                                            
-                                                            
-                                                            <td class="text-end">
-                                                            <a onclick="GetTeam('<?= $team['id_team']; ?>')" class="btn btn-sm btn-warning">Edit</a>
+                                                    <?php 
+                                                        if(empty($AllTeams))
+                                                            echo '<tr class="align-middle"><th class="col-3">No result found.</th> </tr>';
+                                                        else{ foreach($AllTeams AS $team){?>
+                                                            <tr class="align-middle" id="Team<?=$team['id_team']; ?>">
+                                                                <td class="col-1"><?=$team['id_team']; ?></td>
+                                                                <td class="text-nowrap">
+                                                                    <img id="TeamPicture<?=$team['id_team']; ?>" src="<?= $team['picture'];?>" style="width:3rem;"/>
+                                                                </td>
+                                                                <td id="TeamNationality<?= $team['id_team']; ?>" class="text-nowrap"><?=$team['nationality']; ?></td>
+                                                                <td id="TeamGroupe<?= $team['id_team']; ?>" class="text-nowrap"><?=$team['groupe']; ?></td>
+                                                                
+                                                                
+                                                                <td class="text-end">
+                                                                <a onclick="GetTeam('<?= $team['id_team']; ?>')" class="btn btn-sm btn-warning">Edit</a>
 
-                                                            <a onclick="DeleteTeam('<?= $team['id_team']; ?>') " class="btn btn-sm btn-danger">Delete</a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php } ?>
+                                                                <a onclick="DeleteTeam('<?= $team['id_team']; ?>') " class="btn btn-sm btn-danger">Delete</a>
+                                                                </td>
+                                                            </tr>
+                                                    <?php   }
+                                                        } ?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -162,9 +156,7 @@
                                 <button type="reset" class="btn btn-outline-light text-black" data-bs-dismiss="modal">Cancel</button>
                                 <button id="saveTeams" type="submit" name="addTeamForm" class="btn btn-primary">Save</button>
                                 <div id="editTeams" style="display: none">
-                                    <!-- <button type="submit" id="deleteValidation" name="deleteMatchForm" class="btn btn-danger text-black">Delete</button> -->
                                     <button id="updateTeam" type="submit" name="updateTeamForm" class="btn btn-warning text-black">Update</button>
-                
                                 </div>
                             </div>
                         </form>

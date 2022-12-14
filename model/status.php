@@ -12,9 +12,4 @@ class Status extends Connection{
         $result = $stmt->fetchAll();
         return $result;
     }
-
-
-
-    
-    
 }

@@ -111,16 +111,27 @@ function GetTeam(id) {
     // Afficher le boutton edit
     document.getElementById('saveTeams').style.display = 'none';
     document.getElementById('editTeams').style.display = 'block';
+
     // Ouvrir modal form
     $('#teamModal').modal('show');
+
     // getting the team data from the dom and setting it to the input fields
+    // getting the image path from the image tag and setting it to the input field and previewing it
+    let picTitle = document.querySelector(`#TeamPicture${id}`).getAttribute('src');
+    /* console.log(picTitle); */
+    document.getElementById('PictureInput').setAttribute('src', picTitle);
+    document.getElementById('PictureFileField').setAttribute('class', 'dropify-wrapper has-preview');
+    document.getElementById('PreviewFileField').setAttribute('style', 'display:block;');
+    document.querySelector('.dropify-render').innerHTML = `<img src="${picTitle}" alt="Picture" style="max-height: 100px;"/>`;
+    document.getElementById('ValidatePicture').setAttribute('class', 'text-success');
+    document.getElementById('ValidatePicture').innerText = 'Photo précédente deja selectionné ! Si vous voulez changer la photo veuillez entrer une nouvelle photo !!';
+    document.getElementById('PictureFileField').setAttribute('style', 'height:10rem; border-radius: 1em !important;background-color: #151521 !important;border-color:green;font-size:10px;');
+
     document.getElementById('NationalityInput').value = document.querySelector(`#TeamNationality${id}`).innerText;
     document.getElementById('GroupeInput').value = document.querySelector(`#TeamGroupe${id}`).innerText;
     // setting the id of the team to the hidden input field
     document.getElementById('IdInput').value = id;
-
 }
-
 
 function DeleteTeam(id) {
     // Delete action confirmation using SweetAlert2 combined with Ajax
@@ -169,19 +180,30 @@ function createStade() {
     $('#stadeModal').modal('show');
 }
 
-function Getstade(id ,name , location , capacity) {
+function Getstade(id, name, location, capacity) {
     // Afficher le boutton edit
     document.getElementById('savestade').style.display = 'none';
     document.getElementById('editstade').style.display = 'block';
-    
+
     // Ouvrir modal form
     $('#stadeModal').modal('show');
     // getting the team data from the dom and setting it to the input fields
-    document.getElementById('NameInput').value = name ;
+    // getting the image path from the image tag and setting it to the input field and previewing it
+    let picTitle = document.querySelector(`#StadePicture${id}`).getAttribute('src');
+    /* console.log(picTitle); */
+    document.getElementById('PictureInput').setAttribute('src', picTitle);
+    document.getElementById('PictureFileField').setAttribute('class', 'dropify-wrapper has-preview');
+    document.getElementById('PreviewFileField').setAttribute('style', 'display:block;');
+    document.querySelector('.dropify-render').innerHTML = `<img src="${picTitle}" alt="Picture" style="max-height: 100px;"/>`;
+    document.getElementById('ValidatePicture').setAttribute('class', 'text-success');
+    document.getElementById('ValidatePicture').innerText = 'Photo précédente deja selectionné ! Si vous voulez changer la photo veuillez entrer une nouvelle photo !!';
+    document.getElementById('PictureFileField').setAttribute('style', 'height:10rem; border-radius: 1em !important;background-color: #151521 !important;border-color:green;font-size:10px;');
+
+    document.getElementById('NameInput').value = name;
     document.getElementById('locationInput').value = location;
     document.getElementById('CapacityInput').value = capacity;
     // setting the id of the team to the hidden input field
-    document.getElementById('IdInput').value = id; 
+    document.getElementById('IdInput').value = id;
 }
 
 function DeleteStade(id) {
