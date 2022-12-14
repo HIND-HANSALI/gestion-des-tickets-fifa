@@ -3,6 +3,7 @@
     $path = 'Users';
     
     session_start();
+    require_once('admin.php');
 
     require_once '../controller/userController.php';
 

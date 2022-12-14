@@ -1,7 +1,7 @@
 <?php
     $path = 'Dashboard';
     session_start();
-    
+    require_once('admin.php');
     
     // include Controllers
     include_once('../controller/matchController.php');

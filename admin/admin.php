@@ -1,6 +1,6 @@
 <?php
-/* 
-    if(isset($_SESSION['name'])){
 
-
-    } */
+    if(!isset($_SESSION['email'])){
+        header('location: ../pages/');
+        die;
+    }

@@ -107,6 +107,7 @@ function createTeam() {
     // Ouvrir modal form
     $('#teamModal').modal('show');
 }
+
 function GetTeam(id) {
     // Afficher le boutton edit
     document.getElementById('saveTeams').style.display = 'none';

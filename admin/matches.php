@@ -2,6 +2,7 @@
     // Page Title
     $path = 'Matches';
     session_start();
+    require_once('admin.php');
 
     // Requiring Controllers 
     require_once('../controller/matchController.php');

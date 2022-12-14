@@ -2,7 +2,8 @@
     // Page Title
     $path = 'Teams';
     session_start();
-
+    require_once('admin.php');
+    
     // Requiring Controllers 
     require_once('../controller/matchController.php');
     require_once('../controller/teamController.php');
@@ -28,8 +29,8 @@
         $AllTeams = $TeamController -> getTeams();
     }
     
-    // print_r($_REQUEST);
-    // die;
+    /* print_r($AllTeams);
+    die; */
 
 ?>
 <!DOCTYPE html>
@@ -150,7 +151,7 @@
                             <div class="mb-0">
                             <label class="form-label">Groupe</label>
                             <input type="text" class="form-control" id="GroupeInput" name="groupe"/>
-                            <div id="ValidatePicture" class="text-success"></div>
+                            <div id="ValidatePicture" class="text-warning">Only Accepts one letter</div>
                         </div> 
                             <div class="modal-footer">
                                 <button type="reset" class="btn btn-outline-light text-black" data-bs-dismiss="modal">Cancel</button>

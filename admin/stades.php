@@ -2,7 +2,7 @@
     // Page Title
     $path = 'Stades';
     session_start();
-
+    require_once('admin.php');
     // Requiring Controllers 
     require_once('../controller/stadeController.php');
 

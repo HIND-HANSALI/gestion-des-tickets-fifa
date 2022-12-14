@@ -68,7 +68,7 @@ class StadeController extends Stades{
             }
 
         }
-    
+        
         return $img_upload_path;
     } 
 
