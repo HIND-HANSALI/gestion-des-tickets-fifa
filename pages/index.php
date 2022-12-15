@@ -74,7 +74,7 @@
     <section class="projects">
         <div class="all d-flex justify-content-between align-items-center">
             <h3>Browse National Teams</h3>
-            <a href="equipe.php">view all ></a>
+            <a href="allteams.php">view all ></a>
         </div>
         <div class="content">
         <?php foreach($FourTeams AS $team){ ?>
@@ -94,7 +94,7 @@
     <section class="projects">
         <div class="all d-flex justify-content-between align-items-center">
             <h3>Browse Available Stadiums</h3>
-            <a href="stade.php">view all ></a>
+            <a href="allstades.php">view all ></a>
         </div>
         <div class="content">
         <?php foreach($FourStades As $stade){ ?>
