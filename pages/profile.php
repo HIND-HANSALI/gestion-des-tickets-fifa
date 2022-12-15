@@ -98,31 +98,6 @@
             </div>
         </div>
     </div>
-    <div class="tableau-Match">
-        <div class="headProfile">
-            <h1>Your Matches History</h1>
-        </div>
-        <table>
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name_match</th>
-                <th>date_match</th>
-                <th>prix_match</th>
-                <th>quantite</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>1</td>
-                <td>HHJ</td>
-                <td>jjj</td>
-                <td>nnn</td>
-                <td>mmm</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <script src="../assets/js/authentificationScript.js"></script>
-        </body>
-    </html>
+<?php
+include_once "../include/footer.php"
+?>
