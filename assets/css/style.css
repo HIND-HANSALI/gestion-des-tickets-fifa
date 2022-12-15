@@ -430,21 +430,17 @@ hr {
 }
 
 .projects .content .project-card .project-image {
-    width: 22rem;
-}
-
-.projects .content .project-card .project-image img {
     width: 20rem;
-    height: 14rem;
+    height: 12rem;
+    background-size: cover;
 }
 
 .projects .content .project-card .project-info {
-    padding: 1em;
+    padding: 0.5rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
     text-transform: uppercase;
-    margin-top: 10px;
 }
 
 .projects .content .project-card .project-detais {
