@@ -116,7 +116,8 @@ class Matches extends Connection {
         $match = $result->fetchAll();
         
         return $match;
-     } 
+    } 
+
 
 
 

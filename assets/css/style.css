@@ -91,7 +91,6 @@ nav {
     text-align: right;
     position: relative;
     cursor: pointer;
-
 }
 
 .profile .profile-photo {
@@ -119,7 +118,7 @@ nav {
     color: #f6f6f6;
 }
 
-.links{
+.links {
     position: absolute;
 }
 
@@ -192,7 +191,7 @@ nav {
     font-size: 3.5rem;
 }
 
-.header-search{
+.header-search {
     width: 100%;
     height: 12%;
     display: flex;
@@ -200,7 +199,7 @@ nav {
     align-items: center;
 }
 
-.header-search .inputes-field{
+.header-search .inputes-field {
     width: 80%;
     height: 100%;
     display: flex;
@@ -210,7 +209,7 @@ nav {
     background-color: white;
 }
 
-.inputs{
+.inputs {
     width: 90%;
     height: 100%;
     display: flex;
@@ -218,14 +217,14 @@ nav {
     align-items: center;
 }
 
-.header-search .inputes-field input{
+.header-search .inputes-field input {
     height: 100%;
     width: 45%;
     min-width: 200px;
     padding: 10px;
     border: 0;
 }
-.header-search .inputes-field .input-date{
+.header-search .inputes-field .input-date {
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -235,36 +234,35 @@ nav {
     height: 100%;
 }
 
-.header-search .inputes-field .input-date input{
+.header-search .inputes-field .input-date input {
     width: 95%;
     height: 100%;
 }
 
-
-.header-search .inputes-field button{
+.header-search .inputes-field button {
     width: 10%;
     height: 70%;
     border: 0;
-    background-color: #8A1538;
+    background-color: #8a1538;
     color: white;
     margin-right: 10px;
     border-radius: 10px;
 }
 
-.header-search .inputes-field .search-icon{
+.header-search .inputes-field .search-icon {
     margin-right: 3px;
 }
 
-hr{
+hr {
     width: 1px;
-    background-color: #DDDDDE;
+    background-color: #ddddde;
 }
 
-.fa-calendar-days{
+.fa-calendar-days {
     margin: 0 5px;
 }
 
-.header-search{
+.header-search {
     width: 100%;
     height: 12%;
     display: flex;
@@ -272,32 +270,33 @@ hr{
     align-items: center;
 }
 
-.header-search .inputes-field{
+.header-search .inputes-field {
     width: 80%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid black;
+    border-radius: 20px;
     background-color: white;
 }
 
-.inputs{
-    width: 90%;
+.inputs {
+    width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.header-search .inputes-field input{
+.header-search .inputes-field input {
     height: 100%;
     width: 45%;
     min-width: 200px;
     padding: 10px;
     border: 0;
 }
-.header-search .inputes-field .input-date{
+.header-search .inputes-field .input-date {
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -307,32 +306,31 @@ hr{
     height: 100%;
 }
 
-.header-search .inputes-field .input-date input{
+.header-search .inputes-field .input-date input {
     width: 95%;
     height: 100%;
 }
 
-
-.header-search .inputes-field button{
+.header-search .inputes-field button {
     width: 10%;
     height: 70%;
     border: 0;
-    background-color: #8A1538;
+    background-color: #8a1538;
     color: white;
     margin-right: 10px;
     border-radius: 10px;
 }
 
-.header-search .inputes-field .search-icon{
+.header-search .inputes-field .search-icon {
     margin-right: 3px;
 }
 
-hr{
+hr {
     width: 1px;
-    background-color: #DDDDDE;
+    background-color: #ddddde;
 }
 
-.fa-calendar-days{
+.fa-calendar-days {
     margin: 0 5px;
 }
 
@@ -341,11 +339,11 @@ hr{
         font-size: 2.5rem;
     }
 
-    .header-search .inputes-field{
+    .header-search .inputes-field {
         width: 90%;
     }
 
-    .header-search .inputes-field .search-icon{
+    .header-search .inputes-field .search-icon {
         display: none;
     }
 }
@@ -354,18 +352,18 @@ hr{
     .header-background .header-description h1 {
         font-size: 1.5rem;
     }
-    .header-search .inputes-field{
+    .header-search .inputes-field {
         width: 95%;
     }
 }
 
-@media (max-width: 594px){
-    .header-search .inputes-field{
+@media (max-width: 594px) {
+    .header-search .inputes-field {
         display: block;
         width: 100%;
     }
 
-    .header-search .inputes-field button{
+    .header-search .inputes-field button {
         width: 50%;
         margin: 0 auto;
         display: flex;
@@ -375,7 +373,7 @@ hr{
         margin-bottom: 2rem;
     }
 
-    .header-search .inputes-field .search-icon{
+    .header-search .inputes-field .search-icon {
         display: block;
     }
 }
@@ -385,7 +383,7 @@ hr{
         font-size: 1.3rem;
     }
 
-    .header-search .inputes-field button{
+    .header-search .inputes-field button {
         width: 100%;
     }
 }
@@ -436,8 +434,8 @@ hr{
 }
 
 .projects .content .project-card .project-image img {
-    width: 22rem;
-    height: 12rem;
+    width: 20rem;
+    height: 14rem;
 }
 
 .projects .content .project-card .project-info {
