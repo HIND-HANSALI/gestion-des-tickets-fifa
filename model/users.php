@@ -61,7 +61,7 @@ class Users extends Connection{
         }
 
 
-        if ($stmt->rowCount() == 0) {
+        if ($stmt->rowCount() == 0) { 
             $stmt = null;
             $_SESSION["email"] = $email;
             $_SESSION["password"] = $password;
@@ -71,10 +71,10 @@ class Users extends Connection{
 
 
 
-        $pwdHashed = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $pwdHashed = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
-        $checkPwd = password_verify($password, $pwdHashed[0]["passworld"]);
+        $checkPwd = password_verify($password, $pwdHashed["passworld"]);
 
         if ($checkPwd == false) {
             $stmt = null;
@@ -83,9 +83,9 @@ class Users extends Connection{
             header("location: ../pages/login.php?error=wronglogin");
             exit();
         } elseif ($checkPwd == true) {
-            $_SESSION["name"] = $pwdHashed[0]["fullname"];
-            $_SESSION["id"] = $pwdHashed[0]["id_user"];
-            $_SESSION["role"] = $pwdHashed[0]["id_role"];
+            $_SESSION["name"] = $pwdHashed["fullname"];
+            $_SESSION["id"] = $pwdHashed["id_user"];
+            $_SESSION["role"] = $pwdHashed["id_role"];
             $_SESSION["email"] = $email;
             $_SESSION["good"] = "goode";
         }

@@ -17,7 +17,6 @@
             <div class="search-box">
                 <form method="POST" class="position-relative">
                     <input name="search" class="form-control search-input" placeholder="Search..." />
-                    <!-- <button type="submit" name="searchbtn" class="fas fa-search search-box-icon"></button> -->
                     <i class="fas fa-search search-box-icon"></i>
                     <button type="submit" name="searchbtn" class="d-none"></button>
                 </form>
@@ -63,9 +62,10 @@
             </a>
             <div class="dropdown-menu dropdown-caret dropdown-caret dropdown-menu-end py-0" aria-labelledby="navbarDropdownUser">
                 <div class="bg-white dark__bg-1000 rounded-2 py-2">
-                    <a class="dropdown-item" href="pages/user/profile.html">Profile &amp; accountt</a>
+                    <span class=" ms-3"><?= $_SESSION['name'];?></span>
+                    <a class="dropdown-item" href="../pages/profile.php">Profile &amp; account</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="pages/authentication/card/logout.html">Logout</a>
+                    <a class="dropdown-item" href="../include/signout.php">Logout</a>
                 </div>
             </div>
         </li>
