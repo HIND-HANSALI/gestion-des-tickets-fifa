@@ -1,7 +1,16 @@
 <?php
+    session_start();
+    $title = "FifaWorldCup";
+    include_once dirname(__DIR__) . "/include/header.php";
 
-$title = "FifaWorldCup";
-include_once dirname(__DIR__) . "/include/header.php";
+    // include Controllers
+    include_once('../controller/matchController.php');
+
+    // instantiate the controller
+    $MatchController = new MatchController();
+
+    // get matches
+    $AllMatches = $MatchController -> getMatches();
 
 
 ?>
@@ -14,66 +23,27 @@ include_once dirname(__DIR__) . "/include/navbar.php"
             <h3>Upcoming Matchs</h3>
         </div>
         <div class="content">
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="../assets/img/feH6rS1pFNK5DYyn_768x432.jpg" alt="">
-                </div>
-                <div class="project-info">
-                    <div class="project-date">
-                        <p>Nov <span class="d-block">23</span></p>
+            <?php foreach($AllMatches as $match){
+                $Date = new DateTimeImmutable($match['time']);
+                $Month = $Date->format('M');
+                $Day = $Date->format('d');
+                ?>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="<?=$match['picture']; ?>" alt="">
                     </div>
-                    <div class="project-detai">
-                        <h6>Morocco vs Crotia</h6>
-                        <span class="d-block">$150</span>
-                        <span class="d-block"><i class="fa-solid fa-location-dot mx-1"></i>Ahmed Bin Ali Stadium</span>
-                    </div>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="../assets/img/feH6rS1pFNK5DYyn_768x432.jpg" alt="">
-                </div>
-                <div class="project-info">
-                    <div class="project-date">
-                        <p>Nov <span class="d-block">23</span></p>
-                    </div>
-                    <div class="project-detai">
-                        <h6>Morocco vs Crotia</h6>
-                        <span class="d-block">$150</span>
-                        <span class="d-block"><i class="fa-solid fa-location-dot mx-1"></i>Ahmed Bin Ali Stadium</span>
+                    <div class="project-info">
+                        <div class="project-date">
+                            <p><?=$Month; ?><span class="d-block"><?=$Day; ?> </span></p>
+                        </div>
+                        <div class="project-detai">
+                            <h6><?=$match['team1']; ?> vs <?=$match['team2']; ?></h6>
+                            <span class="d-block"><b>$ </b><?=$match['price']; ?></span>
+                            <span class="d-block"><i class="fa-solid fa-location-dot mx-1"></i><?=$match['stade']; ?></span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="../assets/img/feH6rS1pFNK5DYyn_768x432.jpg" alt="">
-                </div>
-                <div class="project-info">
-                    <div class="project-date">
-                        <p>Nov <span class="d-block">23</span></p>
-                    </div>
-                    <div class="project-detai">
-                        <h6>Morocco vs Crotia</h6>
-                        <span class="d-block">$150</span>
-                        <span class="d-block"><i class="fa-solid fa-location-dot mx-1"></i>Ahmed Bin Ali Stadium</span>
-                    </div>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="../assets/img/feH6rS1pFNK5DYyn_768x432.jpg" alt="">
-                </div>
-                <div class="project-info">
-                    <div class="project-date">
-                        <p>Nov <span class="d-block">23</span></p>
-                    </div>
-                    <div class="project-detai">
-                        <h6>Morocco vs Crotia</h6>
-                        <span class="d-block">$150</span>
-                        <span class="d-block"><i class="fa-solid fa-location-dot mx-1"></i>Ahmed Bin Ali Stadium</span>
-                    </div>
-                </div>
-            </div>
+            <?php } ?>
         </div>
     </section>
 <?php

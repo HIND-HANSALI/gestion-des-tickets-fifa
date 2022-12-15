@@ -1,24 +1,19 @@
 <?php
+    session_start();
+    require_once dirname(__DIR__) . '/controller/userController.php';
 
-require_once dirname(__DIR__) . '/controller/userController.php';
+    $signupController = new UsersController();
+    $signupController->loginUser();
 
-$signupController = new UsersController();
-$signupController->loginUser();
+    $error="Veuillez remplir les champs ci-dessous.";
 
-require_once dirname(__DIR__) . '/controller/userController.php';
-
-$signupController = new UsersController();
-$signupController->loginUser();
-
-$error="Veuillez remplir les champs ci-dessous.";
-
-if(isset($_GET["error"])=="wronglogin"){
-    $email = $_SESSION["email"];
-    $password =  $_SESSION["password"];
-    $error="l'adresse courriel ou le mot de passe que vous avez saisis sont incorrects. Veuillez réessayer.";
-}
-$title = "Login";
-include_once dirname(__DIR__) . "/include/header.php"
+    if(isset($_GET["error"])=="wronglogin"){
+        $email = $_SESSION["email"];
+        $password =  $_SESSION["password"];
+        $error="l'adresse courriel ou le mot de passe que vous avez saisis sont incorrects. Veuillez réessayer.";
+    }
+    $title = "Login";
+    include_once dirname(__DIR__) . "/include/header.php"
 ?>
 
 <body>
@@ -29,7 +24,6 @@ include_once dirname(__DIR__) . "/include/navbar.php"
     <div class="container">
         <div class="form login">
             <span class="title">Login</span>
-
             <div class="validation-input-signin" <?php if(isset($_GET["error"])=="wronglogin"){ ?> style="display: flex;" <?php }?>>
                 <div>
                     <i class="fa-solid fa-circle-exclamation"></i>

@@ -12,7 +12,7 @@
             </button>
         </div>
         <a class="navbar-brand" href="../pages/index.php">
-            <div class="d-flex align-items-center "><img class="me-2" src="assets/img/" alt="" width="10" /><span class="font-sans-serif" style="color: #8A1538 !important">YouTicket</span></div>
+            <div class="d-flex align-items-center "><span class="font-sans-serif" style="color: #8A1538 !important">YouTicket</span></div>
         </a>
     </div>
     <div class="collapse navbar-collapse mt-lg-2 my-xs-1 mt-sm-1" id="navbarVerticalCollapse">

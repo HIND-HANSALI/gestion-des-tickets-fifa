@@ -15,55 +15,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 /* font-family: 'Roboto', sans-serif; */
 
-:root{
-    --WidthCard : 20%;
-    --BodyBackground : #d1d1d1;;
-    --GeneralColor : #8A1538;;
+:root {
+    --WidthCard: 20%;
+    --BodyBackground: #d1d1d1;
+    --GeneralColor: #8a1538;
 }
 
 /* ______________YE______________ */
 
-.header-stades{
+.header-stades {
     width: 100vw;
     height: 50vh;
     background-image: url(../img/essential/header.webp);
     background-position: center;
     z-index: -1;
- }
- .header-themes{
-   width: 100vw;
-   height: 50vh;
-   background-image: url(../img/essential/maxresdefault.jpg);
-   background-position: top;
-   background-repeat: round;
-   background-size: cover;
-   z-index: -1;
- }
- .opa{
-   width: 100vw;
+}
+.header-themes {
+    width: 100vw;
+    height: 50vh;
+    background-image: url(../img/essential/maxresdefault.jpg);
+    background-position: top;
+    background-repeat: round;
+    background-size: cover;
+    z-index: -1;
+}
+.opa {
+    width: 100vw;
     height: 50vh;
     background-color: brown;
     opacity: 0.5;
- }
+}
 
 /* ______________Ak______________ */
-
 
 /* ______________YS______________ */
 
 /* ===================================== Landing_page ===================================== */
 
 /* ________________________________ Start_navbar ________________________________ */
-nav{
+nav {
     width: 100%;
-    background-color: #8A1538;
+    background-color: #8a1538;
 }
 
-.navbar .nav-logo img{
+.navbar .nav-logo img {
     width: 10%;
 }
 
-.navbar ul{
+.navbar ul {
     list-style: none;
     display: flex;
     justify-content: space-between;
@@ -71,48 +70,48 @@ nav{
     padding-top: 0.75rem;
 }
 
-.navbar ul li a{
+.navbar ul li a {
     text-decoration: none;
     color: black;
 }
 
-.navbar .authentification{
+.navbar .authentification {
     gap: 0.5rem;
 }
 
-.navbar .authentification button{
+.navbar .authentification button {
     background-color: #aa3a5b;
     border: 1px white solid;
     color: white;
 }
 
-.profile{
+.profile {
     gap: 1rem;
     margin-right: 1rem;
     text-align: right;
 }
 
-.profile .profile-photo{
+.profile .profile-photo {
     width: 2.8rem;
     height: 2.8rem;
     border-radius: 50%;
     overflow: hidden;
 }
 
-.profile .profile-photo img{
+.profile .profile-photo img {
     display: block;
-    width:100%;
+    width: 100%;
 }
 
-.profile .info h5{
+.profile .info h5 {
     color: white;
 }
 
-.icon-men{
+.icon-men {
     cursor: pointer;
 }
 
-.icon-men i{
+.icon-men i {
     font-size: 1.5rem;
     color: #f6f6f6;
 }
@@ -133,13 +132,13 @@ nav{
 }
 
 .links ul::before {
-    content: "";
+    content: '';
     border-width: 13px;
     border-style: solid;
     border-color: transparent transparent #f6f6f6 transparent;
     position: absolute;
     right: 0px;
-    top: -26px;
+    top: -20px;
 }
 
 .links:hover ul {
@@ -164,14 +163,14 @@ nav{
 /* ________________________________ End_navbar ________________________________ */
 
 /* ________________________________ Start_header ________________________________ */
-.header-background{
+.header-background {
     width: 100vw;
     height: 60vh;
     background: linear-gradient(rgba(0, 0, 0, 0.26), rgba(0, 0, 0, 0.26)), url(../img/Qatar-2022-s-32-teams-graphic.webp), no-repeat, center;
     background-size: cover;
 }
 
-.header-background .header-description{
+.header-background .header-description {
     width: 100%;
     height: 95%;
     display: flex;
@@ -179,28 +178,207 @@ nav{
     padding-top: 5rem;
 }
 
-.header-background .header-description h1{
+.header-background .header-description h1 {
     color: white;
     font-weight: bolder;
     font-size: 3.5rem;
 }
 
-@media (max-width: 994px){
-    .header-background .header-description h1{
+.header-search{
+    width: 100%;
+    height: 12%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-search .inputes-field{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.inputs{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-search .inputes-field input{
+    height: 100%;
+    width: 45%;
+    min-width: 200px;
+    padding: 10px;
+    border: 0;
+}
+.header-search .inputes-field .input-date{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 45%;
+    min-width: 220px;
+    height: 100%;
+}
+
+.header-search .inputes-field .input-date input{
+    width: 95%;
+    height: 100%;
+}
+
+
+.header-search .inputes-field button{
+    width: 10%;
+    height: 70%;
+    border: 0;
+    background-color: #8A1538;
+    color: white;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+.header-search .inputes-field .search-icon{
+    margin-right: 3px;
+}
+
+hr{
+    width: 1px;
+    background-color: #DDDDDE;
+}
+
+.fa-calendar-days{
+    margin: 0 5px;
+}
+
+.header-search{
+    width: 100%;
+    height: 12%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-search .inputes-field{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.inputs{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-search .inputes-field input{
+    height: 100%;
+    width: 45%;
+    min-width: 200px;
+    padding: 10px;
+    border: 0;
+}
+.header-search .inputes-field .input-date{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 45%;
+    min-width: 220px;
+    height: 100%;
+}
+
+.header-search .inputes-field .input-date input{
+    width: 95%;
+    height: 100%;
+}
+
+
+.header-search .inputes-field button{
+    width: 10%;
+    height: 70%;
+    border: 0;
+    background-color: #8A1538;
+    color: white;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+.header-search .inputes-field .search-icon{
+    margin-right: 3px;
+}
+
+hr{
+    width: 1px;
+    background-color: #DDDDDE;
+}
+
+.fa-calendar-days{
+    margin: 0 5px;
+}
+
+@media (max-width: 994px) {
+    .header-background .header-description h1 {
         font-size: 2.5rem;
     }
-}
 
-@media (max-width: 734px){
-    .header-background .header-description h1{
-        font-size: 1.5rem;
+    .header-search .inputes-field{
+        width: 90%;
     }
 
+    .header-search .inputes-field .search-icon{
+        display: none;
+    }
 }
 
-@media (max-width: 447px){
-    .header-background .header-description h1{
+@media (max-width: 734px) {
+    .header-background .header-description h1 {
+        font-size: 1.5rem;
+    }
+    .header-search .inputes-field{
+        width: 95%;
+    }
+}
+
+@media (max-width: 594px){
+    .header-search .inputes-field{
+        display: block;
+        width: 100%;
+    }
+
+    .header-search .inputes-field button{
+        width: 50%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .header-search .inputes-field .search-icon{
+        display: block;
+    }
+}
+
+@media (max-width: 447px) {
+    .header-background .header-description h1 {
         font-size: 1.3rem;
+    }
+
+    .header-search .inputes-field button{
+        width: 100%;
     }
 }
 
@@ -211,13 +389,13 @@ nav{
     margin-top: 4rem;
 }
 
-.projects .all{
+.projects .all {
     width: 92%;
     margin: 0 auto;
 }
 
-.projects .all a{
-    color: #8A1538;
+.projects .all a {
+    color: #8a1538;
 }
 
 .projects .content {
@@ -250,7 +428,7 @@ nav{
 }
 
 .projects .content .project-card .project-image img {
-    width: 100%
+    width: 100%;
 }
 
 .projects .content .project-card .project-info {
@@ -262,7 +440,7 @@ nav{
     margin-top: 10px;
 }
 
-.projects .content .project-card .project-detais{
+.projects .content .project-card .project-detais {
     margin: 1rem 1rem 0.7rem 1rem;
 }
 
@@ -271,29 +449,33 @@ nav{
 /* ________________________________ Start_img_grp ________________________________ */
 
 .Group {
-    width: 100%;
-    height: 75rem;
-    margin: 0 auto;
+    width: 100vw;
+    height: 100%;
+    margin: auto;
     padding-top: 1rem;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    background-color: #8b1638;
 }
 
-.Group img{
-    width: 100%;
-    height: 100%;
+.Group img {
+    width: 75%;
+    height: 75%;
 }
 
 /* ________________________________ End_img_grp ________________________________ */
 
 /* ________________________________ Start_footer ________________________________ */
-footer{
-    background-color:#8A1538;
+footer {
+    background-color: #8a1538;
     margin-top: 3rem;
     padding: 2rem;
     color: white;
     font-size: 12px;
 }
 
-footer .icon{
+footer .icon {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -305,17 +487,17 @@ footer .icon{
 
 /* ===================================== authentification ===================================== */
 
-.all-authotification{
+.all-authotification {
     height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #8A1538;
+    background-color: #8a1538;
     font-family: 'Poppins', sans-serif;
 }
 
-.all-authotification .container{
+.all-authotification .container {
     height: 100vh;
     width: 55%;
     display: flex;
@@ -323,36 +505,36 @@ footer .icon{
     align-items: center;
 }
 
-.all-authotification .background-img{
+.all-authotification .background-img {
     width: 45%;
     height: 100%;
 }
 
-.all-authotification .background-img img{
+.all-authotification .background-img img {
     width: 100%;
     height: 100%;
 }
 
-.all-authotification .container .form{
+.all-authotification .container .form {
     width: 600px;
     padding: 30px;
 }
 
-.all-authotification .container .form .title{
+.all-authotification .container .form .title {
     position: relative;
     font-size: 27px;
     font-weight: 600;
-    color: #FAFAFB;
+    color: #fafafb;
 }
 
-.all-authotification .container .form form .input-field{
+.all-authotification .container .form form .input-field {
     position: relative;
     height: 50px;
     width: 100%;
     margin-top: 30px;
 }
 
-.all-authotification .container .form form .input-field input{
+.all-authotification .container .form form .input-field input {
     position: absolute;
     height: 100%;
     width: 100%;
@@ -367,11 +549,11 @@ footer .icon{
     color: white;
 }
 
-.all-authotification .container .form form .input-field input:is(:focus, :valid){
+.all-authotification .container .form form .input-field input:is(:focus, :valid) {
     border-bottom-color: rgba(231, 233, 232, 0.8);
 }
 
-.all-authotification .container .form form .input-field i{
+.all-authotification .container .form form .input-field i {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -380,38 +562,38 @@ footer .icon{
     transition: all 0.2s ease;
 }
 
-.all-authotification .container .form form .input-field input:is(:focus, :valid) ~ i{
+.all-authotification .container .form form .input-field input:is(:focus, :valid) ~ i {
     color: rgba(231, 233, 232, 0.8);
 }
 
-.all-authotification .container .form form .input-field i.icon{
+.all-authotification .container .form form .input-field i.icon {
     left: 0;
 }
 
 ::placeholder {
-    color: rgba(231, 233, 232, 0.8);;
+    color: rgba(231, 233, 232, 0.8);
     opacity: 1;
 }
 
-.all-authotification .container .form .text{
-    color: #AEB0BF;
+.all-authotification .container .form .text {
+    color: #aeb0bf;
     font-size: 14px;
 }
 
-.all-authotification .container .form a.text{
+.all-authotification .container .form a.text {
     color: rgba(231, 233, 232, 0.8);
     text-decoration: none;
 }
 
-.all-authotification .container .form a:hover{
+.all-authotification .container .form a:hover {
     text-decoration: underline;
 }
 
-.all-authotification .container .form button{
+.all-authotification .container .form button {
     width: 100%;
     height: 100%;
     border: 1px solid white;
-    color: #FAFAFB;
+    color: #fafafb;
     font-size: 17px;
     font-weight: 500;
     letter-spacing: 1px;
@@ -421,39 +603,39 @@ footer .icon{
     transition: all 0.3s ease;
 }
 
-.all-authotification .container .form button:hover{
+.all-authotification .container .form button:hover {
     background-color: rgba(231, 233, 232, 0.8);
-    color: #8A1538;
+    color: #8a1538;
 }
 
-.all-authotification .container .form .login-signup{
+.all-authotification .container .form .login-signup {
     margin-top: 30px;
     text-align: center;
 }
 
 /* ================================Error message========================= */
 
-.Error{
+.Error {
     color: #f3aea9;
     font-size: 14px;
     margin-left: 0.5rem;
     margin-top: 0.5rem;
 }
 
-.errorEmail{
+.errorEmail {
     display: none;
 }
-.errorPassword{
+.errorPassword {
     display: none;
 }
 .errorName {
     display: none;
 }
-.errorRPassword{
+.errorRPassword {
     display: none;
 }
 
-.validation-input-signin{
+.validation-input-signin {
     background-color: #f3aea9;
     display: none;
     justify-content: center;
@@ -463,19 +645,19 @@ footer .icon{
     border-radius: 10px;
 }
 
-.validation-input-signin i{
+.validation-input-signin i {
     margin-top: 0.5rem;
     margin-left: 0.5rem;
     font-size: 1.5rem;
     color: #ab0d02;
 }
 
-.validation-input-signin h4{
+.validation-input-signin h4 {
     font-weight: 900;
     margin-bottom: 0.5rem;
 }
 
-.validation-input-signup{
+.validation-input-signup {
     background-color: #f3aea9;
     display: none;
     justify-content: center;
@@ -485,95 +667,94 @@ footer .icon{
     border-radius: 10px;
 }
 
-.validation-input-signup i{
+.validation-input-signup i {
     margin-top: 0.5rem;
     margin-left: 0.5rem;
     font-size: 1.5rem;
     color: #ab0d02;
 }
 
-.validation-input-signup h4{
+.validation-input-signup h4 {
     font-weight: 900;
     margin-bottom: 0.5rem;
 }
 
-.message-content{
-    font-size: .875rem;
+.message-content {
+    font-size: 0.875rem;
     line-height: 1.5rem;
 }
 
-@media (max-width: 768px){
-    .all-authotification .background-img img{
+@media (max-width: 768px) {
+    .all-authotification .background-img img {
         display: none;
     }
 
-    .all-authotification .container{
+    .all-authotification .container {
         height: 100vh;
         width: 100%;
     }
 
-    .all-authotification .background-img{
+    .all-authotification .background-img {
         width: 0;
     }
 
-    .all-authotification .container .form{
+    .all-authotification .container .form {
         width: 100%;
     }
 }
 
 /* ===================================== Edit Product ===================================== */
 
-.updateprofile{
+.updateprofile {
     width: 80%;
     margin: 2rem auto;
 }
 
-.tableau-Match{
+.tableau-Match {
     width: 80%;
     margin: 0 auto;
 }
 
-.tableau-Match .headProfile{
+.tableau-Match .headProfile {
     margin-bottom: 2rem;
 }
 
-.tableau-Match table{
+.tableau-Match table {
     width: 100%;
     padding: 1.8rem;
     text-align: center;
     transition: all 300ms ease;
 }
 
-.tableau-Match table tr{
+.tableau-Match table tr {
     background-color: #fff;
     height: 3rem;
-
 }
 
-.tableau-Match table tbody td{
+.tableau-Match table tbody td {
     height: 2.8rem;
-    border-bottom: 1px solid rgba(132, 139,200,  0.18);
+    border-bottom: 1px solid rgba(132, 139, 200, 0.18);
     color: #677483;
 }
 
-.tableau-Match table tbody tr:last-child td{
-    border: none ;
+.tableau-Match table tbody tr:last-child td {
+    border: none;
 }
 
 /* ______________HH______________ */
-.back{
-    background-color: #DADAFB !important;
+.back {
+    background-color: #dadafb !important;
 }
-.btn{
-    background-color: #8A1538;
+.btn {
+    background-color: #8a1538;
     color: beige;
 }
-.btn:hover{
-    background-color: #8A1538;
+.btn:hover {
+    background-color: #8a1538;
     color: rgb(245, 248, 242);
 }
-.color-icon{
-    border: 2px solid #8A1538;
+.color-icon {
+    border: 2px solid #8a1538;
     padding: 3px;
     height: 40px;
     width: 40px;
@@ -581,29 +762,29 @@ footer .icon{
     justify-content: center;
     align-items: center;
     border-radius: 4px;
-    transition: .5s ease-in-out;
-    color: #8A1538;
+    transition: 0.5s ease-in-out;
+    color: #8a1538;
 }
-.color-icon:hover{
-    background-color: #8A1538;
+.color-icon:hover {
+    background-color: #8a1538;
     color: white;
-    transition: .5s ease-in-out;
+    transition: 0.5s ease-in-out;
 }
 /* .searchhidden{
     border:solid 2px #edf2f9;
 } */
 /* style for page reservation */
 @media print {
-    .ticket{
-        border: solid 2px #bdc4bf ;
+    .ticket {
+        border: solid 2px #bdc4bf;
     }
-    .print{
-        display:none !important;
-    }
-    #navPrint{
+    .print {
         display: none !important;
     }
-    #footerPrint{
+    #navPrint {
+        display: none !important;
+    }
+    #footerPrint {
         display: none !important;
     }
 }
@@ -626,18 +807,16 @@ footer .icon{
 .custom-shape-divider-top-1670673240 .shape-fill {
     fill: #9a1032;
 }
-.logo-cupworld{
+.logo-cupworld {
     width: 10rem;
     height: auto;
     margin-top: -8rem;
     z-index: 2;
     margin-right: 3rem;
-
 }
-.ticket{
-    border: solid 2px #9a1032 ;
+.ticket {
+    border: solid 2px #9a1032;
 }
-.print{
+.print {
     background-color: #9a1032 !important;
 }
-

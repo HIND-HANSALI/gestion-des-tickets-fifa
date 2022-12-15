@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     require_once dirname(__DIR__) . '/controller/userController.php';
 
     $signupController = new UsersController();

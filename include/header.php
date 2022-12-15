@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="../assets/css/style.css">
         <link rel="stylesheet" href="../assets/css/default/vendor.min.css">
         <link rel="stylesheet" href="../assets/css/all.min.css">
+        <link rel="shortcut icon" type="image/x-icon" href="../assets/img/essential/icon.png" />
         <!-- Calenderia js -->
         <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>

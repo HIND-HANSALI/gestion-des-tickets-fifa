@@ -18,13 +18,14 @@ class StadeController extends Stades{
 
 
     function uploadimage(){
-        if (isset($_FILES["picture"]["name"])) //name de image 
+        if (isset($_FILES["picture"]["name"])) 
         {
 
             $img_name = $_FILES['picture']['name'];
             $img_size = $_FILES['picture']['size'];
             $tmp_name = $_FILES['picture']['tmp_name'];// temporer folder
             $error = $_FILES['picture']['error'];
+            if(!empty($_FILES['picture']['name'])){
 
                 if ($error === 0)
                 {
@@ -44,7 +45,7 @@ class StadeController extends Stades{
                         if (in_array($img_ex_lc, $allowed_exs)) 
                         {
                             $new_img_name = uniqid("IMG-", true).'.'.$img_ex_lc;
-                            $img_upload_path =  dirname(__DIR__).'/assets/img/uploads/'.$new_img_name;
+                            $img_upload_path = '../assets/img/uploads/'.$new_img_name;
                             move_uploaded_file($tmp_name, $img_upload_path);//temporer vers  folder
 
 
@@ -61,11 +62,14 @@ class StadeController extends Stades{
                     $_SESSION['message'] = 'unknown error occurred!';
                     header('location: ../admin/stades.php');
                     die;
-                    
                 }
+            }else {
+                $img_upload_path = "null";
             }
-    
-        return $new_img_name;
+
+        }
+        
+        return $img_upload_path;
     } 
 
     public function addStade(){
@@ -73,22 +77,20 @@ class StadeController extends Stades{
             if(isset($_REQUEST['addstadeForm'])){
                 
                 extract($_POST);
-
-                if( empty($name) || empty($location) || empty($capacity)){
+                $filename =$this-> uploadimage(); 
+                if( empty($name) || empty($location) || empty($capacity)|| $filename =="null"){
                     $_SESSION['icon'] = "error";
                     $_SESSION['message'] = "Veuillez remplir tous les champs";
                     header('Location: ../admin/stades.php');
                     die;
-                }
-                else{
-                    $filename =$this-> uploadimage();
-                    $result = $this -> addStadeDB($name, $location, $capacity, $filename);
+                }else{
                     
+                    $result = $this -> addStadeDB($name, $location, $capacity, $filename);
                     if($result == 1){
-    
+
                         $_SESSION['icon'] = "success";
                         $_SESSION['message'] = "Stade ajouté avec succès";
-    
+
                         header('Location:'. $_SERVER['PHP_SELF']);
                         die;
                     }
@@ -128,29 +130,35 @@ class StadeController extends Stades{
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (isset($_REQUEST['updatestadeForm'])) {
                 extract($_POST);
+                $filename =$this-> uploadimage(); 
                 if (empty($id) ||empty($name) || empty($location) || empty($capacity)) {
                     $_SESSION['icon'] = "error";
                     $_SESSION['message'] = "Veuillez remplir tous les champs";
                     header('Location: ../admin/stades.php'); 
                     die;
                 } else {
-                    $filename = $this->uploadimage();
-                    $result = $this->updateStadeDB($name, $location, $capacity, $filename,$id);
+                    if($filename != "null"){
+                        $result = $this->updateStadeDB($name, $location, $capacity, $filename,$id);
+                        if ($result == 1) {
 
-                    if ($result == 1) {
+                            $_SESSION['icon'] = "success";
+                            $_SESSION['message'] = "Stade Update avec succès";
+                            header('Location:' . $_SERVER['PHP_SELF']);
+                            die;
+                        }
+                     }else {
+                        $result = $this->previousPicUpdateDB($id, $name, $location, $capacity);
+                        if ($result == 1) {
 
-                        $_SESSION['icon'] = "success";
-                        $_SESSION['message'] = "Stade ajouté avec succès";
-
-                        header('Location:' . $_SERVER['PHP_SELF']);
-                        die;
-                    }
+                            $_SESSION['icon'] = "success";
+                            $_SESSION['message'] = "Stade Update avec succès";
+                            header('Location:' . $_SERVER['PHP_SELF']);
+                            die;
+                        }
+                     }
                 }
             }
         }
-
-
-
     }
 
 }

@@ -2,13 +2,12 @@
     // Page Title
     $path = 'Stades';
     session_start();
-
+    require_once('admin.php');
     // Requiring Controllers 
     require_once('../controller/stadeController.php');
 
     // instanciate the class
     $StadeController = new StadeController();
-
     // Read methods
     $AllStades = $StadeController -> getStades();
     $StadeController -> addStade();
@@ -65,32 +64,34 @@
                                             <table class="table table-hover table-striped overflow-hidden">
                                                 <thead>
                                                     <tr>
-                                                        <th scope="col">picture</th>
-                                                        <th scope="col">name</th>
-                                                        <th scope="col"> location </th>
-                                                        <th scope="col">capacity</th>
+                                                        <th scope="col">Id</th>
+                                                        <th scope="col">Picture</th>
+                                                        <th scope="col">Name</th>
+                                                        <th scope="col">Location </th>
+                                                        <th scope="col">Capacity</th>
                                                         <th class="text-end" scope="col"></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php foreach($AllStades As $stade){ ?>
-                                                        <tr class="align-middle" id="Stade<?= $stade['id_stade']; ?>">
-                                                            <td class="text-nowrap">
-                                                                <div class="d-flex align-items-center">
-                                                                    <div class="avatar avatar-xl">
-                                                                        <img class="rounded-circle" src=" ../assets/img/uploads/<?=$stade['picture']; ?>" alt="" />
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td class="text-nowrap"><?=$stade['name']; ?></td>
-                                                            <td class="text-nowrap"><?=$stade['location']; ?></td>
-                                                            <td class="text-nowrap"><?=$stade['capacity']; ?></td>
-                                                            <td class="text-end">
-                                                                <a href="#" onclick="Getstade('<?= $stade['id_stade']; ?>','<?= $stade['name']; ?>','<?= $stade['location']; ?>','<?= $stade['capacity']; ?>')" class="btn btn-sm btn-warning">Edit</a>
-                                                                <a href="#" onclick="DeleteStade('<?= $stade['id_stade']; ?>') " class="btn btn-sm btn-danger">Delete</a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php } ?>
+                                                    <?php if(empty($AllStades))
+                                                            echo '<tr class="align-middle"><th class="col-3">No result found.</th> </tr>';
+                                                        else{
+                                                            foreach($AllStades As $stade){ ?>
+                                                            <tr class="align-middle" id="Stade<?= $stade['id_stade']; ?>">
+                                                                <td class="col-1"><?=$stade['id_stade']; ?></td>
+                                                                <td class="text-nowrap">
+                                                                    <img id="StadePicture<?= $stade['id_stade']; ?>" src="<?=$stade['picture']; ?>" alt="" style="width:3rem;"/>
+                                                                </td>
+                                                                <td class="text-nowrap"><?=$stade['name']; ?></td>
+                                                                <td class="text-nowrap"><?=$stade['location']; ?></td>
+                                                                <td class="text-nowrap"><?=$stade['capacity']; ?></td>
+                                                                <td class="text-end">
+                                                                    <a href="#" onclick="Getstade('<?= $stade['id_stade']; ?>','<?= $stade['name']; ?>','<?= $stade['location']; ?>','<?= $stade['capacity']; ?>')" class="btn btn-sm btn-warning">Edit</a>
+                                                                    <a href="#" onclick="DeleteStade('<?= $stade['id_stade']; ?>') " class="btn btn-sm btn-danger">Delete</a>
+                                                                </td>
+                                                            </tr>
+                                                    <?php }
+                                                    } ?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -130,7 +131,7 @@
                         <form id="form" method="POST" enctype="multipart/form-data">
                             <div class="mb-0">
                                 <label class="col-form-label">Picture</label>
-                                <input id="PictureInput" class="dropify" data-max-file-size-preview="10M" value="ggg" data-height="100" type="file"  name="picture"  />
+                                <input id="PictureInput" class="dropify" data-max-file-size-preview="10M" data-height="100" type="file"  name="picture"  />
                                 <div id="ValidatePicture" class="text-success"></div>
                             </div>
                             <div class="mb-0">
