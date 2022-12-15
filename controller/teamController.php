@@ -80,25 +80,6 @@ class TeamController extends Teams{
         }
     }
 
-/*     public function LastPicUpdate($id, $nationality,$groupe){
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            if(isset($_POST['addTeamForm'])){
-                extract($_POST);
-                $picture= $this->uploadimage();
-                $result=$this->LastPicUpdateDB($id, $nationality, $groupe);
-                if($result == 1){
-
-                    $_SESSION['icon'] = "success";
-                    $_SESSION['message'] = "Team added successfully";
-
-                    header('Location: ../admin/teams.php');
-                    die;
-                }
-
-            }
-        }
-    } */
-
 
     public function deleteTeam(){
         
