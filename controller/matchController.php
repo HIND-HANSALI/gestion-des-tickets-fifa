@@ -74,7 +74,7 @@ class MatchController extends Matches{
         }
     }
 
-    public function deleteMatch(){
+    public function deleteMatch(){ 
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             if(isset($_REQUEST['DeleteMatch'])){
                 $id = $_REQUEST['DeleteMatch'];

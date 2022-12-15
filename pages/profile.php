@@ -65,7 +65,7 @@
                         <div class="Error errorName">
                             <P>Enter a valid name</P>
                         </div>
-
+ 
                         <div class="mb-3">
                             <label class="form-label">Email</label>
                             <input type="text" value="<?php echo $emailEditProfile??''?>" class="form-control" name="emailEdit" id="user_email" oninput="checkEmailUpdate()"/>

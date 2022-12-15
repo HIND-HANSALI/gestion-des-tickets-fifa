@@ -3,14 +3,19 @@
     $title = "FifaWorldCup";
     include_once dirname(__DIR__) . "/include/header.php";
 
-    // include controllers
+    // include controllers 
     include_once "../controller/TeamController.php";
 
     // inialize controllers
     $teamController = new TeamController();
 
     // get all teams
-    $AllTeams = $teamController->getTeams();
+
+        if(isset($_POST['searchbtn'])){
+            $AllTeams =$teamController -> searchTeam();
+        }else{
+            $AllTeams = $teamController -> getTeams();
+        }
 
 
 ?>
@@ -19,8 +24,19 @@
 include_once dirname(__DIR__) . "/include/navbar.php"
 ?>
     <section class="projects">
-        <div class="all d-flex justify-content-between align-items-center">
-            <h3>Browse National Teams</h3>
+        <div class="all  d-flex justify-content-between align-items-center">
+            <h3 class="">Browse National Teams</h3>
+            <ul class="navbar-nav align-items-center">
+                <li class="nav-item">
+                    <div class="search-box">
+                        <form method="POST" class="position-relative">
+                            <input name="search" class="form-control search-input" placeholder="Search..." />
+                            <i class="fas fa-search search-box-icon"></i>
+                            <button type="submit" name="searchbtn" class="d-none"></button>
+                        </form>
+                    </div>
+                </li>
+            </ul>
         </div>
         <div class="content">
             <?php

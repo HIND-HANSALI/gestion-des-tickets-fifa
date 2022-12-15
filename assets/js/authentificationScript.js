@@ -17,7 +17,11 @@ errorpasswordrepaeat = document.querySelector(".errorRPassword");
 
 buttonSubmitlogin = document.querySelector("#login");
 
-form = document.getElementsByTagName("form");
+const form = document.forms[0];
+let text = "";
+for (let i = 0; i < form.length; i++) {
+  console.log(form.elements[i].className);
+}
 
 function valideSignin() {
   if (EmailLogin.value === "" || passwordLogin.value === "") {
@@ -118,7 +122,7 @@ function valideSignup() {
 }
 
 function checkName() {
-  var NameFormat = /^[a-zA-Z0-9]*$/;
+  var NameFormat = /^([a-zA-Z0-9]*[ ]{0,1}[a-zA-Z0-9]*)$/;
   if (NameSinup.value.match(NameFormat)) {
     buttonSubmit.setAttribute("type", "submit");
     errorName.style.display = "none";
@@ -212,8 +216,8 @@ function valideUpdate() {
   }
 }
 
-function checkNameUpdate() {
-  var NameFormat = /^[a-zA-Z0-9]*$/;
+function checkNameUpdate() { 
+  var NameFormat = /^([a-zA-Z0-9]*[ ]{0,1}[a-zA-Z0-9]*)$/;
   if (NameEdit.value.match(NameFormat)) {
     buttonUpdate.setAttribute("type", "submit");
     errorName.style.display = "none";

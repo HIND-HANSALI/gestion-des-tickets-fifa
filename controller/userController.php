@@ -193,7 +193,7 @@ class UsersController extends Users{
         }
 
         return $result;
-    }
+    } 
 
     function invalidEmail($email): bool
     {
@@ -208,7 +208,7 @@ class UsersController extends Users{
 
     function invalidName($name): bool
     {
-        if(!preg_match("/^[a-zA-Z0-9]*$/",$name )){
+        if(!preg_match("/^([a-zA-Z0-9]*[ ]{0,1}[a-zA-Z0-9]*)$/",$name )){
             $result = false;
         }else{
             $result = true;

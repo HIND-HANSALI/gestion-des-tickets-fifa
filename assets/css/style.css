@@ -750,6 +750,32 @@ footer .icon {
     border: none;
 }
 
+/* ===================================== Search ===================================== */
+
+
+.search-box {
+    position: relative;
+    width: 15rem;
+    font-size: 0.8333333333rem;
+}
+.search-box .search-box-icon {
+    position: absolute;
+    color: var(--falcon-gray-400);
+    top: 50%;
+    left: 0.9rem;
+    -webkit-transform: translateY(-48%);
+    -ms-transform: translateY(-48%);
+    transform: translateY(-48%);
+}
+.search-box .search-input {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    line-height: 1.7;
+    border-radius: 50rem;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
 /* ______________HH______________ */
 .back {
     background-color: #dadafb !important;

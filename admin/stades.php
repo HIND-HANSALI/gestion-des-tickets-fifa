@@ -6,7 +6,7 @@
     // Requiring Controllers 
     require_once('../controller/stadeController.php');
 
-    // instanciate the class
+    // instanciate the class 
     $StadeController = new StadeController();
     // Read methods
     $AllStades = $StadeController -> getStades();

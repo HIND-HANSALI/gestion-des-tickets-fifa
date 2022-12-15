@@ -94,7 +94,7 @@ class Matches extends Connection {
         $stmt->execute([$id]);
 
 
-        return 1;
+        return 1; 
     }
 
     function searchMatchDB($search){
