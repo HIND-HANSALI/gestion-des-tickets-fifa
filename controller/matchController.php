@@ -13,7 +13,7 @@ class MatchController extends Matches{
         $result = $this -> FourMatchesDB();
         return $result;
     }
-
+ 
     public function addMatch(){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             if(isset($_REQUEST['addMatchForm'])){

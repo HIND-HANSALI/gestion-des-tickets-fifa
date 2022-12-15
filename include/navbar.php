@@ -28,15 +28,12 @@
                     <h5><?php echo $_SESSION["name"];?></h5>
                 </div>
                 <div class="links">
-                    <div class="icon-men">
-                        <i class="fa-solid fa-caret-down"></i>
-                    </div>
                     <ul>
                         <li><a href="../pages/profile.php"><i class="fa-solid fa-user me-4"></i>Profil</a></li>
                         <?php if($_SESSION["role"]===1){ ?>
-                            <li><a href="../admin/index.php">Dashboard</a></li>
+                            <li><a href="../admin/index.php"><i class="fa-solid fa-clipboard-list me-4"></i>Dashboard</a></li>
                         <?php }?>
-                        <li><a href="../include/signout.php">Logout</a></li>
+                        <li><a href="../include/signout.php"><i class="fa-solid fa-right-from-bracket me-4"></i>Logout</a></li>
                     </ul>
                 </div>
             </div>
