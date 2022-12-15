@@ -589,6 +589,9 @@ footer .icon{
     color: white;
     transition: .5s ease-in-out;
 }
+/* .searchhidden{
+    border:solid 2px #edf2f9;
+} */
 /* style for page reservation */
 @media print {
     .ticket{

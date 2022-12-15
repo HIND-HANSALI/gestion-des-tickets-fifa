@@ -38,6 +38,14 @@ function countMatchesDB(){
     return $result;
 
   }
+  function countSpectateursDB(){
+    $sql="SELECT * FROM users where id_role='2'";
+    $stmt = $this ->connect()->prepare($sql);//sql injection
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+    return $result;
+  }
+  
 }
 
 

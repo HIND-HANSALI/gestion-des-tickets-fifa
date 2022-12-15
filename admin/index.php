@@ -23,7 +23,7 @@
     //get statistics
     $Allmatches = $StatisticsController -> countMatches();
     $Allstades = $StatisticsController -> countStades();
-    // $Allteams = $StatisticsController -> countTeams();
+    $AllSpectateurs = $StatisticsController -> countSpectateurs();
 
 
 
@@ -94,7 +94,7 @@
                                         </div>
                                         <div class="col-auto position-relative">
                                             <div class="echart-market-share"></div>
-                                            <div class="position-absolute top-50 start-50 translate-middle text-dark fs-2">26M</div>
+                                            <div class="position-absolute top-50 start-50 translate-middle text-dark fs-2"><?=$AllSpectateurs[0][0];?></div>
                                         </div>
                                     </div>
                                 </div>
