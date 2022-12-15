@@ -18,7 +18,16 @@ public function countStades(){
 public function countSpectateurs(){
     $result = $this -> countSpectateursDB();
         return $result;
-}   
+}  
+public function countTickets(){
+    $result = $this -> countTicketsDB();
+        return $result;
+} 
+public function sommeTickets(){
+    $result = $this -> sommeTicketsDB();
+        return $result;
+}
+
 
 }
 

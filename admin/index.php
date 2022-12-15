@@ -22,10 +22,13 @@
     $FourStades = $StadeController -> FourStades();
 
     //get statistics
-    $AllSpectateurs = $StatisticsController -> countSpectateurs();
+    $CountSpectateurs = $StatisticsController -> countSpectateurs();
     $CountMatches = $StatisticsController -> countMatches();
     $CountStades = $StatisticsController -> countStades();
-    // $CountTeams = $StatisticsController -> countTeams();
+    $countTickets = $StatisticsController -> countTickets();
+    // $AllStades = $StadeController -> getStades();
+    $TicketsDispo = $StatisticsController ->sommeTickets();
+
 
 
 
@@ -96,7 +99,7 @@
                                         </div>
                                         <div class="col-auto position-relative">
                                             <div class="echart-market-share"></div>
-                                            <div class="position-absolute top-50 start-50 translate-middle text-dark fs-2"><?=$AllSpectateurs[0][0];?></div>
+                                            <div class="position-absolute top-50 start-50 translate-middle text-dark fs-2"><?=$CountSpectateurs;?></div>
                                         </div>
                                     </div>
                                 </div>
@@ -123,9 +126,19 @@
                                             </div>
                                         </div>
                                         <div class="col-auto text-center ps-2">
-                                            <div class="fs--1 text-800">32</div>
-                                            <div class="fs--1 fw-normal font-sans-serif text-primary mt-1">31</div>
-                                            <div class="fs--1 text-800">32</div>
+                                            <?php
+                                            // $counttickets1=0;
+                                            // $counttickets2=0;
+                                            // foreach($AllStades AS $tickets){
+                                            //     $counttickets1= $tickets['capacity'];
+                                            //     $counttickets2=$counttickets2+$counttickets1;
+                                            // }
+
+                                            ?>
+                                            <div class="fs--1 text-800"><?=$TicketsDispo?></div>
+                                            <div class="fs--1 fw-normal font-sans-serif text-primary mt-1"><?=$countTickets?></div>
+
+                                            <div class="fs--1 text-800"><?=$TicketsDispo-$countTickets?></div>
                                         </div>
                                     </div>
                                 </div>
