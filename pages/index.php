@@ -54,7 +54,7 @@
                 ?>
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="<?=$match['picture']; ?>" style="" alt="">
+                        <img src="<?=$match['picture']; ?>" alt="">
                     </div>
                     <div class="project-info">
                         <div class="project-date">
@@ -106,7 +106,7 @@
                 </div>
                 <div class="project-detais">
                     <h6 class="m-1"><?=$stade['name']; ?></h6>
-                    <span class="d-block ms-3">Capacity: <?=$stade['capacity']; ?></span>
+                    <span class="d-block ms-2"><b>Capacity:</b> <?=$stade['capacity']; ?></span>
                     <span class="d-block"><i class="fa-solid fa-location-dot mx-1"></i><?=$stade['location']; ?></span>
                 </div>
             </div>

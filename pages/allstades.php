@@ -47,7 +47,7 @@ include_once dirname(__DIR__) . "/include/navbar.php"
                 </div>
                 <div class="project-detais">
                     <h6><?=$stade['name']; ?></h6>
-                    <span class="d-block"><?=$stade['capacity']; ?></span>
+                    <span class="d-block"><b>Capacity :</b> <?=$stade['capacity']; ?></span>
                     <span class="d-block"><i class="fa-solid fa-location-dot mx-1"></i><?=$stade['location']; ?></span>
                 </div>
             </div>

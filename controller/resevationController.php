@@ -6,7 +6,7 @@ include_once(dirname(__DIR__).'/model/reservation.php');// Path to the model
 // include_once(dirname(__DIR__).'/pages/matches.php');
 class reserveController extends reserve
 {
-     private $usrname ;
+    private $usrname ;
     private $id_m_stade;
     private $id_m_teamone;
     private $id_m_teamtwo;
@@ -26,27 +26,27 @@ class reserveController extends reserve
    function setidstade($idstade){
        $this->id_m_stade=$idstade ;
    }
-//    id team one
-   function getidteamone(){
-    return $this->id_m_teamone;
-}
-function setidteameone($teamone){
-   $this->id_m_teamone =$teamone ;
-}
-//  id team two
-function getidteamtwo(){
-    return $this->id_m_teamtwo;
-}
-function setidteamtwo($teamtwo){
-   $this->id_m_teamtwo =$teamtwo ;
-}
-// id match
-function getidmatch(){
-    return $this->usrname;
-}
-function setismatch($idmatch){
-   $this->id_m_match = $idmatch;
-}
+    //    id team one
+    function getidteamone(){
+        return $this->id_m_teamone;
+    }
+    function setidteameone($teamone){
+    $this->id_m_teamone =$teamone ;
+    }
+    //  id team two
+    function getidteamtwo(){
+        return $this->id_m_teamtwo;
+    }
+    function setidteamtwo($teamtwo){
+    $this->id_m_teamtwo =$teamtwo ;
+    }
+    // id match
+    function getidmatch(){
+        return $this->usrname;
+    }
+    function setismatch($idmatch){
+    $this->id_m_match = $idmatch;
+    }
   function getformationMatchcontrol($id_m_stade,$id_m_teamone,$id_m_teamtwo,$id_m_match){
     $data = $this->getinformationMatch($id_m_stade ,$id_m_teamone,$id_m_teamtwo,$id_m_match);
         // print_r($data);  
