@@ -47,7 +47,7 @@ include_once dirname(__DIR__) . "/include/navbar.php"
                 $Month = $Date->format('M');
                 $Day = $Date->format('d');
                 ?>
-                <a href="singlematch.php?idM=<?= $match['id_match'];?>" class="text-decoration-none project-card">
+                <a href="singlematch.php?idM=<?= $match['id_match'];?>" class="text-decoration-none text-black project-card ">
                     <div class="project-image">
                         <img src="<?=$match['picture']; ?>" alt="">
                     </div>
