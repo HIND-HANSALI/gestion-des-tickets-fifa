@@ -1,7 +1,8 @@
 <?php
+
+session_start();
     // Page Title
     $path = 'Stades';
-    session_start();
 
     // Requiring Controllers 
     require_once('../controller/resevationController.php');
@@ -15,11 +16,15 @@
         // print_r($Matche);
 
        $reseveController = new reserveController();
-
-
+       $username = @$_SESSION['name'];
         // Read methods  $id_m_stade,$id_m_teamone,$id_m_teamtwo ,$id_m_match
+        $reseveController->setusername($username);
+$reseveController->setidstade($Matche['id_stade']);
+$reseveController->setidteameone($Matche['id_team1']);
+$reseveController->setidteamtwo($Matche['id_team2']);
+$reseveController->setismatch($Matche['id_match']);
 
-        $Alldata = $reseveController ->getformationMatchcontrol($Matche['id_stade'],$Matche['id_team1'],$Matche['id_team2'],$Matche['id_match']);
+        // $Alldata = $reseveController ->getformationMatchcontrol($Matche['id_stade'],$Matche['id_team1'],$Matche['id_team2'],$Matche['id_match']);
       
   
 ?>

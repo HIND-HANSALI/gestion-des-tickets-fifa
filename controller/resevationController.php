@@ -6,7 +6,47 @@ include_once(dirname(__DIR__).'/model/reservation.php');// Path to the model
 // include_once(dirname(__DIR__).'/pages/matches.php');
 class reserveController extends reserve
 {
-    // id-m-teamone id-m-teamtwo id-m-stade
+     private $usrname ;
+    private $id_m_stade;
+    private $id_m_teamone;
+    private $id_m_teamtwo;
+    private $id_m_match;
+
+    // user
+    function getusername(){
+         return $this->usrname;
+    }
+    function setusername($usr){
+        $this->usrname =$usr ;
+    }
+    // id stade
+    function getidstade(){
+        return $this->id_m_stade;
+   }
+   function setidstade($idstade){
+       $this->id_m_stade=$idstade ;
+   }
+//    id team one
+   function getidteamone(){
+    return $this->id_m_teamone;
+}
+function setidteameone($teamone){
+   $this->id_m_teamone =$teamone ;
+}
+//  id team two
+function getidteamtwo(){
+    return $this->id_m_teamtwo;
+}
+function setidteamtwo($teamtwo){
+   $this->id_m_teamtwo =$teamtwo ;
+}
+// id match
+function getidmatch(){
+    return $this->usrname;
+}
+function setismatch($idmatch){
+   $this->id_m_match = $idmatch;
+}
   function getformationMatchcontrol($id_m_stade,$id_m_teamone,$id_m_teamtwo,$id_m_match){
     $data = $this->getinformationMatch($id_m_stade ,$id_m_teamone,$id_m_teamtwo,$id_m_match);
         // print_r($data);  
@@ -85,6 +125,11 @@ class Pdf extends FPDF {
 
 
 $reseveController = new reserveController();
+$username = $reseveController->getusername();
+$idmatch = $reseveController->getidmatch();
+$idstade = $reseveController->getidstade();
+$idteamone = $reseveController->getidteamone();
+$idteamtwo = $reseveController->getidteamtwo();
 
 // Read methods  $id_m_stade,$id_m_teamone,$id_m_teamtwo ,$id_m_match
 
@@ -93,25 +138,25 @@ $count =0;
 
 $idUser = 1;
 $nameUser = 'Youssef'; /// we should to change that is just for testing  
-  // instanciate the class
+//   instanciate the class
 if (isset($_POST['reserve'])){
 
     $date = date('Y-m-d H:i:s');
     $TimeofMatch = $Alldata['TimeofMatch'] ;
 
-    //string to date object
-    $dtnow  = strtotime($date);
-    //string to date object
-    $dtMatch = strtotime($TimeofMatch);
+    // //string to date object
+    // $dtnow  = strtotime($date);
+    // //string to date object
+    // $dtMatch = strtotime($TimeofMatch);
 
-    if(intval($dtnow)<intval($dtMatch)){
+    // if(intval($dtnow)<intval($dtMatch)){
 
-        echo ('<script>
-          alert("Hello\Time is out !!?");
-        </script>');
+    //     echo ('<script>
+    //       alert("Hello\Time is out !!?");
+    //     </script>');
    
-        header('location: ../pages/allmatches.php');
-    } else{
+    //     header('location: ../pages/allmatches.php');
+    // } else{
         $idMatch = $Alldata['idMatch'] ; 
         $TeamONE = $Alldata['TeamONE'] ;
         $TeamTwo = $Alldata['TeamTwo'] ;
@@ -121,13 +166,12 @@ if (isset($_POST['reserve'])){
         $CapacityofStade = $Alldata['CapacityofStade'] ;
         $CapacityofMatch = $Alldata['CapacityofMatch'] ; 
         $PriceofMatch = $Alldata['PriceofMatch'] ;
-        $nameUser = $_SESSION["name"] ;
+        $nameUser = $username ;
        $reseveController->addtickets($idMatch, $idUser, $PriceofMatch);
         $fpdf = new Pdf($date, $idMatch, $TeamONE, $TeamTwo, $TimeofMatch, $nameofStade, $idStade, $CapacityofStade, $CapacityofMatch, $PriceofMatch, $nameUser);
        // print_r($Alldata);
        // print_r($date); 
        $fpdf->pdf();
     }
-}
 
     
