@@ -53,7 +53,8 @@
                 $Day = $Date->format('d');
                 ?>
                 <div class="project-card">
-                    <div class="project-image" style="background-image: url(<?=$match['picture']; ?>);">
+                    <div class="project-image">
+                        <img src="<?=$match['picture']; ?>" style="" alt="">
                     </div>
                     <div class="project-info">
                         <div class="project-date">
@@ -80,7 +81,9 @@
         <div class="content">
         <?php foreach($FourTeams AS $team){ ?>
             <div class="project-card">
-                <div class="project-image" style="background-image: url(<?= $team['picture']; ?>);">
+                <div class="project-image">
+                    <img src="<?= $team['picture'];?>" alt="">
+                    <!-- <img src="../assets/img/uploads/<?= $team['picture'];?>"  alt=""> -->
                 </div>
                 <div class="project-detais">
                     <h6><?=$team['nationality']; ?> National Team</h6>
@@ -98,7 +101,8 @@
         <div class="content">
         <?php foreach($FourStades As $stade){ ?>
             <div class="project-card">
-                <div class="project-image" style="background-image: url(<?=$stade['picture']; ?>);">
+                <div class="project-image">
+                    <img src="<?= $stade['picture'];?>" alt="">
                 </div>
                 <div class="project-detais">
                     <h6 class="m-1"><?=$stade['name']; ?></h6>

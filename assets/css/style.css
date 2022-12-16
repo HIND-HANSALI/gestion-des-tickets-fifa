@@ -430,9 +430,13 @@ hr {
 }
 
 .projects .content .project-card .project-image {
-    width: 20rem;
-    height: 12rem;
-    background-size: cover;
+    width: 20rem !important;
+    height: 15rem !important;
+}
+
+.projects .content .project-card .project-image img {
+    width: 20rem !important;
+    height: 15rem !important;
 }
 
 .projects .content .project-card .project-info {
@@ -745,7 +749,6 @@ footer .icon {
 }
 
 /* ===================================== Search ===================================== */
-
 
 .search-box {
     position: relative;
