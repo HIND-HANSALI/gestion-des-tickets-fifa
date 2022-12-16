@@ -10,7 +10,12 @@
     $MatchController = new MatchController();
 
     // get matches
-    $AllMatches = $MatchController -> getMatches();
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['searchbtn'])){
+            $AllMatches = $MatchController -> searchMatch();
+        }else{
+            $AllMatches = $MatchController -> getMatches();
+        }
 
 // var_dump()($AllMatches);
 // die;
@@ -22,8 +27,19 @@
 include_once dirname(__DIR__) . "/include/navbar.php"
 ?>
     <section class="projects">
-        <div class="all d-flex justify-content-between align-items-center">
-            <h3>Upcoming Matchs</h3>
+        <div class="all  d-flex justify-content-between align-items-center">
+            <h3 class="">Upcoming Matchs</h3>
+            <ul class="navbar-nav align-items-center">
+                <li class="nav-item">
+                    <div class="search-box">
+                        <form method="POST" class="position-relative">
+                            <input name="search" class="form-control search-input" placeholder="Search..." />
+                            <i class="fas fa-search search-box-icon"></i>
+                            <button type="submit" name="searchbtn" class="d-none"></button>
+                        </form>
+                    </div>
+                </li>
+            </ul>
         </div>
         <div class="content">
             <?php foreach($AllMatches as $match){

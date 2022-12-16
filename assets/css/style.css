@@ -89,6 +89,8 @@ nav {
     gap: 1rem;
     margin-right: 1rem;
     text-align: right;
+    position: relative;
+    cursor: pointer;
 }
 
 .profile .profile-photo {
@@ -116,19 +118,24 @@ nav {
     color: #f6f6f6;
 }
 
+.links {
+    position: absolute;
+}
+
 .links ul {
     list-style: none;
     margin: 0;
     padding: 0;
     background-color: #f6f6f6;
     position: absolute;
-    right: 22px;
+    right: -58px;
     min-width: 171px;
-    top: 4rem;
-    text-align: center;
+    top: 1.5rem;
+    text-align: left;
     display: none;
     font-weight: 700;
     z-index: 1;
+    transition: 0.5s;
 }
 
 .links ul::before {
@@ -141,7 +148,7 @@ nav {
     top: -20px;
 }
 
-.links:hover ul {
+.profile:hover ul {
     display: block;
 }
 
@@ -184,7 +191,7 @@ nav {
     font-size: 3.5rem;
 }
 
-.header-search{
+.header-search {
     width: 100%;
     height: 12%;
     display: flex;
@@ -192,7 +199,7 @@ nav {
     align-items: center;
 }
 
-.header-search .inputes-field{
+.header-search .inputes-field {
     width: 80%;
     height: 100%;
     display: flex;
@@ -202,7 +209,7 @@ nav {
     background-color: white;
 }
 
-.inputs{
+.inputs {
     width: 90%;
     height: 100%;
     display: flex;
@@ -210,14 +217,14 @@ nav {
     align-items: center;
 }
 
-.header-search .inputes-field input{
+.header-search .inputes-field input {
     height: 100%;
     width: 45%;
     min-width: 200px;
     padding: 10px;
     border: 0;
 }
-.header-search .inputes-field .input-date{
+.header-search .inputes-field .input-date {
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -227,36 +234,35 @@ nav {
     height: 100%;
 }
 
-.header-search .inputes-field .input-date input{
+.header-search .inputes-field .input-date input {
     width: 95%;
     height: 100%;
 }
 
-
-.header-search .inputes-field button{
+.header-search .inputes-field button {
     width: 10%;
     height: 70%;
     border: 0;
-    background-color: #8A1538;
+    background-color: #8a1538;
     color: white;
     margin-right: 10px;
     border-radius: 10px;
 }
 
-.header-search .inputes-field .search-icon{
+.header-search .inputes-field .search-icon {
     margin-right: 3px;
 }
 
-hr{
+hr {
     width: 1px;
-    background-color: #DDDDDE;
+    background-color: #ddddde;
 }
 
-.fa-calendar-days{
+.fa-calendar-days {
     margin: 0 5px;
 }
 
-.header-search{
+.header-search {
     width: 100%;
     height: 12%;
     display: flex;
@@ -264,32 +270,33 @@ hr{
     align-items: center;
 }
 
-.header-search .inputes-field{
+.header-search .inputes-field {
     width: 80%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid black;
+    border-radius: 20px;
     background-color: white;
 }
 
-.inputs{
-    width: 90%;
+.inputs {
+    width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.header-search .inputes-field input{
+.header-search .inputes-field input {
     height: 100%;
     width: 45%;
     min-width: 200px;
     padding: 10px;
     border: 0;
 }
-.header-search .inputes-field .input-date{
+.header-search .inputes-field .input-date {
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -299,32 +306,31 @@ hr{
     height: 100%;
 }
 
-.header-search .inputes-field .input-date input{
+.header-search .inputes-field .input-date input {
     width: 95%;
     height: 100%;
 }
 
-
-.header-search .inputes-field button{
+.header-search .inputes-field button {
     width: 10%;
     height: 70%;
     border: 0;
-    background-color: #8A1538;
+    background-color: #8a1538;
     color: white;
     margin-right: 10px;
     border-radius: 10px;
 }
 
-.header-search .inputes-field .search-icon{
+.header-search .inputes-field .search-icon {
     margin-right: 3px;
 }
 
-hr{
+hr {
     width: 1px;
-    background-color: #DDDDDE;
+    background-color: #ddddde;
 }
 
-.fa-calendar-days{
+.fa-calendar-days {
     margin: 0 5px;
 }
 
@@ -333,11 +339,11 @@ hr{
         font-size: 2.5rem;
     }
 
-    .header-search .inputes-field{
+    .header-search .inputes-field {
         width: 90%;
     }
 
-    .header-search .inputes-field .search-icon{
+    .header-search .inputes-field .search-icon {
         display: none;
     }
 }
@@ -346,18 +352,18 @@ hr{
     .header-background .header-description h1 {
         font-size: 1.5rem;
     }
-    .header-search .inputes-field{
+    .header-search .inputes-field {
         width: 95%;
     }
 }
 
-@media (max-width: 594px){
-    .header-search .inputes-field{
+@media (max-width: 594px) {
+    .header-search .inputes-field {
         display: block;
         width: 100%;
     }
 
-    .header-search .inputes-field button{
+    .header-search .inputes-field button {
         width: 50%;
         margin: 0 auto;
         display: flex;
@@ -367,7 +373,7 @@ hr{
         margin-bottom: 2rem;
     }
 
-    .header-search .inputes-field .search-icon{
+    .header-search .inputes-field .search-icon {
         display: block;
     }
 }
@@ -377,7 +383,7 @@ hr{
         font-size: 1.3rem;
     }
 
-    .header-search .inputes-field button{
+    .header-search .inputes-field button {
         width: 100%;
     }
 }
@@ -414,6 +420,7 @@ hr{
     border-radius: 10px;
     margin: 20px;
     cursor: pointer;
+    box-shadow: 0px 1px 12px 5px #888888;
     transition: 0.7s ease;
 }
 
@@ -423,21 +430,17 @@ hr{
 }
 
 .projects .content .project-card .project-image {
-    transform: scale(1.1);
-    opacity: 0.9;
-}
-
-.projects .content .project-card .project-image img {
-    width: 100%;
+    width: 20rem;
+    height: 12rem;
+    background-size: cover;
 }
 
 .projects .content .project-card .project-info {
-    padding: 1em;
+    padding: 0.5rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
     text-transform: uppercase;
-    margin-top: 10px;
 }
 
 .projects .content .project-card .project-detais {
@@ -741,6 +744,32 @@ footer .icon {
     border: none;
 }
 
+/* ===================================== Search ===================================== */
+
+
+.search-box {
+    position: relative;
+    width: 15rem;
+    font-size: 0.8333333333rem;
+}
+.search-box .search-box-icon {
+    position: absolute;
+    color: var(--falcon-gray-400);
+    top: 50%;
+    left: 0.9rem;
+    -webkit-transform: translateY(-48%);
+    -ms-transform: translateY(-48%);
+    transform: translateY(-48%);
+}
+.search-box .search-input {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    line-height: 1.7;
+    border-radius: 50rem;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
 /* ______________HH______________ */
 .back {
     background-color: #dadafb !important;
@@ -770,6 +799,9 @@ footer .icon {
     color: white;
     transition: 0.5s ease-in-out;
 }
+/* .searchhidden{
+    border:solid 2px #edf2f9;
+} */
 /* style for page reservation */
 @media print {
     .ticket {

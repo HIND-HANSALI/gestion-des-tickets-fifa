@@ -22,7 +22,7 @@ class MatchController extends Matches{
         $result = $this -> FourMatchesDB();
         return $result;
     }
-
+ 
     public function addMatch(){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             if(isset($_REQUEST['addMatchForm'])){
@@ -83,7 +83,7 @@ class MatchController extends Matches{
         }
     }
 
-    public function deleteMatch(){
+    public function deleteMatch(){ 
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             if(isset($_REQUEST['DeleteMatch'])){
                 $id = $_REQUEST['DeleteMatch'];
