@@ -12,12 +12,27 @@
     // get matches
     $AllMatches = $MatchController -> getMatches();
 
+    
 
 ?>
     <body style=" background-color: #E1E1E1; overflow-x: hidden;">
 <?php
 include_once dirname(__DIR__) . "/include/navbar.php"
 ?>
+<div class="header-search">
+            <form action="" class="w-100 d-flex justify-content-center mt-5">
+                <div class="inputes-field">
+                    <div class="inputs">
+                        <input type="text" placeholder="Search by matches, team, stadium, and more" class="input-serach" name="search">
+                        <div class="input-date">|
+                            <!-- <i class="fa-solid fa-calendar-days"></i> -->
+                            <input type="date" name="daterange" placeholder="Select date" />
+                        </div>|
+                    </div>
+                    <button class="btn-serach" type="submit" href="../pages/search.php"><i class="fa-solid fa-magnifying-glass search-icon"></i><span>Search</span></button>
+                </div>
+            </form>
+        </div>
     <section class="projects">
         <div class="all d-flex justify-content-between align-items-center">
             <h3>Upcoming Matchs</h3>

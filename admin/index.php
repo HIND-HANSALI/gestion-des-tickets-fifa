@@ -241,7 +241,7 @@
                                                                         <div class="avatar avatar-xxl">
                                                                             <?php 
                                                                                 if(!empty($team['picture'])){
-                                                                                    echo '<img src="'.$team['picture'].'" style="width:3rem;height: 3.7rem;" />';
+                                                                                    echo '<img src="'.$team['picture'].'" style="width:3rem;" />';
                                                                                 }else{
                                                                                     echo '<img class="m-0" src="../assets/img/essential/frame.png" style="width:3rem;" />';
                                                                                 } 
