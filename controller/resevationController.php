@@ -1,52 +1,53 @@
 <?php
-// session_start();
+session_start();
 
 require_once(dirname(__DIR__).'/assets/img/fpdf185/fpdf.php');
 include_once(dirname(__DIR__).'/model/reservation.php');// Path to the model
 // include_once(dirname(__DIR__).'/pages/matches.php');
 class reserveController extends reserve
 {
-     private $usrname ;
-    private $id_m_stade;
-    private $id_m_teamone;
-    private $id_m_teamtwo;
-    private $id_m_match;
 
-    // user
-    function getusername(){
-         return $this->usrname;
-    }
-    function setusername($usr){
-        $this->usrname =$usr ;
-    }
-    // id stade
-    function getidstade(){
-        return $this->id_m_stade;
-   }
-   function setidstade($idstade){
-       $this->id_m_stade=$idstade ;
-   }
-//    id team one
-   function getidteamone(){
-    return $this->id_m_teamone;
-}
-function setidteameone($teamone){
-   $this->id_m_teamone =$teamone ;
-}
-//  id team two
-function getidteamtwo(){
-    return $this->id_m_teamtwo;
-}
-function setidteamtwo($teamtwo){
-   $this->id_m_teamtwo =$teamtwo ;
-}
-// id match
-function getidmatch(){
-    return $this->usrname;
-}
-function setismatch($idmatch){
-   $this->id_m_match = $idmatch;
-}
+//      private $usrname ;
+//     private $id_m_stade;
+//     private $id_m_teamone;
+//     private $id_m_teamtwo;
+//     private $id_m_match;
+
+//     // user
+//     function getusername(){
+//          return $this->usrname;
+//     }
+//     function setusername($usr){
+//         $this->usrname =$usr ;
+//     }
+//     // id stade
+//     function getidstade(){
+//         return $this->id_m_stade;
+//    }
+//    function setidstade($idstade){
+//        $this->id_m_stade=$idstade ;
+//    }
+//     //    id team one
+//     function getidteamone(){
+//         return $this->id_m_teamone;
+//     }
+//     function setidteameone($teamone){
+//     $this->id_m_teamone =$teamone ;
+//     }
+//     //  id team two
+//     function getidteamtwo(){
+//         return $this->id_m_teamtwo;
+//     }
+//     function setidteamtwo($teamtwo){
+//     $this->id_m_teamtwo =$teamtwo ;
+//     }
+//     // id match
+//     function getidmatch(){
+//         return $this->usrname;
+//     }
+//     function setismatch($idmatch){
+//     $this->id_m_match = $idmatch;
+//     }
   function getformationMatchcontrol($id_m_stade,$id_m_teamone,$id_m_teamtwo,$id_m_match){
     $data = $this->getinformationMatch($id_m_stade ,$id_m_teamone,$id_m_teamtwo,$id_m_match);
         // print_r($data);  
@@ -125,21 +126,23 @@ class Pdf extends FPDF {
 
 
 $reseveController = new reserveController();
-$username = $reseveController->getusername();
-$idmatch = $reseveController->getidmatch();
-$idstade = $reseveController->getidstade();
-$idteamone = $reseveController->getidteamone();
-$idteamtwo = $reseveController->getidteamtwo();
+// echo $username = $reseveController->getusername();
+// echo $idmatch = $reseveController->getidmatch();
+// echo $idstade = $reseveController->getidstade();
+// echo $idteamone = $reseveController->getidteamone();
+// echo $idteamtwo = $reseveController -> getidteamtwo();
 
-// Read methods  $id_m_stade,$id_m_teamone,$id_m_teamtwo ,$id_m_match
-
-$Alldata = $reseveController ->getformationMatchcontrol(13,1,2,4);
-$count =0;
-
-$idUser = 1;
-$nameUser = 'Youssef'; /// we should to change that is just for testing  
 //   instanciate the class
 if (isset($_POST['reserve'])){
+
+    
+$username = @$_SESSION['name'];
+$idmatch = $_SESSION['idmatch'] ;
+$idstade = $_SESSION['idstade'] ;
+$idteamone = $_SESSION['idteam1'] ;
+$idteamtwo = $_SESSION['idteam2'];
+
+$Alldata = $reseveController ->getformationMatchcontrol($idstade,$idteamone,$idteamtwo,$idmatch);
 
     $date = date('Y-m-d H:i:s');
     $TimeofMatch = $Alldata['TimeofMatch'] ;

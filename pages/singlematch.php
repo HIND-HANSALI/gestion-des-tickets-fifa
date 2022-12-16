@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+// session_start();
     // Page Title
     $path = 'Stades';
 
@@ -15,15 +15,25 @@ session_start();
        $Matche = $MatchController -> getMatche();
         // print_r($Matche);
 
-       $reseveController = new reserveController();
-       $username = @$_SESSION['name'];
+    //    $reseveController = new reserveController();
+$_SESSION['idstade'] = $Matche['id_stade'];
+$_SESSION['idteam1'] = $Matche['id_team1'];
+$_SESSION['idteam2'] = $Matche['id_team2'];
+$_SESSION['idmatch'] = $Matche['id_match'];
         // Read methods  $id_m_stade,$id_m_teamone,$id_m_teamtwo ,$id_m_match
-        $reseveController->setusername($username);
-$reseveController->setidstade($Matche['id_stade']);
-$reseveController->setidteameone($Matche['id_team1']);
-$reseveController->setidteamtwo($Matche['id_team2']);
-$reseveController->setismatch($Matche['id_match']);
+//             $reseveController->setusername($username);
+//             $reseveController->setidstade($Matche['id_stade']);
+//             $reseveController->setidteameone($Matche['id_team1']);
+//             $reseveController->setidteamtwo($Matche['id_team2']);
+//             $reseveController->setismatch($Matche['id_match']);
 
+//             echo $username = $reseveController->getusername();
+// echo $idmatch = $reseveController->getidmatch() . '<br>';
+// echo $idstade = $reseveController->getidstade(). '<br>';
+// echo $idteamone = $reseveController->getidteamone(). '<br>';
+// echo $idteamtwo = $reseveController -> getidteamtwo(). '<br>';
+// die();
+            
         // $Alldata = $reseveController ->getformationMatchcontrol($Matche['id_stade'],$Matche['id_team1'],$Matche['id_team2'],$Matche['id_match']);
       
   
