@@ -125,7 +125,7 @@
                                                                     <td class="text-truncate mb-1"><div style="max-width: 5rem;" id="MatchDescription<?=$match['id_match']; ?>" ><?=$match['description']; ?></div></td>
                                                                     <td class="text-center" scope="col">
                                                                         <a href="#" onclick=" getMatch('<?= $match['id_match']; ?>','<?= $match['id_team1']; ?>','<?= $match['id_team2']; ?>','<?= $match['id_stade']; ?>') " class="btn btn-sm btn-warning">Edit</a>
-                                                                        <a href="#" onclick=" deleteMatch('<?= $match['id_match']; ?>') " class="btn btn-sm btn-danger">Delete</a>
+                                                                        <a href="#" onclick=" deleteMatch('<?= $match['id_match']; ?>')" class="btn btn-sm btn-danger">Delete</a>
                                                                     </td>
                                                                 </tr>
                                                             <?php } 

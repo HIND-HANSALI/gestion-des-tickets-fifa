@@ -5,9 +5,22 @@
 
     // Requiring Controllers 
     require_once('../controller/resevationController.php');
+       // include Controllers
+       include_once('../controller/matchController.php');
 
-   
-   
+       // instantiate the controller
+       $MatchController = new MatchController();
+       // get matches
+       $Matche = $MatchController -> getMatche();
+        // print_r($Matche);
+
+       $reseveController = new reserveController();
+
+
+        // Read methods  $id_m_stade,$id_m_teamone,$id_m_teamtwo ,$id_m_match
+
+        $Alldata = $reseveController ->getformationMatchcontrol($Matche['id_stade'],$Matche['id_team1'],$Matche['id_team2'],$Matche['id_match']);
+      
   
 ?>
 
@@ -35,16 +48,14 @@
         </div>
         <div class="container">
             <div class="back w-100 h-100 px-4 d-flex justify-content-center align-items-center">
-                <img src="../assets/img/essential/canadavsmaroc.jpg" class="img-thumbnail" alt="" srcset="" id="img">
+                <img src="<?= $Matche['picture'] ?>" class="img-thumbnail" alt="" srcset="" id="img">
             </div>
 
         <div class="d-flex flex-column flex-lg-row justify-content-between mt-5">
             <div class="d-flex flex-column">
-                <div class="fw-bold">Morrocco vs Canada</div>
+                <div class="fw-bold"><?= $Matche['team1'] ?> vs <?= $Matche['team2'] ?></div>
                 <!-- <a href="#!" class="text-dark d-flex pt-2"><i class="fas fa-map-marker-alt">Morocco</i></a> -->
-                <span class="fas fa-map-marker-alt py-4"> &nbsp; Morocco</span>
-                <span class="fa fa-calendar pb-4"> &nbsp; December 01,2022 20.00</span>
-                <p class="pt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, expediure voluptate.</p>
+                <span class="fa fa-calendar pb-4"> &nbsp; <?= $Matche['time'] ?></span>
     
             </div>
             
@@ -53,7 +64,8 @@
                         <form action="../controller/resevationController.php" method="POST">
                       <div class="card-body">
                         <h5 class="card-title">Tickets starting at</h5>
-                        <p class="card-text">$.250</p>
+                        <p class="card-text"><?= $Matche['price'] ?></p>
+                        <p class="card-text"><?= $Matche['stade'] ?></p>
                         <button class="btn" name="reserve">Reserve your e-tickets</button>
                       </div>
                       </form>
@@ -64,9 +76,8 @@
     
         <div class="d-flex flex-column my-5">
             <div class="fw-bold py-2">Match Information</div>
-            <div class="fw-bold py-2">Description</div>
-            <p class="pt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, necessitatibus? In consectetur expedita itaque? Nostrum, vero iusto? Cum quidem molestiae hic, ex consectetur ut sint illo explicabo laboriosam quod. Quibusdam?</p>
-        
+            
+            <p class="pt-2"><?= $Matche['description'] ?></p>
            
             <select class="form-select my-5 " aria-label="Default select example">
                 <option selected>Terms and Condition</option>

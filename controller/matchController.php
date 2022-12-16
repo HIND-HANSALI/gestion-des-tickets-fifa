@@ -9,6 +9,15 @@ class MatchController extends Matches{
         return $result;
     }
 
+    public function getMatche(){
+        if(isset($_GET['idM'])){
+            $id = $_GET['idM'];
+            $result = $this ->getMatchDB($id);
+            return $result;
+        }
+     
+    } 
+
     public function FourMatches(){
         $result = $this -> FourMatchesDB();
         return $result;

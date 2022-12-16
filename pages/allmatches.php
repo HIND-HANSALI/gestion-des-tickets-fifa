@@ -12,6 +12,9 @@
     // get matches
     $AllMatches = $MatchController -> getMatches();
 
+// var_dump()($AllMatches);
+// die;
+
 
 ?>
     <body style=" background-color: #E1E1E1; overflow-x: hidden;">
@@ -28,7 +31,7 @@ include_once dirname(__DIR__) . "/include/navbar.php"
                 $Month = $Date->format('M');
                 $Day = $Date->format('d');
                 ?>
-                <div class="project-card">
+                <a href="singlematch.php?idM=<?= $match['id_match'];?>" class="text-decoration-none project-card">
                     <div class="project-image">
                         <img src="<?=$match['picture']; ?>" alt="">
                     </div>
@@ -42,10 +45,11 @@ include_once dirname(__DIR__) . "/include/navbar.php"
                             <span class="d-block"><i class="fa-solid fa-location-dot mx-1"></i><?=$match['stade']; ?></span>
                         </div>
                     </div>
-                </div>
+                </a>
             <?php } ?>
         </div>
     </section>
+    <script src="../assets/js/dash/app.js"></script>
 <?php
 include_once "../include/footer.php"
 ?>
