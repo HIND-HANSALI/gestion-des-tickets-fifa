@@ -11,11 +11,11 @@
                 <span class="navbar-toggle-icon"><span class="toggle-line"></span></span>
             </button>
         </div>
-        <a class="navbar-brand" href="index.php">
-            <div class="d-flex align-items-center "><img class="me-2" src="assets/img/" alt="" width="10" /><span class="font-sans-serif">YouTicket</span></div>
+        <a class="navbar-brand" href="../pages/index.php">
+            <div class="d-flex align-items-center "><span class="font-sans-serif" style="color: #8A1538 !important">YouTicket</span></div>
         </a>
     </div>
-    <div class="collapse navbar-collapse mt-lg-2 my-xs-2 mt-sm-1" id="navbarVerticalCollapse">
+    <div class="collapse navbar-collapse mt-lg-2 my-xs-1 mt-sm-1" id="navbarVerticalCollapse">
         <div class="navbar-vertical-content scrollbar">
             <ul class="navbar-nav flex-column my-md-3 mt-md-2" id="navbarVerticalNav">
                 <li class="nav-item">
@@ -37,17 +37,17 @@
                             <span class="nav-link-icon d-flex justify-content-center"><span class="fas fa-futbol"></span></span><span class="nav-link-text ps-1">Matches</span>
                         </div>
                     </a>
-                    <a class="nav-link" href="#" role="button">
+                    <a class="nav-link <?= $path == "Teams" ? "active" :""; ?>" href="teams.php" role="button">
                         <div class="d-flex align-items-center">
                             <span class="nav-link-icon d-flex justify-content-center"><span class="fas fa-users"></span></span><span class="nav-link-text ps-1">Teams</span>
                         </div>
                     </a>
-                    <a class="nav-link" href="#" role="button" style="margin-left: -0.005rem !important ;">
+                    <a class="nav-link <?= $path == "Stades" ? "active" :""; ?>" href="stades.php" role="button" style="margin-left: -0.005rem !important ;">
                         <div class="d-flex align-items-center">
                             <span class="nav-link-icon d-flex justify-content-center"><img width="20rem" src="../assets/img/essential/stadium5.png" alt=""/></span><span class="nav-link-text ps-1">Stades</span>
                         </div>
                     </a>
-                    <a class="nav-link" href="#" role="button">
+                    <a class="nav-link <?= $path == "Users" ? "active" :""; ?>" href="users.php" role="button">
                         <div class="d-flex align-items-center">
                             <span class="nav-link-icon d-flex justify-content-center"><span class="fas fa-user"></span></span><span class="nav-link-text ps-1">Users</span>
                         </div>
